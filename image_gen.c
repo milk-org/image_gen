@@ -206,7 +206,7 @@ void __attribute__ ((constructor)) libinit_image_gen()
 int_fast8_t init_image_gen()
 {
   strcpy(data.module[data.NBmodule].name, __FILE__);
-  strcpy(data.module[data.NBmodule].info, "creating images (shapes, useful functions and patterns)");
+  strcpy(data.module[data.NBmodule].info, "milk    - Creating images (shapes, useful functions and patterns)");
   data.NBmodule++;
 
   
