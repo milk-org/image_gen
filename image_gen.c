@@ -195,12 +195,7 @@ int_fast8_t image_gen_im2coord_cli(){
 void __attribute__ ((constructor)) libinit_image_gen()
 {	
 	init_image_gen();
-
-	if(data.progStatus>0)
-	{
-		printf("  Found unloaded shared object in ./libs/ -> LOADING module %s\n", __FILE__);
-		fflush(stdout);
-	}	
+	RegisterModule(__FILE__, "milk", "Creating images (shapes, useful functions and patterns)");
 }
 
 
@@ -209,13 +204,7 @@ void __attribute__ ((constructor)) libinit_image_gen()
 
 
 int_fast8_t init_image_gen()
-{
-  strcpy(data.module[data.NBmodule].name, __FILE__);
-  strcpy(data.module[data.NBmodule].package, "milk");
-  strcpy(data.module[data.NBmodule].info, "Creating images (shapes, useful functions and patterns)");
-  data.NBmodule++;
-
-  
+{ 
   strcpy(data.cmd[data.NBcmd].key,"mkdisk");
   strcpy(data.cmd[data.NBcmd].module,__FILE__);
   data.cmd[data.NBcmd].fp = make_disk_cli;
