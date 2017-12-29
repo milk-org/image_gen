@@ -2,6 +2,7 @@
 #define GENIMAGE_H
 
 
+void __attribute__ ((constructor)) libinit_image_gen();
 int_fast8_t init_image_gen();
 
 

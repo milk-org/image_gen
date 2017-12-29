@@ -40,7 +40,7 @@
 #define PI 3.14159265358979323846264338328
 
 extern DATA data;
-
+static int INITSTATUS_image_gen = 0;
 
 
 // CLI functions
@@ -194,8 +194,12 @@ int_fast8_t image_gen_im2coord_cli(){
 
 void __attribute__ ((constructor)) libinit_image_gen()
 {	
-	init_image_gen();
-	RegisterModule(__FILE__, "milk", "Creating images (shapes, useful functions and patterns)");
+	if ( INITSTATUS_image_gen == 0 )
+	{
+		init_image_gen();
+		RegisterModule(__FILE__, "milk", "Creating images (shapes, useful functions and patterns)");
+		INITSTATUS_image_gen = 1;
+	}
 }
 
 
