@@ -39,7 +39,7 @@
 
 #define PI 3.14159265358979323846264338328
 
-extern DATA data;
+//extern DATA data;
 static int INITSTATUS_image_gen = 0;
 
 
