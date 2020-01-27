@@ -3,308 +3,313 @@
 
 
 void __attribute__ ((constructor)) libinit_image_gen();
-int_fast8_t init_image_gen();
+errno_t init_image_gen();
 
 
 
-long make_double_star(
+/** @brief creates a double star */
+imageID make_double_star(
     const char *ID_name,
-    long l1,
-    long l2,
-    double intensity_1,
-    double intensity_2,
-    double separation,
-    double position_angle
-);
-/* creates a double star */
+    uint32_t    l1,
+    uint32_t    l2,
+    double      intensity_1,
+    double      intensity_2,
+    double      separation,
+    double      position_angle
+); 
 
 
-long make_disk(
+/** @brief  creates a disk */
+imageID make_disk(
     const char *ID_name,
-    long l1,
-    long l2,
-    double x_center,
-    double y_center,
-    double radius
-);
-/* creates a disk */
-
-
-long make_subpixdisk(
-    const char *ID_name,
-    long l1,
-    long l2,
-    double x_center,
-    double y_center,
-    double radius
-);
-/* creates a disk */
-
-
-long make_subpixdisk_perturb(
-    const char *ID_name,
-    long l1,
-    long l2,
-    double x_center,
-    double y_center,
-    double radius,
-    long n,
-    double *ra,
-    double *ka,
-    double *pa
+    uint32_t    l1,
+    uint32_t    l2,
+    double      x_center,
+    double      y_center,
+    double      radius
 );
 
 
-long make_square(
+/** @brief  creates a disk */
+imageID make_subpixdisk(
     const char *ID_name,
-    long l1,
-    long l2,
-    double x_center,
-    double y_center,
-    double radius
-);
-/* creates a square */
-
-
-long make_rectangle(
-    const char *ID_name,
-    long l1,
-    long l2,
-    double x_center,
-    double y_center,
-    double radius1,
-    double radius2
+    uint32_t    l1,
+    uint32_t    l2,
+    double      x_center,
+    double      y_center,
+    double      radius
 );
 
+/** @brief creates a shape with contour described by sum of sine waves */
+imageID make_subpixdisk_perturb(
+    const char *ID_name,
+    uint32_t    l1,
+    uint32_t    l2,
+    double      x_center,
+    double      y_center,
+    double      radius,
+    long        n,
+    double     *ra,
+    double     *ka,
+    double     *pa
+);
 
-long make_line(
+
+/** @brief  creates a square */
+imageID make_square(
+    const char *ID_name,
+    uint32_t    l1,
+    uint32_t    l2,
+    double      x_center,
+    double      y_center,
+    double     radius
+);
+
+
+
+imageID make_rectangle(
+    const char *ID_name,
+    uint32_t    l1,
+    uint32_t    l2,
+    double      x_center,
+    double      y_center,
+    double      radius1,
+    double      radius2
+);
+
+
+imageID make_line(
     const char *IDname,
-    long l1,
-    long l2,
-    double x1,
-    double y1,
-    double x2,
-    double y2,
-    double t
+    uint32_t    l1,
+    uint32_t    l2,
+    double      x1,
+    double      y1,
+    double      x2,
+    double      y2,
+    double      t
 );
 
 
-long make_lincoordinate(
+/** @brief draw line crossing point xc, yc with angle, pixel value is coordinate axis perp to line */
+imageID make_lincoordinate(
     const char *IDname,
-    long l1,
-    long l2,
-    double x_center,
-    double y_center,
-    double angle
+    uint32_t    l1,
+    uint32_t    l2,
+    double      x_center,
+    double      y_center,
+    double      angle
 );
 
 
-long make_hexagon(
+imageID make_hexagon(
     const char *IDname,
-    long l1,
-    long l2,
-    double x_center,
-    double y_center,
-    double radius
+    uint32_t    l1,
+    uint32_t    l2,
+    double      x_center,
+    double      y_center,
+    double      radius
 );
 
 
-long make_hexsegpupil(
-    const char *IDname,
-    long size,
-    double radius,
-    double gap,
-    double step
-);
-
-
-long IMAGE_gen_segments2WFmodes(
+imageID IMAGE_gen_segments2WFmodes(
     const char *prefix,
-    long ndigit,
-    const char *IDout
+    long        ndigit,
+    const char *IDout_name
+);
+
+imageID make_hexsegpupil(
+    const char *IDname,
+    uint32_t    size,
+    double      radius,
+    double      gap,
+    double      step
 );
 
 
-long make_jacquinot_pupil(
+
+imageID make_jacquinot_pupil(
     const char *ID_name,
-    long l1,
-    long l2,
-    double x_center,
-    double y_center,
-    double width,
-    double height
+    uint32_t    l1,
+    uint32_t    l2,
+    double      x_center,
+    double      y_center,
+    double      width,
+    double      height
 );
 
-long make_sectors(
+imageID make_sectors(
     const char *ID_name,
-    long l1,
-    long l2,
-    double x_center,
-    double y_center,
-    double step,
-    long NB_sectors
+    uint32_t    l1,
+    uint32_t    l2,
+    double      x_center,
+    double      y_center,
+    double      step,
+    long        NB_sectors
 );
 
 
-long make_rnd(
+imageID make_rnd(
     const char *ID_name,
-    long l1,
-    long l2,
+    uint32_t    l1,
+    uint32_t    l2,
     const char *options
 );
 
 
-long make_rnd_double(
+imageID make_rnd_double(
     const char *ID_name,
-    long l1,
-    long l2,
+    uint32_t    l1,
+    uint32_t    l2,
     const char *options
 );
 /*int make_rnd1(const char *ID_name, long l1, long l2, const char *options);*/
 
 
-long make_gauss(
+imageID make_gauss(
     const char *ID_name,
-    long l1,
-    long l2,
-    double a,
-    double A
+    uint32_t    l1,
+    uint32_t    l2,
+    double      a,
+    double      A
 );
 
 
-long make_2axis_gauss(
+imageID make_2axis_gauss(
     const char *ID_name,
-    long l1,
-    long l2,
-    double a,
-    double A,
-    double E,
-    double PA
+    uint32_t    l1,
+    uint32_t    l2,
+    double      a,
+    double      A,
+    double      E,
+    double      PA
 );
 
 
-long make_cluster(
+imageID make_cluster(
     const char *ID_name,
-    long l1,
-    long l2,
+    uint32_t    l1,
+    uint32_t    l2,
     const char *options
 );
 
 
-long make_galaxy(
+imageID make_galaxy(
     const char *ID_name,
-    long l1,
-    long l2,
-    double S_radius,
-    double S_L0,
-    double S_ell,
-    double S_PA,
-    double E_radius,
-    double E_L0,
-    double E_ell,
-    double E_PA);
+    uint32_t    l1,
+    uint32_t    l2,
+    double      S_radius,
+    double      S_L0,
+    double      S_ell,
+    double      S_PA,
+    double      E_radius,
+    double      E_L0,
+    double      E_ell,
+    double      E_PA
+);
 
 
-long make_Egalaxy(
+imageID make_Egalaxy(
     const char *ID_name,
-    long l1,
-    long l2,
+    uint32_t    l1,
+    uint32_t    l2,
     const char *options
 );
 
 
-// make image of EZ disk
-long gen_image_EZdisk(
+/** @brief  make image of EZ disk */
+imageID gen_image_EZdisk(
     const char *ID_name,
-    long size,
-    double InnerEdge,
-    double Index,
-    double Incl
+    uint32_t    size,
+    double      InnerEdge,
+    double      Index,
+    double      Incl
 );
 
 
-long make_slopexy(
+imageID make_slopexy(
     const char *ID_name,
-    long l1,
-    long l2,
-    double sx,
-    double sy);
-
-
-long make_dist(
-    const char *ID_name,
-    long l1,
-    long l2,
-    double f1,
-    double f2
+    uint32_t    l1,
+    uint32_t    l2,
+    double      sx,
+    double      sy
 );
 
 
-long make_PosAngle(
+imageID make_dist(
     const char *ID_name,
-    long l1,
-    long l2,
-    double f1,
-    double f2);
+    uint32_t    l1,
+    uint32_t    l2,
+    double      f1,
+    double      f2
+);
 
 
-long make_psf_from_profile(
+imageID make_PosAngle(
+    const char *ID_name,
+    uint32_t    l1,
+    uint32_t    l2,
+    double      f1,
+    double      f2
+);
+
+
+imageID make_psf_from_profile(
     const char *profile_name,
     const char *ID_name,
-    long l1,
-    long l2
+    uint32_t    l1,
+    uint32_t    l2
 );
 
 
-long make_offsetHyperGaussian(
-    long size,
-    double a,
-    double b,
-    long n,
-    char* IDname
-);
-
-
-long make_cosapoedgePupil(
-    long size,
-    double a,
-    double b,
+imageID make_offsetHyperGaussian(
+    uint32_t    size,
+    double      a,
+    double      b,
+    long        n,
     const char *IDname
 );
 
 
-long make_2Dgridpix(
+imageID make_cosapoedgePupil(
+    uint32_t    size,
+    double      a,
+    double      b,
+    const char *IDname
+);
+
+
+imageID make_2Dgridpix(
     const char *IDname,
-    long xsize,
-    long ysize,
-    double pitchx,
-    double pitchy,
-    double offsetx,
-    double offsety
+    uint32_t    xsize,
+    uint32_t    ysize,
+    double      pitchx,
+    double      pitchy,
+    double      offsetx,
+    double      offsety
 );
 
 
-long make_tile(
+imageID make_tile(
     const char *IDin_name,
-    long size,
+    uint32_t    size,
     const char *IDout_name
 );
 
 
-long image_gen_im2coord(
+imageID image_gen_im2coord(
     const char *IDin_name,
-    int axis,
+    uint8_t     axis,
     const char *IDout_name
 );
 
 
-long image_gen_make_voronoi_map(
-    const char *filename,
-    const char *IDout_name,
-    uint32_t xsize,
-    uint32_t ysize,
-    float radius,
-    float maxsep
+imageID image_gen_make_voronoi_map(
+    const char* filename,
+    const char* IDout_name,
+    uint32_t    xsize,
+    uint32_t    ysize,
+    float       radius,  // maximum radius of each Voronoi zone
+    float       maxsep   // gap between Voronoi zones
 );
 
 

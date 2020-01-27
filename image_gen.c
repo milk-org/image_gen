@@ -3,13 +3,8 @@
  * @brief   Generate frequently used image(s)
  * 
  * Creates images for misc applications
-
- *
- * 
- * @bug No known bugs.
  * 
  */
-
 
 
 
@@ -44,15 +39,17 @@ static int INITSTATUS_image_gen = 0;
 
 
 
-int_fast8_t make_disk_cli()
+errno_t make_disk_cli()
 {
-    if ( CLI_checkarg(1, CLIARG_STR_NOT_IMG)
-            + CLI_checkarg(2, CLIARG_LONG)
-            + CLI_checkarg(3, CLIARG_LONG)
-            + CLI_checkarg(4, CLIARG_FLOAT)
-            + CLI_checkarg(5, CLIARG_FLOAT)
-            + CLI_checkarg(6, CLIARG_FLOAT)
-            == 0 ) {
+    if (
+        CLI_checkarg(1, CLIARG_STR_NOT_IMG) +
+        CLI_checkarg(2, CLIARG_LONG) +
+        CLI_checkarg(3, CLIARG_LONG) +
+        CLI_checkarg(4, CLIARG_FLOAT) +
+        CLI_checkarg(5, CLIARG_FLOAT) +
+        CLI_checkarg(6, CLIARG_FLOAT)
+        == 0 )
+    {
         make_disk(
             data.cmdargtoken[1].val.string,
             data.cmdargtoken[2].val.numl,
@@ -69,15 +66,17 @@ int_fast8_t make_disk_cli()
 }
 
 
-int_fast8_t make_subpixdisk_cli()
+errno_t make_subpixdisk_cli()
 {
-    if( CLI_checkarg(1, CLIARG_STR_NOT_IMG)
-            + CLI_checkarg(2, CLIARG_LONG)
-            + CLI_checkarg(3, CLIARG_LONG)
-            + CLI_checkarg(4, CLIARG_FLOAT)
-            + CLI_checkarg(5, CLIARG_FLOAT)
-            + CLI_checkarg(6, CLIARG_FLOAT)
-            == 0 ) {
+    if(
+        CLI_checkarg(1, CLIARG_STR_NOT_IMG) +
+        CLI_checkarg(2, CLIARG_LONG) +
+        CLI_checkarg(3, CLIARG_LONG) +
+        CLI_checkarg(4, CLIARG_FLOAT) +
+        CLI_checkarg(5, CLIARG_FLOAT) +
+        CLI_checkarg(6, CLIARG_FLOAT)
+        == 0 )
+    {
         make_subpixdisk(
             data.cmdargtoken[1].val.string,
             data.cmdargtoken[2].val.numl,
@@ -95,14 +94,16 @@ int_fast8_t make_subpixdisk_cli()
 
 
 
-int_fast8_t make_gauss_cli()
+errno_t make_gauss_cli()
 {
-    if ( CLI_checkarg(1, CLIARG_STR_NOT_IMG)
-            + CLI_checkarg(2, CLIARG_LONG)
-            + CLI_checkarg(3, CLIARG_LONG)
-            + CLI_checkarg(4, CLIARG_FLOAT)
-            + CLI_checkarg(5, CLIARG_FLOAT)
-            == 0 ) {
+    if (
+        CLI_checkarg(1, CLIARG_STR_NOT_IMG) +
+        CLI_checkarg(2, CLIARG_LONG) +
+        CLI_checkarg(3, CLIARG_LONG) +
+        CLI_checkarg(4, CLIARG_FLOAT) +
+        CLI_checkarg(5, CLIARG_FLOAT)
+        == 0 )
+    {
         make_gauss(
             data.cmdargtoken[1].val.string,
             data.cmdargtoken[2].val.numl,
@@ -118,14 +119,16 @@ int_fast8_t make_gauss_cli()
 }
 
 
-int_fast8_t make_slopexy_cli()
+errno_t make_slopexy_cli()
 {
-    if ( CLI_checkarg(1, CLIARG_STR_NOT_IMG)
-            + CLI_checkarg(2, CLIARG_LONG)
-            + CLI_checkarg(3, CLIARG_LONG)
-            + CLI_checkarg(4, CLIARG_FLOAT)
-            + CLI_checkarg(5, CLIARG_FLOAT)
-            == 0 ) {
+    if (
+        CLI_checkarg(1, CLIARG_STR_NOT_IMG) +
+        CLI_checkarg(2, CLIARG_LONG) +
+        CLI_checkarg(3, CLIARG_LONG) +
+        CLI_checkarg(4, CLIARG_FLOAT) +
+        CLI_checkarg(5, CLIARG_FLOAT)
+        == 0 )
+    {
         make_slopexy(
             data.cmdargtoken[1].val.string,
             data.cmdargtoken[2].val.numl,
@@ -141,14 +144,16 @@ int_fast8_t make_slopexy_cli()
 }
 
 
-int_fast8_t make_dist_cli()
+errno_t make_dist_cli()
 {
-    if ( CLI_checkarg(1, CLIARG_STR_NOT_IMG)
-            + CLI_checkarg(2, CLIARG_LONG)
-            + CLI_checkarg(3, CLIARG_LONG)
-            + CLI_checkarg(4, CLIARG_FLOAT)
-            + CLI_checkarg(5, CLIARG_FLOAT)
-            == 0) {
+    if (
+        CLI_checkarg(1, CLIARG_STR_NOT_IMG) +
+        CLI_checkarg(2, CLIARG_LONG) +
+        CLI_checkarg(3, CLIARG_LONG) +
+        CLI_checkarg(4, CLIARG_FLOAT) +
+        CLI_checkarg(5, CLIARG_FLOAT)
+        == 0)
+    {
         make_dist(
             data.cmdargtoken[1].val.string,
             data.cmdargtoken[2].val.numl,
@@ -164,14 +169,16 @@ int_fast8_t make_dist_cli()
 }
 
 
-int_fast8_t make_hexsegpupil_cli()
+errno_t make_hexsegpupil_cli()
 {
-    if ( CLI_checkarg(1, CLIARG_STR_NOT_IMG)
-            +CLI_checkarg(2, CLIARG_LONG)
-            +CLI_checkarg(3, CLIARG_FLOAT)
-            +CLI_checkarg(4, CLIARG_FLOAT)
-            +CLI_checkarg(5, CLIARG_FLOAT)
-            == 0 ) {
+    if (
+        CLI_checkarg(1, CLIARG_STR_NOT_IMG) +
+        CLI_checkarg(2, CLIARG_LONG) +
+        CLI_checkarg(3, CLIARG_FLOAT) +
+        CLI_checkarg(4, CLIARG_FLOAT) +
+        CLI_checkarg(5, CLIARG_FLOAT)
+        == 0 )
+    {
         make_hexsegpupil(
             data.cmdargtoken[1].val.string,
             data.cmdargtoken[2].val.numl,
@@ -187,12 +194,14 @@ int_fast8_t make_hexsegpupil_cli()
 }
 
 
-int_fast8_t IMAGE_gen_segments2WFmodes_cli()
+errno_t IMAGE_gen_segments2WFmodes_cli()
 {
-    if ( CLI_checkarg(1, CLIARG_STR_NOT_IMG)
-            + CLI_checkarg(2, CLIARG_LONG)
-            + CLI_checkarg(3, CLIARG_IMG)
-            == 0 ) {
+    if (
+        CLI_checkarg(1, CLIARG_STR_NOT_IMG) +
+        CLI_checkarg(2, CLIARG_LONG) +
+        CLI_checkarg(3, CLIARG_IMG)
+        == 0 )
+    {
         IMAGE_gen_segments2WFmodes(
             data.cmdargtoken[1].val.string,
             data.cmdargtoken[2].val.numl,
@@ -206,16 +215,18 @@ int_fast8_t IMAGE_gen_segments2WFmodes_cli()
 }
 
 
-int_fast8_t make_rectangle_cli()
+errno_t make_rectangle_cli()
 {
-    if ( CLI_checkarg(1, CLIARG_STR_NOT_IMG)
-            + CLI_checkarg(2, CLIARG_LONG)
-            + CLI_checkarg(3, CLIARG_LONG)
-            + CLI_checkarg(4, CLIARG_FLOAT)
-            + CLI_checkarg(5, CLIARG_FLOAT)
-            + CLI_checkarg(6, CLIARG_FLOAT)
-            + CLI_checkarg(7, CLIARG_FLOAT)
-            == 0 ) {
+    if (
+        CLI_checkarg(1, CLIARG_STR_NOT_IMG) +
+        CLI_checkarg(2, CLIARG_LONG) +
+        CLI_checkarg(3, CLIARG_LONG) +
+        CLI_checkarg(4, CLIARG_FLOAT) +
+        CLI_checkarg(5, CLIARG_FLOAT) +
+        CLI_checkarg(6, CLIARG_FLOAT) +
+        CLI_checkarg(7, CLIARG_FLOAT)
+        == 0 )
+    {
         make_rectangle(
             data.cmdargtoken[1].val.string,
             data.cmdargtoken[2].val.numl,
@@ -234,16 +245,19 @@ int_fast8_t make_rectangle_cli()
 
 
 
-int_fast8_t make_line_cli()
+errno_t make_line_cli()
 {
-    if ( CLI_checkarg(1, CLIARG_STR_NOT_IMG)
-            + CLI_checkarg(2, CLIARG_LONG)
-            + CLI_checkarg(3, CLIARG_LONG)
-            + CLI_checkarg(4, CLIARG_FLOAT)
-            + CLI_checkarg(5, CLIARG_FLOAT)
-            + CLI_checkarg(6, CLIARG_FLOAT)
-            + CLI_checkarg(7, CLIARG_FLOAT)
-            + CLI_checkarg(8, CLIARG_FLOAT)  == 0 ) {
+    if (
+        CLI_checkarg(1, CLIARG_STR_NOT_IMG) +
+        CLI_checkarg(2, CLIARG_LONG) +
+        CLI_checkarg(3, CLIARG_LONG) +
+        CLI_checkarg(4, CLIARG_FLOAT) +
+        CLI_checkarg(5, CLIARG_FLOAT) +
+        CLI_checkarg(6, CLIARG_FLOAT) +
+        CLI_checkarg(7, CLIARG_FLOAT) +
+        CLI_checkarg(8, CLIARG_FLOAT)
+        == 0 )
+    {
         make_line(
             data.cmdargtoken[1].val.string,
             data.cmdargtoken[2].val.numl,
@@ -263,14 +277,16 @@ int_fast8_t make_line_cli()
 
 
 
-int_fast8_t make_lincoordinate_cli() {
-    if ( CLI_checkarg(1, CLIARG_STR_NOT_IMG)
-            + CLI_checkarg(2, CLIARG_LONG)
-            + CLI_checkarg(3, CLIARG_LONG)
-            + CLI_checkarg(4, CLIARG_FLOAT)
-            + CLI_checkarg(5, CLIARG_FLOAT)
-            + CLI_checkarg(6, CLIARG_FLOAT)
-            == 0 ) {
+errno_t make_lincoordinate_cli() {
+    if (
+        CLI_checkarg(1, CLIARG_STR_NOT_IMG) +
+        CLI_checkarg(2, CLIARG_LONG) +
+        CLI_checkarg(3, CLIARG_LONG) +
+        CLI_checkarg(4, CLIARG_FLOAT) +
+        CLI_checkarg(5, CLIARG_FLOAT) +
+        CLI_checkarg(6, CLIARG_FLOAT)
+        == 0 )
+    {
         make_lincoordinate(
             data.cmdargtoken[1].val.string,
             data.cmdargtoken[2].val.numl,
@@ -287,15 +303,17 @@ int_fast8_t make_lincoordinate_cli() {
 }
 
 
-int_fast8_t make_2Dgridpix_cli() {
-    if ( CLI_checkarg(1, CLIARG_STR_NOT_IMG)
-            + CLI_checkarg(2, CLIARG_LONG)
-            + CLI_checkarg(3, CLIARG_LONG)
-            + CLI_checkarg(4, CLIARG_FLOAT)
-            + CLI_checkarg(5, CLIARG_FLOAT)
-            + CLI_checkarg(6, CLIARG_FLOAT)
-            + CLI_checkarg(7, CLIARG_FLOAT)
-            == 0 ) {
+errno_t make_2Dgridpix_cli() {
+    if (
+        CLI_checkarg(1, CLIARG_STR_NOT_IMG) +
+        CLI_checkarg(2, CLIARG_LONG) +
+        CLI_checkarg(3, CLIARG_LONG) +
+        CLI_checkarg(4, CLIARG_FLOAT) +
+        CLI_checkarg(5, CLIARG_FLOAT) +
+        CLI_checkarg(6, CLIARG_FLOAT) +
+        CLI_checkarg(7, CLIARG_FLOAT)
+        == 0 )
+    {
         make_2Dgridpix(
             data.cmdargtoken[1].val.string,
             data.cmdargtoken[2].val.numl,
@@ -305,6 +323,7 @@ int_fast8_t make_2Dgridpix_cli() {
             data.cmdargtoken[6].val.numf,
             data.cmdargtoken[7].val.numf
         );
+
         return CLICMD_SUCCESS;
     }  else {
         return CLICMD_INVALID_ARG;
@@ -312,17 +331,20 @@ int_fast8_t make_2Dgridpix_cli() {
 }
 
 
-int_fast8_t make_rnd_cli() {
-    if ( CLI_checkarg(1, CLIARG_STR_NOT_IMG)
-            + CLI_checkarg(2, CLIARG_LONG)
-            + CLI_checkarg(3, CLIARG_LONG)
-            == 0 )  {
+errno_t make_rnd_cli() {
+    if ( 
+    CLI_checkarg(1, CLIARG_STR_NOT_IMG) +
+            CLI_checkarg(2, CLIARG_LONG) +
+            CLI_checkarg(3, CLIARG_LONG)
+            == 0 )  
+            {
         make_rnd(
             data.cmdargtoken[1].val.string,
             data.cmdargtoken[2].val.numl,
             data.cmdargtoken[3].val.numl,
             ""
         );
+        
         return CLICMD_SUCCESS;
     }
     else {
@@ -331,17 +353,21 @@ int_fast8_t make_rnd_cli() {
 }
 
 
-int_fast8_t make_rndgauss_cli() {
-    if ( CLI_checkarg(1, CLIARG_STR_NOT_IMG)
-            + CLI_checkarg(2, CLIARG_LONG)
-            + CLI_checkarg(3, CLIARG_LONG)
-            == 0 ) {
+errno_t make_rndgauss_cli() {
+    if (
+        CLI_checkarg(1, CLIARG_STR_NOT_IMG) +
+        CLI_checkarg(2, CLIARG_LONG) +
+        CLI_checkarg(3, CLIARG_LONG)
+        == 0 ) 
+        {
+        
         make_rnd(
             data.cmdargtoken[1].val.string,
             data.cmdargtoken[2].val.numl,
             data.cmdargtoken[3].val.numl,
             "gauss"
         );
+        
         return CLICMD_SUCCESS;
     }
     else {
@@ -351,16 +377,20 @@ int_fast8_t make_rndgauss_cli() {
 
 
 
-int_fast8_t image_gen_im2coord_cli() {
-    if ( CLI_checkarg(1, CLIARG_IMG)
-            + CLI_checkarg(2, CLIARG_LONG)
-            + CLI_checkarg(3, CLIARG_STR_NOT_IMG)
-            == 0 ) {
+errno_t image_gen_im2coord_cli() {
+    if (
+        CLI_checkarg(1, CLIARG_IMG) +
+        CLI_checkarg(2, CLIARG_LONG) +
+        CLI_checkarg(3, CLIARG_STR_NOT_IMG)
+        == 0 ) 
+        {
+        
         image_gen_im2coord(
             data.cmdargtoken[1].val.string,
             data.cmdargtoken[2].val.numl,
             data.cmdargtoken[3].val.string
         );
+        
         return CLICMD_SUCCESS;
     }
     else {
@@ -371,14 +401,17 @@ int_fast8_t image_gen_im2coord_cli() {
 
 
 
-int_fast8_t image_gen_make_voronoi_map_cli() {
-    if ( CLI_checkarg(1, CLIARG_STR)
-            + CLI_checkarg(2, CLIARG_STR_NOT_IMG)
-            + CLI_checkarg(3, CLIARG_LONG)
-            + CLI_checkarg(4, CLIARG_LONG)
-            + CLI_checkarg(5, CLIARG_FLOAT)
-            + CLI_checkarg(6, CLIARG_FLOAT)
-            == 0 ) {
+errno_t image_gen_make_voronoi_map_cli() {
+    if (
+        CLI_checkarg(1, CLIARG_STR) +
+        CLI_checkarg(2, CLIARG_STR_NOT_IMG) +
+        CLI_checkarg(3, CLIARG_LONG) +
+        CLI_checkarg(4, CLIARG_LONG) +
+        CLI_checkarg(5, CLIARG_FLOAT) +
+        CLI_checkarg(6, CLIARG_FLOAT)
+        == 0 ) 
+        {
+        
         image_gen_make_voronoi_map(
             data.cmdargtoken[1].val.string,
             data.cmdargtoken[2].val.string,
@@ -387,6 +420,7 @@ int_fast8_t image_gen_make_voronoi_map_cli() {
             data.cmdargtoken[5].val.numf,
             data.cmdargtoken[6].val.numf
         );
+        
         return CLICMD_SUCCESS;
     }
     else {
@@ -418,7 +452,7 @@ void __attribute__ ((constructor)) libinit_image_gen()
 
 
 
-int_fast8_t init_image_gen()
+errno_t init_image_gen()
 {
 
     RegisterCLIcommand(
@@ -577,8 +611,7 @@ int_fast8_t init_image_gen()
 
     // add atexit functions here
 
-    return 0;
-
+    return RETURN_SUCCESS;
 }
 
 
@@ -586,21 +619,21 @@ int_fast8_t init_image_gen()
 
 
 
-
-long make_double_star(
+/** @brief creates a double star */
+imageID make_double_star(
     const char *ID_name,
-    long l1,
-    long l2,
-    double intensity_1,
-    double intensity_2,
-    double separation,
-    double position_angle
-) /* creates a double star */
+    uint32_t    l1,
+    uint32_t    l2,
+    double      intensity_1,
+    double      intensity_2,
+    double      separation,
+    double      position_angle
+) 
 {
-    long ID;
-    long naxes[2];
+    imageID  ID;
+    uint32_t naxes[2];
 
-    create_2Dimage_ID(ID_name,l1,l2);
+    create_2Dimage_ID(ID_name, l1, l2);
     ID = image_ID(ID_name);
     naxes[0] = data.image[ID].md[0].size[0];
     naxes[1] = data.image[ID].md[0].size[1];
@@ -614,22 +647,22 @@ long make_double_star(
 
 
 
-
-long make_disk(
+/** @brief creates a disk */
+imageID make_disk(
     const char *ID_name,
-    long l1,
-    long l2,
-    double x_center,
-    double y_center,
-    double radius
-) /* creates a disk */
+    uint32_t    l1,
+    uint32_t    l2,
+    double      x_center,
+    double      y_center,
+    double      radius
+) 
 {
-    long ID;
-    long ii,jj;
-    long naxes[2];
-    long x1,x2,y1,y2;
-    long x1i,x2i,y1i,y2i;
-    double r2;
+    imageID  ID;
+    uint32_t ii,jj;
+    uint32_t naxes[2];
+    long     x1,x2,y1,y2;
+    long     x1i,x2i,y1i,y2i;
+    double   r2;
     /*
       int i,j;
       double r;
@@ -760,18 +793,18 @@ long make_disk(
 
 
 
-long make_subpixdisk(
+imageID make_subpixdisk(
     const char *ID_name,
-    long l1,
-    long l2,
-    double x_center,
-    double y_center,
-    double radius
-) // creates a disk
+    uint32_t    l1,
+    uint32_t    l2,
+    double      x_center,
+    double      y_center,
+    double      radius
+) 
 {
-    long ID;
-    long ii,jj;
-    long naxes[2];
+    imageID  ID;
+    uint32_t ii,jj;
+    uint32_t naxes[2];
     int i,j;
     double r;
     double tot;
@@ -957,22 +990,23 @@ long make_subpixdisk(
 //
 // r = radius + SUM[ ra[i] * cos( ka[i]*PA/2.0/PI + pa[i]) ]
 
-long make_subpixdisk_perturb(
+imageID make_subpixdisk_perturb(
     const char *ID_name,
-    long l1,
-    long l2,
-    double x_center,
-    double y_center,
-    double radius,
-    long n,
-    double *ra,
-    double *ka,
-    double *pa)
+    uint32_t    l1,
+    uint32_t    l2,
+    double      x_center,
+    double      y_center,
+    double      radius,
+    long        n,
+    double     *ra,
+    double     *ka,
+    double     *pa
+)
 {
-    long ID;
-    long ii,jj;
-    long naxes[2];
-    int i,j;
+    imageID  ID;
+    uint32_t ii,jj;
+    uint32_t naxes[2];
+    int      i,j;
     double r;
     double tot;
     int subgrid=55;
@@ -1216,27 +1250,26 @@ long make_subpixdisk_perturb(
 }
 
 
-
-long make_square(
+/* creates a square */
+imageID make_square(
     const char *ID_name,
-    long l1,
-    long l2,
-    double x_center,
-    double y_center,
-    double radius
-) /* creates a square */
+    uint32_t    l1,
+    uint32_t    l2,
+    double      x_center,
+    double      y_center,
+    double     radius
+)
 {
-    long ID;
-    long ii,jj;
-    long naxes[2];
+    imageID  ID;
+    uint32_t naxes[2];
 
     create_2Dimage_ID(ID_name,l1,l2);
     ID = image_ID(ID_name);
     naxes[0] = data.image[ID].md[0].size[0];
     naxes[1] = data.image[ID].md[0].size[1];
 
-    for (jj = 0; jj < naxes[1]; jj++)
-        for (ii = 0; ii < naxes[0]; ii++)
+    for (uint32_t jj = 0; jj < naxes[1]; jj++)
+        for (uint32_t ii = 0; ii < naxes[0]; ii++)
         {
             if ((((ii-x_center)*(ii-x_center))<(radius*radius))&&(((jj-y_center)*(jj-y_center))<(radius*radius)))
                 data.image[ID].array.F[jj*naxes[0]+ii] = 1;
@@ -1247,27 +1280,26 @@ long make_square(
 
 
 
-long make_rectangle(
+imageID make_rectangle(
     const char *ID_name,
-    long l1,
-    long l2,
-    double x_center,
-    double y_center,
-    double radius1,
-    double radius2
-) /* creates a square */
+    uint32_t    l1,
+    uint32_t    l2,
+    double      x_center,
+    double      y_center,
+    double      radius1,
+    double      radius2
+) 
 {
-    long ID;
-    long ii,jj;
-    long naxes[2];
+    imageID ID;
+    uint32_t naxes[2];
 
     create_2Dimage_ID(ID_name,l1,l2);
     ID = image_ID(ID_name);
     naxes[0] = data.image[ID].md[0].size[0];
     naxes[1] = data.image[ID].md[0].size[1];
 
-    for (jj = 0; jj < naxes[1]; jj++)
-        for (ii = 0; ii < naxes[0]; ii++)
+    for (uint32_t jj = 0; jj < naxes[1]; jj++)
+        for (uint32_t ii = 0; ii < naxes[0]; ii++)
         {
             if ((((ii-x_center)*(ii-x_center))<(radius1*radius1))&&(((jj-y_center)*(jj-y_center))<(radius2*radius2)))
                 data.image[ID].array.F[jj*naxes[0]+ii] = 1;
@@ -1279,22 +1311,21 @@ long make_rectangle(
 
 
 // line of thickness t from (x1,y1) to (x2,y2)
-long make_line(
+imageID make_line(
     const char *IDname,
-    long l1,
-    long l2,
-    double x1,
-    double y1,
-    double x2,
-    double y2,
-    double t
+    uint32_t    l1,
+    uint32_t    l2,
+    double      x1,
+    double      y1,
+    double      x2,
+    double      y2,
+    double      t
 )
 {
-    long ID;
-    long ii,jj;
-    double x, y, xr, yr, r0;
-    double r, PA0;
-    long naxes[2];
+    imageID  ID;
+    double   x, y, xr, yr, r0;
+    double   PA0;
+    uint32_t naxes[2];
 
     create_2Dimage_ID(IDname,l1,l2);
     ID = image_ID(IDname);
@@ -1303,8 +1334,8 @@ long make_line(
 
     r0 = sqrt((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1));
     PA0 = atan2((y2-y1),(x2-x1));
-    for (jj = 0; jj < naxes[1]; jj++)
-        for (ii = 0; ii < naxes[0]; ii++)
+    for (uint32_t jj = 0; jj < naxes[1]; jj++)
+        for (uint32_t ii = 0; ii < naxes[0]; ii++)
         {
             x = 1.0*ii;
             y = 1.0*jj;
@@ -1312,7 +1343,7 @@ long make_line(
             y -= y1;
             xr = x*cos(PA0)+y*sin(PA0);
             yr = -x*sin(PA0)+y*cos(PA0);
-            r=sqrt(xr*xr+yr*yr);
+            //r=sqrt(xr*xr+yr*yr);
             xr /= r0;
             yr /= r0;
             if((xr>0)&&(xr<1.0)&&(yr<0.5*t/r0)&&(yr>-0.5*t/r0))
@@ -1327,32 +1358,31 @@ long make_line(
 
 
 // draw line crossing point xc, yc with angle, pixel value is coordinate axis perp to line
-long make_lincoordinate(
+imageID make_lincoordinate(
     const char *IDname,
-    long l1,
-    long l2,
-    double x_center,
-    double y_center,
-    double angle
+    uint32_t    l1,
+    uint32_t    l2,
+    double      x_center,
+    double      y_center,
+    double      angle
 )
 {
-    long ID;
-    long ii,jj;
-    long naxes[2];
-    double x, y, x1, y1;
+    imageID  ID;
+    uint32_t naxes[2];
+    double   x, y, x1;
 
     create_2Dimage_ID(IDname, l1, l2);
     ID = image_ID(IDname);
     naxes[0] = data.image[ID].md[0].size[0];
     naxes[1] = data.image[ID].md[0].size[1];
 
-    for (jj = 0; jj < naxes[1]; jj++)
-        for (ii = 0; ii < naxes[0]; ii++)
+    for (uint32_t jj = 0; jj < naxes[1]; jj++)
+        for (uint32_t ii = 0; ii < naxes[0]; ii++)
         {
             x = 1.0*ii - x_center;
             y = 1.0*jj - y_center;
             x1 = x*cos(angle) + y*sin(angle);
-            y1 = -x*sin(angle) + y*cos(angle);
+            //y1 = -x*sin(angle) + y*cos(angle);
             data.image[ID].array.F[jj*naxes[0]+ii] = x1;
         }
 
@@ -1361,18 +1391,18 @@ long make_lincoordinate(
 
 
 
-long make_hexagon(
+imageID make_hexagon(
     const char *IDname,
-    long l1,
-    long l2,
-    double x_center,
-    double y_center,
-    double radius
+    uint32_t    l1,
+    uint32_t    l2,
+    double      x_center,
+    double      y_center,
+    double      radius
 )
 {
-    long ID;
-    long ii,jj;
-    long naxes[2];
+    imageID  ID;
+    uint32_t ii,jj;
+    uint32_t naxes[2];
     float x, y, r;
     float value;
 
@@ -1458,21 +1488,21 @@ long make_hexagon(
 
 
 
-long IMAGE_gen_segments2WFmodes(
+imageID IMAGE_gen_segments2WFmodes(
     const char *prefix,
-    long ndigit,
+    long        ndigit,
     const char *IDout_name
 )
 {
-    long IDout = -1;
-    long NBseg;
-    long seg;
-    int OK;
-    char imname[200];
-    long IDarray[10000];
-    long ii, jj, kk, xsize, ysize, xysize;
-    double x, y;
-    long IDtmp, IDmask;
+    imageID IDout = -1;
+    long    NBseg;
+    long    seg;
+    int     OK;
+    char    imname[200];
+    imageID IDarray[10000];
+    long    ii, jj, kk, xsize, ysize, xysize;
+    double  x, y;
+    imageID IDmask;
     double *segxc;
     double *segyc;
     double *segsum;
@@ -1550,7 +1580,7 @@ long IMAGE_gen_segments2WFmodes(
 
         save_fits("_pupmask", "!_pupmask.fits");
 
-        IDtmp = create_2Dimage_ID("_seg2wfm_tmp", xsize, ysize);
+        //IDtmp = create_2Dimage_ID("_seg2wfm_tmp", xsize, ysize);
         IDout = create_3Dimage_ID(IDout_name, xsize, ysize, 3*NBseg);
         kk = 0;
         for(seg=0; seg<NBseg; seg++) // create modes one at a time
@@ -1575,7 +1605,7 @@ long IMAGE_gen_segments2WFmodes(
         }
 
 
-        delete_image_ID("_seg2wfm_tmp");
+        //delete_image_ID("_seg2wfm_tmp");
 
         free(segxc);
         free(segyc);
@@ -1587,21 +1617,21 @@ long IMAGE_gen_segments2WFmodes(
 
 
 
-long make_hexsegpupil(
+imageID make_hexsegpupil(
     const char *IDname,
-    long size,
-    double radius,
-    double gap,
-    double step
+    uint32_t    size,
+    double      radius,
+    double      gap,
+    double      step
 )
 {
-    long ID,ID1,IDp;
-    long x1, y1;
-    double x2,y2;
-    long IDdisk;
-    long ii;
+    imageID ID,ID1,IDp;
+    long    x1, y1;
+    double  x2, y2;
+    imageID IDdisk;
+    uint32_t ii;
     double tot = 0.0;
-    long size2;
+    long   size2;
 
     int PISTONerr = 0;
     int errSEGindex = -1;
@@ -1632,7 +1662,6 @@ long make_hexsegpupil(
     long *seglevel;
     long i;
     long tmpl1, tmpl2;
-    int ret;
     int segi;
     float segf;
     int k;
@@ -1675,7 +1704,7 @@ long make_hexsegpupil(
     {
         for(i=0; i<SEGcnt; i++)
         {
-            ret = fscanf(fpmlevel, "%ld %ld\n", &tmpl1, &tmpl2);
+            fscanf(fpmlevel, "%ld %ld\n", &tmpl1, &tmpl2);
             seglevel[tmpl1-1] = tmpl2+15;
         }
         fclose(fpmlevel);
@@ -1978,27 +2007,26 @@ long make_hexsegpupil(
 
 
 
-long make_jacquinot_pupil(
+imageID make_jacquinot_pupil(
     const char *ID_name,
-    long l1,
-    long l2,
-    double x_center,
-    double y_center,
-    double width,
-    double height
+    uint32_t    l1,
+    uint32_t    l2,
+    double      x_center,
+    double      y_center,
+    double      width,
+    double      height
 )
 {
-    long ID;
-    long ii,jj;
-    long naxes[2];
+    imageID  ID;
+    uint32_t naxes[2];
 
     create_2Dimage_ID(ID_name,l1,l2);
     ID = image_ID(ID_name);
     naxes[0] = data.image[ID].md[0].size[0];
     naxes[1] = data.image[ID].md[0].size[1];
 
-    for (jj = 0; jj < naxes[1]; jj++)
-        for (ii = 0; ii < naxes[0]; ii++)
+    for (uint32_t jj = 0; jj < naxes[1]; jj++)
+        for (uint32_t ii = 0; ii < naxes[0]; ii++)
         {
             if ((fabs(jj-y_center)/height)<exp(-((ii-x_center)*(ii-x_center)/width/width)))
                 data.image[ID].array.F[jj*naxes[0]+ii] = 1;
@@ -2010,28 +2038,27 @@ long make_jacquinot_pupil(
 
 
 
-long make_sectors(
+imageID make_sectors(
     const char *ID_name,
-    long l1,
-    long l2,
-    double x_center,
-    double y_center,
-    double step,
-    long NB_sectors
+    uint32_t    l1,
+    uint32_t    l2,
+    double      x_center,
+    double      y_center,
+    double      step,
+    long        NB_sectors
 )
 {
-    long ID;
-    long ii,jj;
-    long naxes[2];
-    double theta;
+    imageID  ID;
+    uint32_t naxes[2];
+    double   theta;
 
     create_2Dimage_ID(ID_name,l1,l2);
     ID = image_ID(ID_name);
     naxes[0] = data.image[ID].md[0].size[0];
     naxes[1] = data.image[ID].md[0].size[1];
 
-    for (jj = 0; jj < naxes[1]; jj++)
-        for (ii = 0; ii < naxes[0]; ii++)
+    for (uint32_t jj = 0; jj < naxes[1]; jj++)
+        for (uint32_t ii = 0; ii < naxes[0]; ii++)
         {
             theta = atan2((ii-x_center),(jj-y_center));
             if (theta<0.0)
@@ -2045,18 +2072,17 @@ long make_sectors(
 
 
 
-long make_rnd(
+imageID make_rnd(
     const char *ID_name,
-    long l1,
-    long l2,
+    uint32_t    l1,
+    uint32_t    l2,
     const char *options
 )
 {
-    long ID;
-    long ii;
-    long naxes[2];
-    int distrib;
-    long nelement;
+    imageID  ID;
+    uint32_t naxes[2];
+    int      distrib;
+    uint64_t nelement;
 
     distrib = 0; /* uniform */
     if (strstr(options,"gauss")!=NULL)
@@ -2071,7 +2097,7 @@ long make_rnd(
         printf("truncated gaussian distribution\n");
     }
 
-    if ( data.Debug > 1) fprintf(stdout,"Image size = %ld %ld\n",l1,l2);
+    if ( data.Debug > 1) fprintf(stdout,"Image size = %u %u\n", l1, l2);
 
     create_2Dimage_ID(ID_name, l1, l2);
     ID = image_ID(ID_name);
@@ -2083,17 +2109,17 @@ long make_rnd(
     // openMP is slow when calling gsl random number generator : do not use openMP here
     if(distrib==0)
     {
-        for (ii = 0; ii < nelement; ii++)
+        for (uint64_t ii = 0; ii < nelement; ii++)
             data.image[ID].array.F[ii] = (double) ran1();
     }
     if(distrib==1)
     {
-        for (ii = 0; ii < nelement; ii++)
+        for (uint64_t ii = 0; ii < nelement; ii++)
             data.image[ID].array.F[ii] = (double) gauss();
     }
     if(distrib==2)
     {
-        for (ii = 0; ii < nelement; ii++) {
+        for (uint64_t ii = 0; ii < nelement; ii++) {
             data.image[ID].array.F[ii] = (double) gauss_trc();
         }
     }
@@ -2103,17 +2129,17 @@ long make_rnd(
 
 
 
-long make_rnd_double(
+imageID make_rnd_double(
     const char *ID_name,
-    long l1,
-    long l2,
-    const char *options)
+    uint32_t    l1,
+    uint32_t    l2,
+    const char *options
+)
 {
-    long ID;
-    long ii;
-    long naxes[2];
-    int distrib;
-    long nelement;
+    imageID  ID;
+    uint32_t naxes[2];
+    int      distrib;
+    uint64_t nelement;
 
     distrib = 0; /* uniform */
     if (strstr(options,"gauss")!=NULL)
@@ -2128,7 +2154,7 @@ long make_rnd_double(
         printf("truncated gaussian distribution\n");
     }
 
-    if ( data.Debug > 1) fprintf(stdout,"Image size = %ld %ld\n",l1,l2);
+    if ( data.Debug > 1) fprintf(stdout,"Image size = %u %u\n",l1,l2);
 
     create_2Dimage_ID_double(ID_name, l1, l2);
     ID = image_ID(ID_name);
@@ -2140,17 +2166,17 @@ long make_rnd_double(
     // openMP is slow when calling gsl random number generator : do not use openMP here
     if(distrib==0)
     {
-        for (ii = 0; ii < nelement; ii++)
+        for (uint64_t ii = 0; ii < nelement; ii++)
             data.image[ID].array.D[ii] = (double) ran1();
     }
     if(distrib==1)
     {
-        for (ii = 0; ii < nelement; ii++)
+        for (uint64_t ii = 0; ii < nelement; ii++)
             data.image[ID].array.D[ii] = (double) gauss();
     }
     if(distrib==2)
     {
-        for (ii = 0; ii < nelement; ii++) {
+        for (uint64_t ii = 0; ii < nelement; ii++) {
             data.image[ID].array.D[ii] = (double) gauss_trc();
         }
     }
@@ -2214,26 +2240,25 @@ int make_rnd1(const char *ID_name, long l1, long l2, const char *options)
 */
 
 
-long make_gauss(
+imageID make_gauss(
     const char *ID_name,
-    long l1,
-    long l2,
-    double a,
-    double A
+    uint32_t    l1,
+    uint32_t    l2,
+    double      a,
+    double      A
 )
 {
-    long ID;
-    long ii,jj;
-    long naxes[2];
-    double distsq;
+    imageID  ID;
+    uint32_t naxes[2];
+    double   distsq;
 
     create_2Dimage_ID(ID_name,l1,l2);
     ID = image_ID(ID_name);
     naxes[0] = data.image[ID].md[0].size[0];
     naxes[1] = data.image[ID].md[0].size[1];
 
-    for (jj = 0; jj < naxes[1]; jj++)
-        for (ii = 0; ii < naxes[0]; ii++)
+    for (uint32_t jj = 0; jj < naxes[1]; jj++)
+        for (uint32_t ii = 0; ii < naxes[0]; ii++)
         {
             distsq = (ii-naxes[0]/2)*(ii-naxes[0]/2)+(jj-naxes[1]/2)*(jj-naxes[1]/2);
             data.image[ID].array.F[jj*naxes[0]+ii] = (double) A*exp(-distsq/a/a);
@@ -2244,29 +2269,28 @@ long make_gauss(
 
 
 
-long make_2axis_gauss(
+imageID make_2axis_gauss(
     const char *ID_name,
-    long l1,
-    long l2,
-    double a,
-    double A,
-    double E,
-    double PA
+    uint32_t    l1,
+    uint32_t    l2,
+    double      a,
+    double      A,
+    double      E,
+    double      PA
 )
 {
-    long ID;
-    long ii,jj;
-    long naxes[2];
-    double distsq;
-    double iin,jjn;
+    imageID  ID;
+    uint32_t naxes[2];
+    double   distsq;
+    double   iin,jjn;
 
     create_2Dimage_ID(ID_name,l1,l2);
     ID = image_ID(ID_name);
     naxes[0] = data.image[ID].md[0].size[0];
     naxes[1] = data.image[ID].md[0].size[1];
 
-    for (jj = 0; jj < naxes[1]; jj++)
-        for (ii = 0; ii < naxes[0]; ii++)
+    for (uint32_t jj = 0; jj < naxes[1]; jj++)
+        for (uint32_t ii = 0; ii < naxes[0]; ii++)
         {
             iin=1.0*(ii-naxes[0]/2)*cos(PA)+1.0*(jj-naxes[1]/2)*sin(PA);
             jjn=1.0*(jj-naxes[1]/2)*cos(PA)-1.0*(ii-naxes[0]/2)*sin(PA);
@@ -2279,25 +2303,24 @@ long make_2axis_gauss(
 
 
 
-long make_cluster(
+imageID make_cluster(
     const char *ID_name,
-    long l1,
-    long l2,
+    uint32_t    l1,
+    uint32_t    l2,
     const char *options
 )
 {
-    long ID;
-    long ii,jj;
-    long naxes[2];
-    long nb_star = 3000;
-    double cluster_size = 0.1; /* relative to the FOV */
-    double concentration = 1.0;
-    long i;
-    double tmp,dist,angle;
-    char input[50];
-    int str_pos;
-    int sim = 0;
-    long lii,ljj,hii,hjj;
+    imageID  ID;
+    uint32_t naxes[2];
+    long     nb_star = 3000;
+    double   cluster_size = 0.1; /* relative to the FOV */
+    double   concentration = 1.0;
+    long     i;
+    double   tmp,dist,angle;
+    char     input[50];
+    int      str_pos;
+    int      sim = 0;
+    long     lii, ljj, hii, hjj;
 
     if (strstr(options,"-nbstars ")!=NULL)
     {
@@ -2377,8 +2400,8 @@ long make_cluster(
         dist = sqrt(sqrt(dist*dist));
         dist = pow(dist,concentration);
         angle = 2*PI*ran1();
-        ii = (long) (naxes[0]/2+(cluster_size*naxes[0]/2)*dist*cos(angle));
-        jj = (long) (naxes[1]/2+(cluster_size*naxes[1]/2)*dist*sin(angle));
+        uint32_t ii = (uint32_t) (naxes[0]/2+(cluster_size*naxes[0]/2)*dist*cos(angle));
+        uint32_t jj = (uint32_t) (naxes[1]/2+(cluster_size*naxes[1]/2)*dist*sin(angle));
 
         if ((ii>lii)&&(jj>ljj)&&(ii<hii)&&(jj<hjj))
         {
@@ -2396,26 +2419,25 @@ long make_cluster(
 
 
 
-long make_galaxy(
+imageID make_galaxy(
     const char *ID_name,
-    long l1,
-    long l2,
-    double S_radius,
-    double S_L0,
-    double S_ell,
-    double S_PA,
-    double E_radius,
-    double E_L0,
-    double E_ell,
-    double E_PA
+    uint32_t    l1,
+    uint32_t    l2,
+    double      S_radius,
+    double      S_L0,
+    double      S_ell,
+    double      S_PA,
+    double      E_radius,
+    double      E_L0,
+    double      E_ell,
+    double      E_PA
 )
 {
-    long ID;
-    long naxes[2];
-    long ii,jj;
-    double x,y,r;
-    double aob,boa; /* a over b and b over a */
-    double total = 0;
+    imageID  ID;
+    uint32_t naxes[2];
+    double   x,y,r;
+    double   aob,boa; /* a over b and b over a */
+    double   total = 0;
 
     /* E = 1-b/a */
 
@@ -2427,8 +2449,8 @@ long make_galaxy(
     aob=1.0/(1.0-S_ell);
     boa=1.0-S_ell;
 
-    for(ii=0; ii<naxes[0]; ii++)
-        for(jj=0; jj<naxes[1]/2+1; jj++)
+    for(uint32_t ii=0; ii<naxes[0]; ii++)
+        for(uint32_t jj=0; jj<naxes[1]/2+1; jj++)
         {
             x=cos(S_PA)*(ii-naxes[0]/2)+sin(S_PA)*(jj-naxes[1]/2);
             y=-sin(S_PA)*(ii-naxes[0]/2)+cos(S_PA)*(jj-naxes[1]/2);
@@ -2440,8 +2462,8 @@ long make_galaxy(
     aob=1.0/(1.0-E_ell);
     boa=1.0-E_ell;
 
-    for(ii=0; ii<naxes[0]; ii++)
-        for(jj=0; jj<naxes[1]/2+1; jj++)
+    for(uint32_t ii=0; ii<naxes[0]; ii++)
+        for(uint32_t jj=0; jj<naxes[1]/2+1; jj++)
         {
             x=cos(E_PA)*(ii-naxes[0]/2)+sin(E_PA)*(jj-naxes[1]/2);
             y=-sin(E_PA)*(ii-naxes[0]/2)+cos(E_PA)*(jj-naxes[1]/2);
@@ -2450,13 +2472,13 @@ long make_galaxy(
         }
 
     /* filling other half */
-    for(ii=1; ii<naxes[0]; ii++)
-        for(jj=1; jj<naxes[1]/2; jj++)
+    for(uint32_t ii=1; ii<naxes[0]; ii++)
+        for(uint32_t jj=1; jj<naxes[1]/2; jj++)
         {
             data.image[ID].array.F[(naxes[1]-jj)*naxes[0]+(naxes[0]-ii)] = data.image[ID].array.F[jj*naxes[0]+ii];
         }
-    ii=0;
-    for(jj=naxes[1]/2; jj<naxes[1]; jj++)
+    uint32_t ii=0;
+    for(uint32_t jj=naxes[1]/2; jj<naxes[1]; jj++)
     {
         aob=1.0/(1.0-S_ell);
         boa=1.0-S_ell;
@@ -2479,16 +2501,15 @@ long make_galaxy(
 }
 
 
-long make_Egalaxy(
+imageID make_Egalaxy(
     const char *ID_name,
-    long l1,
-    long l2,
+    uint32_t    l1,
+    uint32_t    l2,
     const char *options
 )
 {
-    long ID;
-    long ii,jj;
-    long naxes[2];
+    imageID ID;
+    uint32_t naxes[2];
     double galaxy_size = 0.1; /* relative to the FOV */
     double concentration = 1.0;
     long i;
@@ -2589,8 +2610,8 @@ long make_Egalaxy(
         hjj = 3*naxes[1]/4;
     }
 
-    for (jj = ljj; jj < hjj; jj++)
-        for (ii = lii; ii < hii; ii++)
+    for (uint32_t jj = ljj; jj < hjj; jj++)
+        for (uint32_t ii = lii; ii < hii; ii++)
         {
             x = cos(PA)*(ii-xcenter)+sin(PA)*(jj-ycenter);
             y = -sin(PA)*(ii-xcenter)+cos(PA)*(jj-ycenter);
@@ -2608,23 +2629,22 @@ long make_Egalaxy(
 
 
 // for sol system, index ~2.4 with local zodi
-long gen_image_EZdisk(
+imageID gen_image_EZdisk(
     const char *ID_name,
-    long size,
-    double InnerEdge,
-    double Index,
-    double Incl
+    uint32_t    size,
+    double      InnerEdge,
+    double      Index,
+    double      Incl
 )
 {
-    long ID;
-    long ii,jj;
-    double x,y,r,r0;
-    double value;
+    imageID ID;
+    double  x,y,r,r0;
+    double  value;
 
-    ID = create_2Dimage_ID(ID_name,size,size);
+    ID = create_2Dimage_ID(ID_name, size, size);
     r0 = 6.0;
-    for(ii=0; ii<size; ii++)
-        for(jj=0; jj<size; jj++)
+    for(uint32_t ii=0; ii<size; ii++)
+        for(uint32_t jj=0; jj<size; jj++)
         {
             x = 1.0*(ii+0.5)-size/2;
             y = 1.0*(jj+0.5)-size/2;
@@ -2645,18 +2665,17 @@ long gen_image_EZdisk(
 
 
 
-long make_slopexy(
+imageID make_slopexy(
     const char *ID_name,
-    long l1,
-    long l2,
-    double sx,
-    double sy
+    uint32_t    l1,
+    uint32_t    l2,
+    double      sx,
+    double      sy
 )
 {
-    long ID;
-    long ii,jj;
-    long naxes[2];
-    double coeff;
+    imageID  ID;
+    uint32_t naxes[2];
+    double   coeff;
 
     create_2Dimage_ID(ID_name,l1,l2);
     ID = image_ID(ID_name);
@@ -2665,8 +2684,8 @@ long make_slopexy(
 
     coeff = sx*(naxes[0]/2)+sy*(naxes[1]/2);
 
-    for (jj = 0; jj < naxes[1]; jj++)
-        for (ii = 0; ii < naxes[0]; ii++)
+    for (uint32_t jj = 0; jj < naxes[1]; jj++)
+        for (uint32_t ii = 0; ii < naxes[0]; ii++)
         {
             data.image[ID].array.F[jj*naxes[0]+ii] = sx*ii+sy*jj-coeff;
         }
@@ -2676,25 +2695,24 @@ long make_slopexy(
 
 
 
-long make_dist(
+imageID make_dist(
     const char *ID_name,
-    long l1,
-    long l2,
-    double f1,
-    double f2
+    uint32_t    l1,
+    uint32_t    l2,
+    double      f1,
+    double      f2
 )
 {
-    long ID;
-    long ii,jj;
-    long naxes[2];
+    imageID  ID;
+    uint32_t naxes[2];
 
     create_2Dimage_ID(ID_name,l1,l2);
     ID = image_ID(ID_name);
     naxes[0] = data.image[ID].md[0].size[0];
     naxes[1] = data.image[ID].md[0].size[1];
 
-    for (jj = 0; jj < naxes[1]; jj++)
-        for (ii = 0; ii < naxes[0]; ii++)
+    for (uint32_t jj = 0; jj < naxes[1]; jj++)
+        for (uint32_t ii = 0; ii < naxes[0]; ii++)
         {
             data.image[ID].array.F[jj*naxes[0]+ii] = sqrt((f1-ii)*(f1-ii)+(f2-jj)*(f2-jj));
         }
@@ -2703,21 +2721,26 @@ long make_dist(
 }
 
 
-long make_PosAngle(const char *ID_name, long l1,long l2, double f1, double f2)
+imageID make_PosAngle(
+    const char *ID_name,
+    uint32_t    l1,
+    uint32_t    l2,
+    double      f1,
+    double      f2
+)
 {
-    long ID;
-    long ii,jj;
-    long naxes[2];
-    double x,y;
-
+    imageID  ID;
+    uint32_t naxes[2];
+    
     create_2Dimage_ID(ID_name,l1,l2);
     ID = image_ID(ID_name);
     naxes[0] = data.image[ID].md[0].size[0];
     naxes[1] = data.image[ID].md[0].size[1];
 
-    for (jj = 0; jj < naxes[1]; jj++)
-        for (ii = 0; ii < naxes[0]; ii++)
+    for (uint32_t jj = 0; jj < naxes[1]; jj++)
+        for (uint32_t ii = 0; ii < naxes[0]; ii++)
         {
+			double x, y;
             x = 1.0*ii-f1;
             y = 1.0*jj-f2;
             data.image[ID].array.F[jj*naxes[0]+ii] = atan2(y,x);
@@ -2729,22 +2752,22 @@ long make_PosAngle(const char *ID_name, long l1,long l2, double f1, double f2)
 
 
 
-long make_psf_from_profile(
+imageID make_psf_from_profile(
     const char *profile_name,
     const char *ID_name,
-    long l1,
-    long l2
+    uint32_t    l1,
+    uint32_t    l2
 )
 {
-    long ID;
-    long naxes[2];
+    imageID ID;
+    uint32_t naxes[2];
     FILE *fp;
     long nb_lines;
     char lstring[1000];
     char line[200];
     double *distarr;
     double *valarr;
-    long ii,jj,i;
+    long i;
     double dist;
     float fl1, fl2;
 
@@ -2794,8 +2817,8 @@ long make_psf_from_profile(
     fclose(fp);
 
 
-    for (jj = 0; jj < naxes[1]; jj++)
-        for (ii = 0; ii < naxes[0]; ii++)
+    for (uint32_t jj = 0; jj < naxes[1]; jj++)
+        for (uint32_t ii = 0; ii < naxes[0]; ii++)
         {
             dist=sqrt((ii-naxes[0]/2)*(ii-naxes[0]/2)+(jj-naxes[1]/2)*(jj-naxes[1]/2));
             i=0;
@@ -2817,21 +2840,22 @@ long make_psf_from_profile(
 
 
 
-long make_offsetHyperGaussian(
-    long size,
-    double a,
-    double b,
-    long n,
-    char* IDname)
+imageID make_offsetHyperGaussian(
+    uint32_t    size,
+    double      a,
+    double      b,
+    long        n,
+    const char *IDname
+)
 {
-    long ii,jj;
-    long ID;
-    double x,y,dist;
+    imageID ID;
 
     ID = create_2Dimage_ID(IDname,size,size);
-    for(ii=0; ii<size; ii++)
-        for(jj=0; jj<size; jj++)
+    for(uint32_t ii=0; ii<size; ii++)
+        for(uint32_t jj=0; jj<size; jj++)
         {
+            double x,y,dist;
+
             x = 1.0*ii-size/2;
             y = 1.0*jj-size/2;
             dist = sqrt(x*x+y*y);
@@ -2850,21 +2874,21 @@ long make_offsetHyperGaussian(
 
 
 
-long make_cosapoedgePupil(
-    long size,
-    double a,
-    double b,
+imageID make_cosapoedgePupil(
+    uint32_t    size,
+    double      a,
+    double      b,
     const char *IDname
 )
 {
-    long ii,jj;
-    long ID;
-    double x,y,dist;
+    imageID ID;
 
     ID = create_2Dimage_ID(IDname,size,size);
-    for(ii=0; ii<size; ii++)
-        for(jj=0; jj<size; jj++)
+    for(uint32_t ii=0; ii<size; ii++)
+        for(uint32_t jj=0; jj<size; jj++)
         {
+			double   x, y, dist;
+			
             x = 1.0*ii-size/2;
             y = 1.0*jj-size/2;
             dist = sqrt(x*x+y*y);
@@ -2876,7 +2900,7 @@ long make_cosapoedgePupil(
                 data.image[ID].array.F[jj*size+ii] = 0.5*(cos(PI*(dist-a)/(b-a))+1.0);
         }
         
-    return(0);
+    return ID;
 }
 
 
@@ -2884,21 +2908,20 @@ long make_cosapoedgePupil(
 
 
 // make square grid of pixels
-long make_2Dgridpix(
+imageID make_2Dgridpix(
     const char *IDname,
-    long xsize,
-    long ysize,
-    double pitchx,
-    double pitchy,
-    double offsetx,
-    double offsety
+    uint32_t    xsize,
+    uint32_t    ysize,
+    double      pitchx,
+    double      pitchy,
+    double      offsetx,
+    double      offsety
 )
 {
-    long ii,jj;
-    long ID;
-    double x,y;
-    long i,j;
-    double u,t;
+    imageID ID;
+    double  x,y;
+    long    i,j;
+    double  u,t;
 
     ID = create_2Dimage_ID(IDname,xsize,ysize);
     for(x=offsetx; x<xsize-1; x+=pitchx)
@@ -2920,26 +2943,25 @@ long make_2Dgridpix(
 
 
 // make tile
-long make_tile(
+imageID make_tile(
     const char *IDin_name,
-    long size,
+    uint32_t    size,
     const char *IDout_name
 )
 {
-    long sizex0,sizey0; // input
-    long ii,jj,ii0,jj0;
-    long IDin,IDout;
+    uint32_t sizex0,sizey0; // input
+    imageID  IDin, IDout;
 
-    IDout = create_2Dimage_ID(IDout_name,size,size);
+    IDout = create_2Dimage_ID(IDout_name, size, size);
     IDin = image_ID(IDin_name);
     sizex0 = data.image[IDin].md[0].size[0];
     sizey0 = data.image[IDin].md[0].size[1];
 
-    for(ii=0; ii<size; ii++)
-        for(jj=0; jj<size; jj++)
+    for(uint32_t ii=0; ii<size; ii++)
+        for(uint32_t jj=0; jj<size; jj++)
         {
-            ii0 = ii%sizex0;
-            jj0 = jj%sizey0;
+            uint32_t ii0 = ii%sizex0;
+            uint32_t jj0 = jj%sizey0;
             data.image[IDout].array.F[jj*size+ii] = data.image[IDin].array.F[jj0*sizex0+ii0];
         }
 
@@ -2953,17 +2975,17 @@ long make_tile(
 // value = 1.0 x ii
 // if axis value is not one of the coordinates, write pixel index
 //
-long image_gen_im2coord(
+imageID image_gen_im2coord(
     const char *IDin_name,
-    int axis,
-    const char *IDout_name)
+    uint8_t     axis,
+    const char *IDout_name
+)
 {
-    long naxis;
-    int OK = 1;
-    long IDin;
-    long IDout = -1;
-    long xsize, ysize, zsize;
-    long ii, jj, kk;
+    uint8_t  naxis;
+    int      OK = 1;
+    imageID  IDin;
+    imageID  IDout = -1;
+    uint32_t xsize, ysize, zsize;
 
 
     IDin = image_ID(IDin_name);
@@ -2971,7 +2993,7 @@ long image_gen_im2coord(
 
     if(axis>naxis-1)
     {
-        printf("Image has only %ld axis, cannot access axis %d\n", naxis, axis);
+        printf("Image has only %u axis, cannot access axis %u\n", naxis, axis);
         OK = 0;
     }
 
@@ -2990,7 +3012,7 @@ long image_gen_im2coord(
             fflush(stdout);
             xsize = data.image[IDin].md[0].size[0];
             IDout = create_1Dimage_ID(IDout_name, xsize);
-            for(ii=0; ii<xsize; ii++)
+            for(uint32_t ii=0; ii<xsize; ii++)
                 data.image[IDout].array.F[ii] = 1.0*ii;
         }
 
@@ -3004,18 +3026,18 @@ long image_gen_im2coord(
 
             switch (axis) {
             case 0 :
-                for(ii=0; ii<xsize; ii++)
-                    for(jj=0; jj<ysize; jj++)
+                for(uint32_t ii=0; ii<xsize; ii++)
+                    for(uint32_t jj=0; jj<ysize; jj++)
                         data.image[IDout].array.F[jj*xsize+ii] = 1.0*ii;
                 break;
             case 1 :
-                for(ii=0; ii<xsize; ii++)
-                    for(jj=0; jj<ysize; jj++)
+                for(uint32_t ii=0; ii<xsize; ii++)
+                    for(uint32_t jj=0; jj<ysize; jj++)
                         data.image[IDout].array.F[jj*xsize+ii] = 1.0*jj;
                 break;
             default :
-                for(ii=0; ii<xsize; ii++)
-                    for(jj=0; jj<ysize; jj++)
+                for(uint32_t ii=0; ii<xsize; ii++)
+                    for(uint32_t jj=0; jj<ysize; jj++)
                         data.image[IDout].array.F[jj*xsize+ii] = 1.0*jj*xsize+ii;
             }
 
@@ -3033,27 +3055,27 @@ long image_gen_im2coord(
 
             switch (axis) {
             case 0 :
-                for(ii=0; ii<xsize; ii++)
-                    for(jj=0; jj<ysize; jj++)
-                        for(kk=0; kk<zsize; kk++)
+                for(uint32_t ii=0; ii<xsize; ii++)
+                    for(uint32_t jj=0; jj<ysize; jj++)
+                        for(uint32_t kk=0; kk<zsize; kk++)
                             data.image[IDout].array.F[kk*xsize*ysize+jj*xsize+ii] = 1.0*ii;
                 break;
             case 1 :
-                for(ii=0; ii<xsize; ii++)
-                    for(jj=0; jj<ysize; jj++)
-                        for(kk=0; kk<zsize; kk++)
+                for(uint32_t ii=0; ii<xsize; ii++)
+                    for(uint32_t jj=0; jj<ysize; jj++)
+                        for(uint32_t kk=0; kk<zsize; kk++)
                             data.image[IDout].array.F[kk*xsize*ysize+jj*xsize+ii] = 1.0*jj;
                 break;
             case 2 :
-                for(ii=0; ii<xsize; ii++)
-                    for(jj=0; jj<xsize; jj++)
-                        for(kk=0; kk<zsize; kk++)
+                for(uint32_t ii=0; ii<xsize; ii++)
+                    for(uint32_t jj=0; jj<xsize; jj++)
+                        for(uint32_t kk=0; kk<zsize; kk++)
                             data.image[IDout].array.F[kk*xsize*ysize+jj*xsize+ii] = 1.0*kk;
                 break;
             default :
-                for(ii=0; ii<xsize; ii++)
-                    for(jj=0; jj<xsize; jj++)
-                        for(kk=0; kk<zsize; kk++)
+                for(uint32_t ii=0; ii<xsize; ii++)
+                    for(uint32_t jj=0; jj<xsize; jj++)
+                        for(uint32_t kk=0; kk<zsize; kk++)
                             data.image[IDout].array.F[kk*xsize*ysize+jj*xsize+ii] = 1.0*kk*xsize*ysize + jj*xsize + ii;
             }
         }
@@ -3082,25 +3104,24 @@ long image_gen_im2coord(
  * (x,y) coordinates in range [0:1]
  *
  */
-long image_gen_make_voronoi_map(
+imageID image_gen_make_voronoi_map(
     const char* filename,
     const char* IDout_name,
-    uint32_t xsize,
-    uint32_t ysize,
-    float radius,  // maximum radius of each Voronoi zone
-    float maxsep   // gap between Voronoi zones
+    uint32_t    xsize,
+    uint32_t    ysize,
+    float       radius,  // maximum radius of each Voronoi zone
+    float       maxsep   // gap between Voronoi zones
 )
 {
-    uint32_t ii, jj;
-    long IDout;
-    long naxis = 2;
+    imageID   IDout;
+    uint8_t   naxis = 2;
     uint32_t* sizearray;
 
-    int64_t* nearest_index;
-    float* nearest_distance;
-    int64_t* nextnearest_index;
-    float* nextnearest_distance;
-    int *gapim;
+    int64_t*  nearest_index;
+    float*    nearest_distance;
+    int64_t*  nextnearest_index;
+    float*    nextnearest_distance;
+    int      *gapim;
 
     FILE *fp;
     long NBpt;
@@ -3206,7 +3227,7 @@ long image_gen_make_voronoi_map(
 
     // initialize arrays
     float bigval = 1.0e20;
-    for( ii=0; ii<xsize*ysize; ii++ )
+    for(uint64_t ii=0; ii<xsize*ysize; ii++ )
     {
         nearest_index[ii] = -1;
         nearest_distance[ii] = bigval;
@@ -3216,8 +3237,8 @@ long image_gen_make_voronoi_map(
     }
 
 
-    for(ii=0; ii<xsize; ii++)
-        for(jj=0; jj<ysize; jj++)
+    for(uint32_t ii=0; ii<xsize; ii++)
+        for(uint32_t jj=0; jj<ysize; jj++)
         {
             int pindex = jj*xsize + ii;
             float x = 1.0*ii/xsize;
@@ -3252,16 +3273,16 @@ long image_gen_make_voronoi_map(
 
     // add gap
     int gapsizepix = (int) (maxsep*xsize);
-    int gapsizepix2 = (int) (maxsep*xsize/sqrt(2.0));
+   // int gapsizepix2 = (int) (maxsep*xsize/sqrt(2.0));
 
-    for(ii=0; ii<xsize; ii++)
-        for(jj=0; jj<ysize; jj++)
+    for(uint32_t ii=0; ii<xsize; ii++)
+        for(uint32_t jj=0; jj<ysize; jj++)
         {
             gapim[jj*xsize+ii] = 0;
         }
 
-    for(ii=gapsizepix; ii<xsize-gapsizepix; ii++)
-        for(jj=gapsizepix; jj<ysize-gapsizepix; jj++)
+    for(uint32_t ii=gapsizepix; ii<xsize-gapsizepix; ii++)
+        for(uint32_t jj=gapsizepix; jj<ysize-gapsizepix; jj++)
         {
             int pindex0 = jj*xsize + ii;
             int pindex0p = jj*xsize + ii+gapsizepix;
@@ -3293,8 +3314,8 @@ long image_gen_make_voronoi_map(
             }
         }
 
-    for(ii=0; ii<xsize; ii++)
-        for(jj=0; jj<ysize; jj++)
+    for(uint32_t ii=0; ii<xsize; ii++)
+        for(uint32_t jj=0; jj<ysize; jj++)
         {
             int pindex = jj*xsize + ii;
             if ( gapim[pindex] == 0 ) {
