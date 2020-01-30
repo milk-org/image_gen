@@ -1704,7 +1704,19 @@ imageID make_hexsegpupil(
     {
         for(i=0; i<SEGcnt; i++)
         {
-            fscanf(fpmlevel, "%ld %ld\n", &tmpl1, &tmpl2);
+            int fscanfcnt = fscanf(fpmlevel, "%ld %ld\n", &tmpl1, &tmpl2);
+            if(fscanfcnt == EOF) {
+                if(ferror(fp)) {
+                    perror("fscanf");
+                } else {
+                    fprintf(stderr, "Error: fscanf reached end of file, no matching characters, no matching failure\n");
+                }
+                exit(EXIT_FAILURE);
+            } else if(fscanfcnt != 2) {
+                fprintf(stderr, "Error: fscanf successfully matched and assigned %i input items, 2 expected\n", fscanfcnt);
+                exit(EXIT_FAILURE);
+            }
+
             seglevel[tmpl1-1] = tmpl2+15;
         }
         fclose(fpmlevel);
@@ -3130,7 +3142,22 @@ imageID image_gen_make_voronoi_map(
         printf("file %s not found\n", filename);
         return 1;
     }
-    fscanf(fp, "%ld", &NBpt);
+
+    {
+        int fscanfcnt = fscanf(fp, "%ld", &NBpt);
+        if(fscanfcnt == EOF) {
+            if(ferror(fp)) {
+                perror("fscanf");
+            } else {
+                fprintf(stderr, "Error: fscanf reached end of file, no matching characters, no matching failure\n");
+            }
+            exit(EXIT_FAILURE);
+        } else if(fscanfcnt != 2) {
+            fprintf(stderr, "Error: fscanf successfully matched and assigned %i input items, 2 expected\n", fscanfcnt);
+            exit(EXIT_FAILURE);
+        }
+    }
+
     printf("Loading %ld points\n", NBpt);
 
     uint32_t *vpt_index = (uint32_t*) malloc(sizeof(uint32_t)*NBpt);
@@ -3138,7 +3165,19 @@ imageID image_gen_make_voronoi_map(
     float *vpt_y = (float*) malloc(sizeof(float)*NBpt);
 
     for(int pt=0; pt<NBpt; pt++) {
-        fscanf(fp, "%u %f %f\n", &vpt_index[pt], &vpt_x[pt], &vpt_y[pt]);
+        int fscanfcnt = fscanf(fp, "%u %f %f\n", &vpt_index[pt], &vpt_x[pt], &vpt_y[pt]);
+        if(fscanfcnt == EOF) {
+            if(ferror(fp)) {
+                perror("fscanf");
+            } else {
+                fprintf(stderr, "Error: fscanf reached end of file, no matching characters, no matching failure\n");
+            }
+            exit(EXIT_FAILURE);
+        } else if(fscanfcnt != 3) {
+            fprintf(stderr, "Error: fscanf successfully matched and assigned %i input items, 3 expected\n", fscanfcnt);
+            exit(EXIT_FAILURE);
+        }
+
     }
 
     fclose(fp);
