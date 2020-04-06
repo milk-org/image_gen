@@ -3,7 +3,6 @@
 
 
 void __attribute__ ((constructor)) libinit_image_gen();
-errno_t init_image_gen();
 
 
 

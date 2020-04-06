@@ -8,6 +8,29 @@
 
 
 
+/* ================================================================== */
+/* ================================================================== */
+/*            MODULE INFO                                             */
+/* ================================================================== */
+/* ================================================================== */
+
+// module default short name
+// all CLI calls to this module functions will be <shortname>.<funcname>
+// if set to "", then calls use <funcname>
+#define MODULE_SHORTNAME_DEFAULT ""
+
+// Module short description 
+#define MODULE_DESCRIPTION       "Creating images (shapes, useful functions and patterns)"
+
+// Application to which module belongs
+#define MODULE_APPLICATION       "milk"
+
+
+
+
+
+
+
 #include <stdint.h>
 #include <string.h>
 #include <malloc.h>
@@ -32,9 +55,27 @@
 
 #define PI 3.14159265358979323846264338328
 
-//extern DATA data;
-static int INITSTATUS_image_gen = 0;
 
+
+
+
+/* ================================================================== */
+/* ================================================================== */
+/*            INITIALIZE LIBRARY                                      */
+/* ================================================================== */
+/* ================================================================== */
+
+// Module initialization macro in CLIcore.h
+// macro argument defines module name for bindings
+//
+INIT_MODULE_LIB(image_gen)
+
+
+/* ================================================================== */
+/* ================================================================== */
+/*            COMMAND LINE INTERFACE (CLI) FUNCTIONS                  */
+/* ================================================================== */
+/* ================================================================== */
 
 
 
@@ -437,22 +478,7 @@ errno_t image_gen_make_voronoi_map_cli() {
 
 
 
-void __attribute__ ((constructor)) libinit_image_gen()
-{	
-	if ( INITSTATUS_image_gen == 0 )
-	{
-		init_image_gen();
-		RegisterModule(__FILE__, "milk", "Creating images (shapes, useful functions and patterns)");
-		INITSTATUS_image_gen = 1;
-	}
-}
-
-
-
-
-
-
-errno_t init_image_gen()
+static errno_t init_module_CLI()
 {
 
     RegisterCLIcommand(
