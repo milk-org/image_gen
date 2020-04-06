@@ -2,7 +2,7 @@
 #define GENIMAGE_H
 
 
-void __attribute__ ((constructor)) libinit_image_gen();
+void __attribute__((constructor)) libinit_image_gen();
 
 
 
@@ -15,7 +15,7 @@ imageID make_double_star(
     double      intensity_2,
     double      separation,
     double      position_angle
-); 
+);
 
 
 /** @brief  creates a disk */
@@ -303,8 +303,8 @@ imageID image_gen_im2coord(
 
 
 imageID image_gen_make_voronoi_map(
-    const char* filename,
-    const char* IDout_name,
+    const char *filename,
+    const char *IDout_name,
     uint32_t    xsize,
     uint32_t    ysize,
     float       radius,  // maximum radius of each Voronoi zone
