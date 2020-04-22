@@ -22,8 +22,6 @@
 // Module short description
 #define MODULE_DESCRIPTION       "Creating images (shapes, useful functions and patterns)"
 
-// Application to which module belongs
-#define MODULE_APPLICATION       "milk"
 
 
 
