@@ -173,6 +173,11 @@ imageID make_gauss(
 );
 
 
+
+imageID make_FiberCouplingOverlap(
+    const char *ID_name
+);
+
 imageID make_2axis_gauss(
     const char *ID_name,
     uint32_t    l1,

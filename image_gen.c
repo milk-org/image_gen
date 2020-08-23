@@ -160,6 +160,27 @@ errno_t make_gauss_cli()
 }
 
 
+
+errno_t make_FiberCouplingOverlap_cli()
+{
+    if(
+        CLI_checkarg(1, CLIARG_STR_NOT_IMG)
+        == 0)
+    {
+        make_FiberCouplingOverlap(
+            data.cmdargtoken[1].val.string
+        );
+        return CLICMD_SUCCESS;
+    }
+    else
+    {
+        return CLICMD_INVALID_ARG;
+    }
+}
+
+
+
+
 errno_t make_slopexy_cli()
 {
     if(
@@ -529,6 +550,15 @@ static errno_t init_module_CLI()
         "mkgauss imdisk 512 512 12.0 1.0",
         "long make_gauss(const char *ID_name, long l1, long l2, double a, double A)");
 
+
+    RegisterCLIcommand(
+        "mkfiberclpoverlap",
+        __FILE__,
+        make_FiberCouplingOverlap_cli,
+        "make fiber coupling overlap integral",
+        "<output image name>",
+        "mkfibercpl imdisk",
+        "imageID make_FiberCouplingOverlap(const char *ID_name)");
 
     RegisterCLIcommand(
         "mkslopexy",
@@ -2607,6 +2637,133 @@ imageID make_gauss(
     /*  printf("FWHM = %f\n",2.0*a*sqrt(log(2)));*/
     return(ID);
 }
+
+
+
+
+
+
+
+
+imageID make_FiberCouplingOverlap(
+    const char *ID_name
+)
+{
+    imageID  ID;
+    uint32_t naxes[2];
+    uint32_t size = 128;
+
+    create_2Dimage_ID(ID_name, size, size);
+    ID = image_ID(ID_name);
+    naxes[0] = data.image[ID].md[0].size[0];
+    naxes[1] = data.image[ID].md[0].size[1];
+
+    float TTcoeff = 0.2;
+
+
+    float puprad = 0.1*size;
+    float xcent = 1.32;
+    float ycent = 0.0;
+
+
+    // compute TEM00 map
+    create_2Dimage_ID("tem00", size, size);
+    imageID IDtem00 = image_ID("tem00");
+
+
+    double fluxtot = 0.0;
+    for(uint32_t jj = 0; jj < naxes[1]; jj++)
+    {
+        for(uint32_t ii = 0; ii < naxes[0]; ii++)
+        {
+            float x = 1.0*(1.0*ii-0.5*naxes[0])/puprad;
+            float y = 1.0*(1.0*jj-0.5*naxes[1])/puprad;
+            float r0 = sqrt(x*x+y*y);
+            float TEM00 = exp(-r0*r0);
+            
+            fluxtot += TEM00*TEM00;
+            data.image[IDtem00].array.F[jj * naxes[0] + ii] = TEM00;            
+        }
+    }
+
+
+
+
+
+    for(uint32_t jj = 0; jj < naxes[1]; jj++)
+    {
+        for(uint32_t ii = 0; ii < naxes[0]; ii++)
+        {
+			data.image[IDtem00].array.F[jj * naxes[0] + ii] /= sqrt(fluxtot);
+		}
+	}	
+
+
+	
+    for(uint32_t jj = 0; jj < naxes[1]; jj++)
+    {
+        for(uint32_t ii = 0; ii < naxes[0]; ii++)
+        {
+			double totre = 0.0;
+			double totim = 0.0;
+			
+            float TTx = 1.0*(1.0*ii-0.5*naxes[0]) * TTcoeff;
+            float TTy = 1.0*(1.0*jj-0.5*naxes[1]) * TTcoeff;
+
+			fluxtot = 0.0;
+            for(uint32_t jj0 = 0; jj0 < naxes[1]; jj0++)
+            {
+                for(uint32_t ii0 = 0; ii0 < naxes[0]; ii0++)
+                {
+					float pup_ampl;
+					float pup_pha;
+
+					// pupil coord x, y
+					
+                    float x = 1.0*(1.0*ii0-0.5*naxes[0])/puprad;
+                    float y = 1.0*(1.0*jj0-0.5*naxes[1])/puprad;
+                    float dx = x - xcent;
+                    float dy = y - ycent;
+
+                    float r = sqrt(dx*dx+dy*dy);
+
+
+
+
+					float TEM00 = data.image[IDtem00].array.F[jj0 * naxes[0] + ii0];
+					
+
+                    //data.image[ID].array.F[jj * naxes[0] + ii] = -r;
+
+                    if( (r < 1.0) && (r > 0.3) )
+                    {
+                        pup_ampl = 1.0; //data.image[IDtem00].array.F[jj0 * naxes[0] + ii0];
+                        pup_pha = x*TTx + y*TTy;
+						
+						fluxtot += pup_ampl*pup_ampl;
+						
+                        totre += TEM00 * ( pup_ampl * cos(pup_pha) );
+                        totim += TEM00 * ( pup_ampl * sin(pup_pha) );
+
+                    }
+                    else
+                    {
+                        data.image[ID].array.F[jj * naxes[0] + ii] = 0.0;
+                        pup_ampl = 0.0;
+                    }
+
+
+                }
+            }
+
+
+            data.image[ID].array.F[jj * naxes[0] + ii] = ( totre*totre + totim*totim ) / sqrt(fluxtot);
+        }
+    }
+
+    return ID;
+}
+
 
 
 
