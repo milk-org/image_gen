@@ -2,6 +2,8 @@
 set(LIBNAME "milkimagegen")
 set(SRCNAME "image_gen")
 
+message("")
+message(" SRCNAME = ${SRCNAME} -> LIBNAME = ${LIBNAME}")
 
 set(SOURCEFILES
 	${SRCNAME}.c)
