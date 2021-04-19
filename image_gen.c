@@ -46,6 +46,10 @@
 
 #include "image_gen/image_gen.h"
 
+
+#include "mkrandomim.h"
+
+
 #define OMP_NELEMENT_LIMIT 1000000
 
 #define SWAP(x,y)  tmp=(x);x=(y);y=tmp;
@@ -680,7 +684,7 @@ static errno_t init_module_CLI()
         "long image_gen_make_voronoi_map(const char *filename, const char *IDout_name, uint32_t xsize, uint32_t ysize, float radius, float maxsep)");
 
 
-
+    CLIADDCMD_image_gen__mkrandomim();
 
     //long make_rnd(const char *ID_name, long l1, long l2, const char *options)
 
