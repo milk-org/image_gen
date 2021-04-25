@@ -54,85 +54,101 @@ static CLICMDDATA CLIcmddata =
 
 
 static imageID make_image_random(
-    const char *ID_name,
-    uint32_t    l1,
-    uint32_t    l2,
+    IMGID *img,
     int pdf
 )
 {
-    imageID  ID = -1;
     uint32_t naxes[2];
     uint64_t nelement;
 
-    if(pdf == 0)
-    {
-        // uniform
-        printf("uniform distribution\n");
-    }
-
-    if(pdf == 1)
-    {
-        // gauss
-        printf("gaussian distribution\n");
-    }
-
-    if(pdf == 2)
-    {
-        // truncated gauss
-        printf("truncated gaussian distribution\n");
-    }
-
-    //fprintf(stdout, "Image size = %u %u\n", l1, l2);
-
-    // Create image
-    DEBUG_TRACEPOINT(" ");
-    long naxis = 2;
-    uint32_t *sizearray = (uint32_t *) malloc(sizeof(uint32_t) * naxis);
-    sizearray[0] = l1;
-    sizearray[1] = l2;
-
-    uint8_t datatype = _DATATYPE_FLOAT;
-    int shared = 0;
-    int NBkw = 10;
-    DEBUG_TRACEPOINT(" ");
-    ID = create_image_ID(ID_name, naxis, sizearray, datatype, shared, NBkw);
-    DEBUG_TRACEPOINT(" ");
-    free(sizearray);
-
-    //create_2Dimage_ID(ID_name, l1, l2);
-
-    //ID = image_ID(ID_name);
+    // 0: uniform
+    // 1: gauss
+    // 2: truncated gauss
 
 
-    naxes[0] = data.image[ID].md[0].size[0];
-    naxes[1] = data.image[ID].md[0].size[1];
+    // Create image if needed
+    imcreateIMGID(img);
+
+
+    naxes[0] = img->md->size[0];
+    naxes[1] = img->md->size[1];
     nelement = naxes[0] * naxes[1];
-
 
     // openMP is slow when calling gsl random number generator : do not use openMP here
     if(pdf == 0)
     {
         for(uint64_t ii = 0; ii < nelement; ii++)
         {
-            data.image[ID].array.F[ii] = (float) ran1();
+            img->im->array.F[ii] = (float) ran1();
         }
     }
     if(pdf == 1)
     {
         for(uint64_t ii = 0; ii < nelement; ii++)
         {
-            data.image[ID].array.F[ii] = (float) gauss();
+            img->im->array.F[ii] = (float) gauss();
         }
     }
     if(pdf == 2)
     {
         for(uint64_t ii = 0; ii < nelement; ii++)
         {
-            data.image[ID].array.F[ii] = (float) gauss_trc();
+            img->im->array.F[ii] = (float) gauss_trc();
+        }
+    }
+    if(pdf == 3)
+    {
+        float gain = 0.01;
+        for(uint32_t ii = 1; ii < naxes[0] - 1; ii++)
+        {
+            for(uint32_t jj = 1; jj < naxes[1] - 1; jj++)
+            {
+                float val = img->im->array.F[(jj) * naxes[0] + (ii)];
+                float proxval = 0;
+                proxval += img->im->array.F[(jj - 1) * naxes[0] + (ii - 1)];
+                proxval += img->im->array.F[(jj - 1) * naxes[0] + (ii)];
+                proxval += img->im->array.F[(jj - 1) * naxes[0] + (ii + 1)];
+                proxval += img->im->array.F[(jj) * naxes[0] + (ii - 1)];
+                proxval += img->im->array.F[(jj) * naxes[0] + (ii + 1)];
+                proxval += img->im->array.F[(jj + 1) * naxes[0] + (ii - 1)];
+                proxval += img->im->array.F[(jj + 1) * naxes[0] + (ii)];
+                proxval += img->im->array.F[(jj + 1) * naxes[0] + (ii - 1)];
+
+                if(val > 0.5) // live cell
+                {
+                    if(proxval < 2.0)
+                    {
+                        val -= gain;
+                    }
+                    if(proxval > 3.0)
+                    {
+                        val -= gain;
+                    }
+                }
+                else // dead cell
+                {
+                    if(proxval > 3.0)
+                    {
+                        val += gain;
+                    }
+                }
+                val += (float) gauss() * 0.1 * gain;
+                if(val < 0.0)
+                {
+                    val = 0.0;
+                }
+                if(val > 5.0)
+                {
+                    val = 5.0;
+                }
+                img->im->array.F[(jj) * naxes[0] + (ii)] = val;
+            }
         }
     }
 
-    return(ID);
+    DEBUG_TRACEPOINT(" ");
+
+    return(img->ID);
 }
 
 
@@ -140,22 +156,30 @@ static imageID make_image_random(
 static errno_t compute_function()
 {
     DEBUG_TRACEPOINT(" ");
-    //IMGID outimg = makeIMGID(outimname);
-    //resolveIMGID(&outimg, ERRMODE_ABORT);
+
+
+    printf("image \"%s\"\n", outimname);
+
+    IMGID img = makeIMGID(outimname);
+    img.naxis = 2;
+    img.size[0] = *imxsize;
+    img.size[1] = *imysize;
 
     INSERT_STD_PROCINFO_COMPUTEFUNC_START
 
-    DEBUG_TRACEPOINT(" ");
+    DEBUG_TRACEPOINT("starting random image func");
     make_image_random(
-        outimname,
-        *imxsize,
-        *imysize,
+        &img,
         *distrib
     );
 
-    //processinfo_update_output_stream(processinfo, outimg.ID);
+    DEBUG_TRACEPOINT("updating output");
 
+
+    processinfo_update_output_stream(processinfo, img.ID);
     INSERT_STD_PROCINFO_COMPUTEFUNC_END
+
+    DEBUG_TRACEPOINT(" ");
 
     return RETURN_SUCCESS;
 }
