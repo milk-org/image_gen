@@ -10,6 +10,8 @@ static uint32_t *imxsize;
 static uint32_t *imysize;
 static int *distrib;
 
+
+
 static CLICMDARGDEF farg[] =
 {
     {

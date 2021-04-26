@@ -3826,7 +3826,7 @@ imageID image_gen_make_voronoi_map(
     sizearray = (uint32_t *) malloc(sizeof(uint32_t) * naxis);
     sizearray[0] = xsize;
     sizearray[1] = ysize;
-    IDout = create_image_ID(IDout_name, naxis, sizearray, _DATATYPE_INT32, 0, 0);
+    IDout = create_image_ID(IDout_name, naxis, sizearray, _DATATYPE_INT32, 0, 0, 0);
     free(sizearray);
 
     nearest_index    = (int64_t *) malloc(sizeof(int64_t) * xsize * ysize);
