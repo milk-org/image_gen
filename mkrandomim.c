@@ -11,6 +11,9 @@ static uint32_t *imysize;
 static int *distrib;
 
 
+#define FRAMECNTDIM 100
+static uint32_t framecnt[FRAMECNTDIM];
+
 
 static CLICMDARGDEF farg[] =
 {
@@ -75,6 +78,12 @@ static imageID make_image_random(
     naxes[0] = img->md->size[0];
     naxes[1] = img->md->size[1];
     nelement = naxes[0] * naxes[1];
+
+
+
+
+
+
 
     // openMP is slow when calling gsl random number generator : do not use openMP here
     if(pdf == 0)
@@ -148,6 +157,36 @@ static imageID make_image_random(
         }
     }
 
+
+    if(pdf == 9)
+    {
+        // test pattern
+        for(uint64_t ii = 0; ii < nelement; ii++)
+        {
+            img->im->array.F[ii] = 0.0;
+        }
+
+        framecnt[0] ++;
+        for(uint32_t i = 0; i < (FRAMECNTDIM - 1); i++)
+        {
+            if(framecnt[i] == naxes[0] + 1)
+            {
+                framecnt[i] = 0;
+                framecnt[i + 1]++;
+            }
+            if(i < naxes[1])
+            {
+                if(framecnt[i] > 0)
+                {
+                    long ii = framecnt[i] - 1;
+                    uint32_t jj = i;
+                    img->im->array.F[jj * naxes[0] + ii] = 1;
+                }
+            }
+        }
+    }
+
+
     DEBUG_TRACEPOINT(" ");
 
     return(img->ID);
@@ -159,6 +198,10 @@ static errno_t compute_function()
 {
     DEBUG_TRACEPOINT(" ");
 
+    for(int i = 0; i < FRAMECNTDIM; i++)
+    {
+        framecnt[i] = 0;
+    }
 
     printf("image \"%s\"\n", outimname);
 
@@ -169,14 +212,10 @@ static errno_t compute_function()
 
     INSERT_STD_PROCINFO_COMPUTEFUNC_START
 
-    DEBUG_TRACEPOINT("starting random image func");
     make_image_random(
         &img,
         *distrib
     );
-
-    DEBUG_TRACEPOINT("updating output");
-
 
     processinfo_update_output_stream(processinfo, img.ID);
     INSERT_STD_PROCINFO_COMPUTEFUNC_END
