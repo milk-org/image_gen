@@ -1794,29 +1794,29 @@ imageID IMAGE_gen_segments2WFmodes(
         switch(ndigit)
         {
 
-            case 1 :
-                sprintf(imname, "%s%01ld", prefix, seg);
-                break;
-            case 2 :
-                sprintf(imname, "%s%02ld", prefix, seg);
-                break;
-            case 3 :
-                sprintf(imname, "%s%03ld", prefix, seg);
-                break;
-            case 4 :
-                sprintf(imname, "%s%04ld", prefix, seg);
-                break;
-            case 5 :
-                sprintf(imname, "%s%05ld", prefix, seg);
-                break;
-            case 6 :
-                sprintf(imname, "%s%06ld", prefix, seg);
-                break;
+        case 1 :
+            sprintf(imname, "%s%01ld", prefix, seg);
+            break;
+        case 2 :
+            sprintf(imname, "%s%02ld", prefix, seg);
+            break;
+        case 3 :
+            sprintf(imname, "%s%03ld", prefix, seg);
+            break;
+        case 4 :
+            sprintf(imname, "%s%04ld", prefix, seg);
+            break;
+        case 5 :
+            sprintf(imname, "%s%05ld", prefix, seg);
+            break;
+        case 6 :
+            sprintf(imname, "%s%06ld", prefix, seg);
+            break;
 
 
-            default:
-                printf("ERROR: Invalid number of didits\n");
-                exit(0);
+        default:
+            printf("ERROR: Invalid number of didits\n");
+            exit(0);
         }
         IDarray[seg] = image_ID(imname);
         if(IDarray[seg] != -1)
@@ -1837,8 +1837,22 @@ imageID IMAGE_gen_segments2WFmodes(
         xysize = xsize * ysize;
 
         segxc = (double *) malloc(sizeof(double) * NBseg);
+        if(segxc == NULL) {
+            PRINT_ERROR("malloc returns NULL pointer");
+            abort();
+        }
+
         segyc = (double *) malloc(sizeof(double) * NBseg);
+        if(segyc == NULL) {
+            PRINT_ERROR("malloc returns NULL pointer");
+            abort();
+        }
+
         segsum = (double *) malloc(sizeof(double) * NBseg);
+        if(segsum == NULL) {
+            PRINT_ERROR("malloc returns NULL pointer");
+            abort();
+        }
 
         IDmask = create_2Dimage_ID("_pupmask", xsize, ysize);
 
@@ -1992,7 +2006,16 @@ imageID make_hexsegpupil(
 
 
     seglevel = (long *) malloc(sizeof(long) * SEGcnt);
+    if(seglevel == NULL) {
+        PRINT_ERROR("malloc returns NULL pointer");
+        abort();
+    }
+
     bitval = (int *) malloc(sizeof(int) * SEGcnt);
+    if(bitval == NULL) {
+        PRINT_ERROR("malloc returns NULL pointer");
+        abort();
+    }
 
     fpmlevel = fopen("fpm_level.txt", "r");
     if(fpmlevel != NULL)
@@ -2684,9 +2707,9 @@ imageID make_FiberCouplingOverlap(
             float y = 1.0*(1.0*jj-0.5*naxes[1])/puprad;
             float r0 = sqrt(x*x+y*y);
             float TEM00 = exp(-r0*r0);
-            
+
             fluxtot += TEM00*TEM00;
-            data.image[IDtem00].array.F[jj * naxes[0] + ii] = TEM00;            
+            data.image[IDtem00].array.F[jj * naxes[0] + ii] = TEM00;
         }
     }
 
@@ -2698,32 +2721,32 @@ imageID make_FiberCouplingOverlap(
     {
         for(uint32_t ii = 0; ii < naxes[0]; ii++)
         {
-			data.image[IDtem00].array.F[jj * naxes[0] + ii] /= sqrt(fluxtot);
-		}
-	}	
+            data.image[IDtem00].array.F[jj * naxes[0] + ii] /= sqrt(fluxtot);
+        }
+    }
 
 
-	
+
     for(uint32_t jj = 0; jj < naxes[1]; jj++)
     {
         for(uint32_t ii = 0; ii < naxes[0]; ii++)
         {
-			double totre = 0.0;
-			double totim = 0.0;
-			
+            double totre = 0.0;
+            double totim = 0.0;
+
             float TTx = 1.0*(1.0*ii-0.5*naxes[0]) * TTcoeff;
             float TTy = 1.0*(1.0*jj-0.5*naxes[1]) * TTcoeff;
 
-			fluxtot = 0.0;
+            fluxtot = 0.0;
             for(uint32_t jj0 = 0; jj0 < naxes[1]; jj0++)
             {
                 for(uint32_t ii0 = 0; ii0 < naxes[0]; ii0++)
                 {
-					float pup_ampl;
-					float pup_pha;
+                    float pup_ampl;
+                    float pup_pha;
 
-					// pupil coord x, y
-					
+                    // pupil coord x, y
+
                     float x = 1.0*(1.0*ii0-0.5*naxes[0])/puprad;
                     float y = 1.0*(1.0*jj0-0.5*naxes[1])/puprad;
                     float dx = x - xcent;
@@ -2734,8 +2757,8 @@ imageID make_FiberCouplingOverlap(
 
 
 
-					float TEM00 = data.image[IDtem00].array.F[jj0 * naxes[0] + ii0];
-					
+                    float TEM00 = data.image[IDtem00].array.F[jj0 * naxes[0] + ii0];
+
 
                     //data.image[ID].array.F[jj * naxes[0] + ii] = -r;
 
@@ -2743,9 +2766,9 @@ imageID make_FiberCouplingOverlap(
                     {
                         pup_ampl = 1.0; //data.image[IDtem00].array.F[jj0 * naxes[0] + ii0];
                         pup_pha = x*TTx + y*TTy;
-						
-						fluxtot += pup_ampl*pup_ampl;
-						
+
+                        fluxtot += pup_ampl*pup_ampl;
+
                         totre += TEM00 * ( pup_ampl * cos(pup_pha) );
                         totim += TEM00 * ( pup_ampl * sin(pup_pha) );
 
@@ -3322,7 +3345,17 @@ imageID make_psf_from_profile(
     printf("%ld lines\n", nb_lines);
 
     distarr = (double *) malloc(sizeof(double) * nb_lines);
+    if(distarr == NULL) {
+        PRINT_ERROR("malloc returns NULL pointer");
+        abort();
+    }
+
     valarr = (double *) malloc(sizeof(double) * nb_lines);
+    if(valarr == NULL) {
+        PRINT_ERROR("malloc returns NULL pointer");
+        abort();
+    }
+
 
     if((fp = fopen(profile_name, "r")) == NULL)
     {
@@ -3573,26 +3606,26 @@ imageID image_gen_im2coord(
 
             switch(axis)
             {
-                case 0 :
-                    for(uint32_t ii = 0; ii < xsize; ii++)
-                        for(uint32_t jj = 0; jj < ysize; jj++)
-                        {
-                            data.image[IDout].array.F[jj * xsize + ii] = 1.0 * ii;
-                        }
-                    break;
-                case 1 :
-                    for(uint32_t ii = 0; ii < xsize; ii++)
-                        for(uint32_t jj = 0; jj < ysize; jj++)
-                        {
-                            data.image[IDout].array.F[jj * xsize + ii] = 1.0 * jj;
-                        }
-                    break;
-                default :
-                    for(uint32_t ii = 0; ii < xsize; ii++)
-                        for(uint32_t jj = 0; jj < ysize; jj++)
-                        {
-                            data.image[IDout].array.F[jj * xsize + ii] = 1.0 * jj * xsize + ii;
-                        }
+            case 0 :
+                for(uint32_t ii = 0; ii < xsize; ii++)
+                    for(uint32_t jj = 0; jj < ysize; jj++)
+                    {
+                        data.image[IDout].array.F[jj * xsize + ii] = 1.0 * ii;
+                    }
+                break;
+            case 1 :
+                for(uint32_t ii = 0; ii < xsize; ii++)
+                    for(uint32_t jj = 0; jj < ysize; jj++)
+                    {
+                        data.image[IDout].array.F[jj * xsize + ii] = 1.0 * jj;
+                    }
+                break;
+            default :
+                for(uint32_t ii = 0; ii < xsize; ii++)
+                    for(uint32_t jj = 0; jj < ysize; jj++)
+                    {
+                        data.image[IDout].array.F[jj * xsize + ii] = 1.0 * jj * xsize + ii;
+                    }
             }
 
         }
@@ -3609,38 +3642,38 @@ imageID image_gen_im2coord(
 
             switch(axis)
             {
-                case 0 :
-                    for(uint32_t ii = 0; ii < xsize; ii++)
-                        for(uint32_t jj = 0; jj < ysize; jj++)
-                            for(uint32_t kk = 0; kk < zsize; kk++)
-                            {
-                                data.image[IDout].array.F[kk * xsize * ysize + jj * xsize + ii] = 1.0 * ii;
-                            }
-                    break;
-                case 1 :
-                    for(uint32_t ii = 0; ii < xsize; ii++)
-                        for(uint32_t jj = 0; jj < ysize; jj++)
-                            for(uint32_t kk = 0; kk < zsize; kk++)
-                            {
-                                data.image[IDout].array.F[kk * xsize * ysize + jj * xsize + ii] = 1.0 * jj;
-                            }
-                    break;
-                case 2 :
-                    for(uint32_t ii = 0; ii < xsize; ii++)
-                        for(uint32_t jj = 0; jj < xsize; jj++)
-                            for(uint32_t kk = 0; kk < zsize; kk++)
-                            {
-                                data.image[IDout].array.F[kk * xsize * ysize + jj * xsize + ii] = 1.0 * kk;
-                            }
-                    break;
-                default :
-                    for(uint32_t ii = 0; ii < xsize; ii++)
-                        for(uint32_t jj = 0; jj < xsize; jj++)
-                            for(uint32_t kk = 0; kk < zsize; kk++)
-                            {
-                                data.image[IDout].array.F[kk * xsize * ysize + jj * xsize + ii] = 1.0 * kk *
-                                        xsize * ysize + jj * xsize + ii;
-                            }
+            case 0 :
+                for(uint32_t ii = 0; ii < xsize; ii++)
+                    for(uint32_t jj = 0; jj < ysize; jj++)
+                        for(uint32_t kk = 0; kk < zsize; kk++)
+                        {
+                            data.image[IDout].array.F[kk * xsize * ysize + jj * xsize + ii] = 1.0 * ii;
+                        }
+                break;
+            case 1 :
+                for(uint32_t ii = 0; ii < xsize; ii++)
+                    for(uint32_t jj = 0; jj < ysize; jj++)
+                        for(uint32_t kk = 0; kk < zsize; kk++)
+                        {
+                            data.image[IDout].array.F[kk * xsize * ysize + jj * xsize + ii] = 1.0 * jj;
+                        }
+                break;
+            case 2 :
+                for(uint32_t ii = 0; ii < xsize; ii++)
+                    for(uint32_t jj = 0; jj < xsize; jj++)
+                        for(uint32_t kk = 0; kk < zsize; kk++)
+                        {
+                            data.image[IDout].array.F[kk * xsize * ysize + jj * xsize + ii] = 1.0 * kk;
+                        }
+                break;
+            default :
+                for(uint32_t ii = 0; ii < xsize; ii++)
+                    for(uint32_t jj = 0; jj < xsize; jj++)
+                        for(uint32_t kk = 0; kk < zsize; kk++)
+                        {
+                            data.image[IDout].array.F[kk * xsize * ysize + jj * xsize + ii] = 1.0 * kk *
+                                    xsize * ysize + jj * xsize + ii;
+                        }
             }
         }
     }
@@ -3723,8 +3756,22 @@ imageID image_gen_make_voronoi_map(
     printf("Loading %ld points\n", NBpt);
 
     uint32_t *vpt_index = (uint32_t *) malloc(sizeof(uint32_t) * NBpt);
+    if(vpt_index == NULL) {
+        PRINT_ERROR("malloc returns NULL pointer");
+        abort();
+    }
+
     float *vpt_x = (float *) malloc(sizeof(float) * NBpt);
+    if(vpt_x == NULL) {
+        PRINT_ERROR("malloc returns NULL pointer");
+        abort();
+    }
+
     float *vpt_y = (float *) malloc(sizeof(float) * NBpt);
+    if(vpt_y == NULL) {
+        PRINT_ERROR("malloc returns NULL pointer");
+        abort();
+    }
 
     for(int pt = 0; pt < NBpt; pt++)
     {
@@ -3824,18 +3871,48 @@ imageID image_gen_make_voronoi_map(
 
 
     sizearray = (uint32_t *) malloc(sizeof(uint32_t) * naxis);
+    if(sizearray == NULL) {
+        PRINT_ERROR("malloc returns NULL pointer");
+        abort();
+    }
+
     sizearray[0] = xsize;
     sizearray[1] = ysize;
     IDout = create_image_ID(IDout_name, naxis, sizearray, _DATATYPE_INT32, 0, 0, 0);
     free(sizearray);
 
     nearest_index    = (int64_t *) malloc(sizeof(int64_t) * xsize * ysize);
+    if(nearest_index == NULL) {
+        PRINT_ERROR("malloc returns NULL pointer");
+        abort();
+    }
+
+
     nearest_distance = (float *) malloc(sizeof(float) * xsize * ysize);
+    if(nearest_distance == NULL) {
+        PRINT_ERROR("malloc returns NULL pointer");
+        abort();
+    }
 
     nextnearest_index    = (int64_t *) malloc(sizeof(int64_t) * xsize * ysize);
+    if(nextnearest_index == NULL) {
+        PRINT_ERROR("malloc returns NULL pointer");
+        abort();
+    }
+
     nextnearest_distance = (float *) malloc(sizeof(float) * xsize * ysize);
+    if(nextnearest_distance == NULL) {
+        PRINT_ERROR("malloc returns NULL pointer");
+        abort();
+    }
+
 
     gapim = (int *) malloc(sizeof(int) * xsize * ysize);
+    if(gapim == NULL) {
+        PRINT_ERROR("malloc returns NULL pointer");
+        abort();
+    }
+
 
     // initialize arrays
     float bigval = 1.0e20;
