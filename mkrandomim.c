@@ -11,9 +11,6 @@ static uint32_t *imysize;
 static int *distrib;
 
 
-#define FRAMECNTDIM 100
-static uint32_t framecnt[FRAMECNTDIM];
-
 
 static CLICMDARGDEF farg[] =
 {
@@ -63,9 +60,6 @@ static imageID make_image_random(
     int pdf
 )
 {
-    uint32_t naxes[2];
-    uint64_t nelement;
-
     // 0: uniform
     // 1: gauss
     // 2: truncated gauss
@@ -75,119 +69,28 @@ static imageID make_image_random(
     imcreateIMGID(img);
 
 
-    naxes[0] = img->md->size[0];
-    naxes[1] = img->md->size[1];
-    nelement = naxes[0] * naxes[1];
-
-
-
-
-
-
-
     // openMP is slow when calling gsl random number generator : do not use openMP here
     if(pdf == 0)
     {
-        for(uint64_t ii = 0; ii < nelement; ii++)
+        for(uint64_t ii = 0; ii < img->md->nelement; ii++)
         {
             img->im->array.F[ii] = (float) ran1();
         }
     }
     if(pdf == 1)
     {
-        for(uint64_t ii = 0; ii < nelement; ii++)
+        for(uint64_t ii = 0; ii < img->md->nelement; ii++)
         {
             img->im->array.F[ii] = (float) gauss();
         }
     }
     if(pdf == 2)
     {
-        for(uint64_t ii = 0; ii < nelement; ii++)
+        for(uint64_t ii = 0; ii < img->md->nelement; ii++)
         {
             img->im->array.F[ii] = (float) gauss_trc();
         }
     }
-    if(pdf == 3)
-    {
-        float gain = 0.01;
-        for(uint32_t ii = 1; ii < naxes[0] - 1; ii++)
-        {
-            for(uint32_t jj = 1; jj < naxes[1] - 1; jj++)
-            {
-                float val = img->im->array.F[(jj) * naxes[0] + (ii)];
-                float proxval = 0;
-                proxval += img->im->array.F[(jj - 1) * naxes[0] + (ii - 1)];
-                proxval += img->im->array.F[(jj - 1) * naxes[0] + (ii)];
-                proxval += img->im->array.F[(jj - 1) * naxes[0] + (ii + 1)];
-                proxval += img->im->array.F[(jj) * naxes[0] + (ii - 1)];
-                proxval += img->im->array.F[(jj) * naxes[0] + (ii + 1)];
-                proxval += img->im->array.F[(jj + 1) * naxes[0] + (ii - 1)];
-                proxval += img->im->array.F[(jj + 1) * naxes[0] + (ii)];
-                proxval += img->im->array.F[(jj + 1) * naxes[0] + (ii - 1)];
-
-                if(val > 0.5) // live cell
-                {
-                    if(proxval < 2.0)
-                    {
-                        val -= gain;
-                    }
-                    if(proxval > 3.0)
-                    {
-                        val -= gain;
-                    }
-                }
-                else // dead cell
-                {
-                    if(proxval > 3.0)
-                    {
-                        val += gain;
-                    }
-                }
-                val += (float) gauss() * 0.1 * gain;
-                if(val < 0.0)
-                {
-                    val = 0.0;
-                }
-                if(val > 5.0)
-                {
-                    val = 5.0;
-                }
-                img->im->array.F[(jj) * naxes[0] + (ii)] = val;
-            }
-        }
-    }
-
-
-    if(pdf == 9)
-    {
-        // test pattern
-        for(uint64_t ii = 0; ii < nelement; ii++)
-        {
-            img->im->array.F[ii] = 0.0;
-        }
-
-        framecnt[0] ++;
-        for(uint32_t i = 0; i < (FRAMECNTDIM - 1); i++)
-        {
-            if(framecnt[i] == naxes[0] + 1)
-            {
-                framecnt[i] = 0;
-                framecnt[i + 1]++;
-            }
-            if(i < naxes[1])
-            {
-                if(framecnt[i] > 0)
-                {
-                    long ii = framecnt[i] - 1;
-                    uint32_t jj = i;
-                    img->im->array.F[jj * naxes[0] + ii] = 1;
-                }
-            }
-        }
-    }
-
-
-    DEBUG_TRACEPOINT(" ");
 
     return(img->ID);
 }
@@ -196,19 +99,7 @@ static imageID make_image_random(
 
 static errno_t compute_function()
 {
-    DEBUG_TRACEPOINT(" ");
-
-    for(int i = 0; i < FRAMECNTDIM; i++)
-    {
-        framecnt[i] = 0;
-    }
-
-    printf("image \"%s\"\n", outimname);
-
-    IMGID img = makeIMGID(outimname);
-    img.naxis = 2;
-    img.size[0] = *imxsize;
-    img.size[1] = *imysize;
+    IMGID img = makeIMGID_2D(outimname, *imxsize, *imysize);
 
     INSERT_STD_PROCINFO_COMPUTEFUNC_START
 
@@ -220,10 +111,10 @@ static errno_t compute_function()
     processinfo_update_output_stream(processinfo, img.ID);
     INSERT_STD_PROCINFO_COMPUTEFUNC_END
 
-    DEBUG_TRACEPOINT(" ");
-
     return RETURN_SUCCESS;
 }
+
+
 
 
 INSERT_STD_FPSCLIfunctions
@@ -232,7 +123,6 @@ INSERT_STD_FPSCLIfunctions
 errno_t CLIADDCMD_image_gen__mkrandomim()
 {
     INSERT_STD_CLIREGISTERFUNC
-
     return RETURN_SUCCESS;
 }
 
