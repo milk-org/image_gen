@@ -49,7 +49,11 @@ static CLICMDDATA CLIcmddata =
 };
 
 
-
+// detailed help
+static errno_t help_function()
+{
+    return RETURN_SUCCESS;
+}
 
 
 
