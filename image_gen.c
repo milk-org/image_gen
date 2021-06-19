@@ -1914,7 +1914,7 @@ imageID IMAGE_gen_segments2WFmodes(
         }
 
 
-        //delete_image_ID("_seg2wfm_tmp");
+        //delete_image_ID("_seg2wfm_tmp", DELETE_IMAGE_ERRMODE_WARNING);
 
         free(segxc);
         free(segyc);
@@ -2211,7 +2211,7 @@ imageID make_hexsegpupil(
                         }
                     }
                 }
-                delete_image_ID("_TMPhex");
+                delete_image_ID("_TMPhex", DELETE_IMAGE_ERRMODE_WARNING);
             }
 
 
@@ -2297,12 +2297,12 @@ imageID make_hexsegpupil(
                         }
                     }
                 }
-                delete_image_ID("_TMPhex");
+                delete_image_ID("_TMPhex", DELETE_IMAGE_ERRMODE_WARNING);
             }
 
 
         }
-    delete_image_ID("_TMPdisk");
+    delete_image_ID("_TMPdisk", DELETE_IMAGE_ERRMODE_WARNING);
 
     printf("%ld segments\n", SEGcnt);
 
