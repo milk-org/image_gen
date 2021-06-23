@@ -64,6 +64,8 @@ static imageID make_image_random(
     int pdf
 )
 {
+    DEBUG_TRACE_FSTART();
+
     // 0: uniform
     // 1: gauss
     // 2: truncated gauss
@@ -96,6 +98,7 @@ static imageID make_image_random(
         }
     }
 
+    DEBUG_TRACE_FEXIT();
     return(img->ID);
 }
 
@@ -103,6 +106,8 @@ static imageID make_image_random(
 
 static errno_t compute_function()
 {
+    DEBUG_TRACE_FSTART();
+
     IMGID img = makeIMGID_2D(outimname, *imxsize, *imysize);
 
     INSERT_STD_PROCINFO_COMPUTEFUNC_START
@@ -115,6 +120,7 @@ static errno_t compute_function()
     processinfo_update_output_stream(processinfo, img.ID);
     INSERT_STD_PROCINFO_COMPUTEFUNC_END
 
+    DEBUG_TRACE_FEXIT();
     return RETURN_SUCCESS;
 }
 
