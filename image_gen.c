@@ -712,8 +712,7 @@ imageID make_double_star(
     imageID  ID;
     uint32_t naxes[2];
 
-    create_2Dimage_ID(ID_name, l1, l2);
-    ID = image_ID(ID_name);
+    create_2Dimage_ID(ID_name, l1, l2, &ID);
     naxes[0] = data.image[ID].md[0].size[0];
     naxes[1] = data.image[ID].md[0].size[1];
 
@@ -753,8 +752,7 @@ imageID make_disk(
       double x,y;
     */
 
-    create_2Dimage_ID(ID_name, l1, l2);
-    ID = image_ID(ID_name);
+    create_2Dimage_ID(ID_name, l1, l2, &ID);
     naxes[0] = data.image[ID].md[0].size[0];
     naxes[1] = data.image[ID].md[0].size[1];
 
@@ -939,8 +937,7 @@ imageID make_subpixdisk(
     double xdiff, ydiff;
     double subgrid2;
 
-    create_2Dimage_ID(ID_name, l1, l2);
-    ID = image_ID(ID_name);
+    create_2Dimage_ID(ID_name, l1, l2, &ID);
     naxes[0] = data.image[ID].md[0].size[0];
     naxes[1] = data.image[ID].md[0].size[1];
 
@@ -1212,8 +1209,7 @@ imageID make_subpixdisk_perturb(
         radius2 = 0.0;
     }
 
-    create_2Dimage_ID(ID_name, l1, l2);
-    ID = image_ID(ID_name);
+    create_2Dimage_ID(ID_name, l1, l2, &ID);
     naxes[0] = data.image[ID].md[0].size[0];
     naxes[1] = data.image[ID].md[0].size[1];
 
@@ -1511,8 +1507,7 @@ imageID make_square(
     imageID  ID;
     uint32_t naxes[2];
 
-    create_2Dimage_ID(ID_name, l1, l2);
-    ID = image_ID(ID_name);
+    create_2Dimage_ID(ID_name, l1, l2, &ID);
     naxes[0] = data.image[ID].md[0].size[0];
     naxes[1] = data.image[ID].md[0].size[1];
 
@@ -1544,8 +1539,7 @@ imageID make_rectangle(
     imageID ID;
     uint32_t naxes[2];
 
-    create_2Dimage_ID(ID_name, l1, l2);
-    ID = image_ID(ID_name);
+    create_2Dimage_ID(ID_name, l1, l2, &ID);
     naxes[0] = data.image[ID].md[0].size[0];
     naxes[1] = data.image[ID].md[0].size[1];
 
@@ -1581,8 +1575,7 @@ imageID make_line(
     double   PA0;
     uint32_t naxes[2];
 
-    create_2Dimage_ID(IDname, l1, l2);
-    ID = image_ID(IDname);
+    create_2Dimage_ID(IDname, l1, l2, &ID);
     naxes[0] = data.image[ID].md[0].size[0];
     naxes[1] = data.image[ID].md[0].size[1];
 
@@ -1629,8 +1622,7 @@ imageID make_lincoordinate(
     uint32_t naxes[2];
     double   x, y, x1;
 
-    create_2Dimage_ID(IDname, l1, l2);
-    ID = image_ID(IDname);
+    create_2Dimage_ID(IDname, l1, l2, &ID);
     naxes[0] = data.image[ID].md[0].size[0];
     naxes[1] = data.image[ID].md[0].size[1];
 
@@ -1672,8 +1664,7 @@ imageID make_hexagon(
 
     printf("Making hexagon at %f x %f\n", x_center, y_center);
 
-    create_2Dimage_ID(IDname, l1, l2);
-    ID = image_ID(IDname);
+    create_2Dimage_ID(IDname, l1, l2, &ID);
     naxes[0] = data.image[ID].md[0].size[0];
     naxes[1] = data.image[ID].md[0].size[1];
 
@@ -1854,7 +1845,7 @@ imageID IMAGE_gen_segments2WFmodes(
             abort();
         }
 
-        IDmask = create_2Dimage_ID("_pupmask", xsize, ysize);
+        create_2Dimage_ID("_pupmask", xsize, ysize, &IDmask);
 
         for(seg = 0; seg < NBseg; seg++)
         {
@@ -1881,7 +1872,7 @@ imageID IMAGE_gen_segments2WFmodes(
         save_fits("_pupmask", "!_pupmask.fits");
 
         //IDtmp = create_2Dimage_ID("_seg2wfm_tmp", xsize, ysize);
-        IDout = create_3Dimage_ID(IDout_name, xsize, ysize, 3 * NBseg);
+        create_3Dimage_ID(IDout_name, xsize, ysize, 3 * NBseg, &IDout);
         kk = 0;
         for(seg = 0; seg < NBseg; seg++) // create modes one at a time
         {
@@ -2108,11 +2099,10 @@ imageID make_hexsegpupil(
     }
 
 
-    create_2Dimage_ID(IDname, size, size);
-    ID = image_ID(IDname);
+    create_2Dimage_ID(IDname, size, size, &ID);
     if(PISTONerr == 1)
     {
-        IDp = create_2Dimage_ID("hexpupPha", size, size);
+        create_2Dimage_ID("hexpupPha", size, size, &IDp);
     }
 
     IDdisk = make_disk("_TMPdisk", size, size, size / 2, size / 2, radius);
@@ -2324,7 +2314,7 @@ imageID make_hexsegpupil(
     if(mkInfluenceFunctions == 1) // TT and focus for each segment
     {
 
-        IDif = create_3Dimage_ID("hexpupif", size, size, 3 * SEGcnt);
+        create_3Dimage_ID("hexpupif", size, size, 3 * SEGcnt, &IDif);
         for(seg = 0; seg < SEGcnt; seg++)
         {
 
@@ -2395,8 +2385,7 @@ imageID make_jacquinot_pupil(
     imageID  ID;
     uint32_t naxes[2];
 
-    create_2Dimage_ID(ID_name, l1, l2);
-    ID = image_ID(ID_name);
+    create_2Dimage_ID(ID_name, l1, l2, &ID);
     naxes[0] = data.image[ID].md[0].size[0];
     naxes[1] = data.image[ID].md[0].size[1];
 
@@ -2430,8 +2419,7 @@ imageID make_sectors(
     uint32_t naxes[2];
     double   theta;
 
-    create_2Dimage_ID(ID_name, l1, l2);
-    ID = image_ID(ID_name);
+    create_2Dimage_ID(ID_name, l1, l2, &ID);
     naxes[0] = data.image[ID].md[0].size[0];
     naxes[1] = data.image[ID].md[0].size[1];
 
@@ -2483,8 +2471,7 @@ imageID make_rnd(
         fprintf(stdout, "Image size = %u %u\n", l1, l2);
     }
 
-    create_2Dimage_ID(ID_name, l1, l2);
-    ID = image_ID(ID_name);
+    create_2Dimage_ID(ID_name, l1, l2, &ID);
     naxes[0] = data.image[ID].md[0].size[0];
     naxes[1] = data.image[ID].md[0].size[1];
     nelement = naxes[0] * naxes[1];
@@ -2548,8 +2535,7 @@ imageID make_rnd_double(
         fprintf(stdout, "Image size = %u %u\n", l1, l2);
     }
 
-    create_2Dimage_ID_double(ID_name, l1, l2);
-    ID = image_ID(ID_name);
+    create_2Dimage_ID_double(ID_name, l1, l2, &ID);
     naxes[0] = data.image[ID].md[0].size[0];
     naxes[1] = data.image[ID].md[0].size[1];
     nelement = naxes[0] * naxes[1];
@@ -2649,8 +2635,7 @@ imageID make_gauss(
     uint32_t naxes[2];
     double   distsq;
 
-    create_2Dimage_ID(ID_name, l1, l2);
-    ID = image_ID(ID_name);
+    create_2Dimage_ID(ID_name, l1, l2, &ID);
     naxes[0] = data.image[ID].md[0].size[0];
     naxes[1] = data.image[ID].md[0].size[1];
 
@@ -2680,8 +2665,7 @@ imageID make_FiberCouplingOverlap(
     uint32_t naxes[2];
     uint32_t size = 128;
 
-    create_2Dimage_ID(ID_name, size, size);
-    ID = image_ID(ID_name);
+    create_2Dimage_ID(ID_name, size, size, &ID);
     naxes[0] = data.image[ID].md[0].size[0];
     naxes[1] = data.image[ID].md[0].size[1];
 
@@ -2694,9 +2678,8 @@ imageID make_FiberCouplingOverlap(
 
 
     // compute TEM00 map
-    create_2Dimage_ID("tem00", size, size);
-    imageID IDtem00 = image_ID("tem00");
-
+    imageID IDtem00;
+    create_2Dimage_ID("tem00", size, size, &IDtem00);
 
     double fluxtot = 0.0;
     for(uint32_t jj = 0; jj < naxes[1]; jj++)
@@ -2809,8 +2792,7 @@ imageID make_2axis_gauss(
     double   distsq;
     double   iin, jjn;
 
-    create_2Dimage_ID(ID_name, l1, l2);
-    ID = image_ID(ID_name);
+    create_2Dimage_ID(ID_name, l1, l2, &ID);
     naxes[0] = data.image[ID].md[0].size[0];
     naxes[1] = data.image[ID].md[0].size[1];
 
@@ -2901,8 +2883,7 @@ imageID make_cluster(
         sim = 1;
     }
 
-    create_2Dimage_ID(ID_name, l1, l2);
-    ID = image_ID(ID_name);
+    create_2Dimage_ID(ID_name, l1, l2, &ID);
     naxes[0] = data.image[ID].md[0].size[0];
     naxes[1] = data.image[ID].md[0].size[1];
 
@@ -2971,7 +2952,7 @@ imageID make_galaxy(
 
     /* E = 1-b/a */
 
-    ID = create_2Dimage_ID(ID_name, l1, l2);
+    create_2Dimage_ID(ID_name, l1, l2, &ID);
     naxes[0] = l1;
     naxes[1] = l2;
 
@@ -3126,8 +3107,7 @@ imageID make_Egalaxy(
         sim = 1;
     }
 
-    create_2Dimage_ID(ID_name, l1, l2);
-    ID = image_ID(ID_name);
+    create_2Dimage_ID(ID_name, l1, l2, &ID);
     naxes[0] = data.image[ID].md[0].size[0];
     naxes[1] = data.image[ID].md[0].size[1];
     xcenter = naxes[0] / 2;
@@ -3181,7 +3161,7 @@ imageID gen_image_EZdisk(
     double  x, y, r, r0;
     double  value;
 
-    ID = create_2Dimage_ID(ID_name, size, size);
+    create_2Dimage_ID(ID_name, size, size, &ID);
     r0 = 6.0;
     for(uint32_t ii = 0; ii < size; ii++)
         for(uint32_t jj = 0; jj < size; jj++)
@@ -3221,8 +3201,7 @@ imageID make_slopexy(
     uint32_t naxes[2];
     double   coeff;
 
-    create_2Dimage_ID(ID_name, l1, l2);
-    ID = image_ID(ID_name);
+    create_2Dimage_ID(ID_name, l1, l2, &ID);
     naxes[0] = data.image[ID].md[0].size[0];
     naxes[1] = data.image[ID].md[0].size[1];
 
@@ -3250,8 +3229,7 @@ imageID make_dist(
     imageID  ID;
     uint32_t naxes[2];
 
-    create_2Dimage_ID(ID_name, l1, l2);
-    ID = image_ID(ID_name);
+    create_2Dimage_ID(ID_name, l1, l2, &ID);
     naxes[0] = data.image[ID].md[0].size[0];
     naxes[1] = data.image[ID].md[0].size[1];
 
@@ -3277,8 +3255,7 @@ imageID make_PosAngle(
     imageID  ID;
     uint32_t naxes[2];
 
-    create_2Dimage_ID(ID_name, l1, l2);
-    ID = image_ID(ID_name);
+    create_2Dimage_ID(ID_name, l1, l2, &ID);
     naxes[0] = data.image[ID].md[0].size[0];
     naxes[1] = data.image[ID].md[0].size[1];
 
@@ -3316,8 +3293,7 @@ imageID make_psf_from_profile(
     double dist;
     float fl1, fl2;
 
-    create_2Dimage_ID(ID_name, l1, l2);
-    ID = image_ID(ID_name);
+    create_2Dimage_ID(ID_name, l1, l2, &ID);
     naxes[0] = data.image[ID].md[0].size[0];
     naxes[1] = data.image[ID].md[0].size[1];
 
@@ -3416,7 +3392,7 @@ imageID make_offsetHyperGaussian(
 {
     imageID ID;
 
-    ID = create_2Dimage_ID(IDname, size, size);
+    create_2Dimage_ID(IDname, size, size, &ID);
     for(uint32_t ii = 0; ii < size; ii++)
         for(uint32_t jj = 0; jj < size; jj++)
         {
@@ -3453,7 +3429,7 @@ imageID make_cosapoedgePupil(
 {
     imageID ID;
 
-    ID = create_2Dimage_ID(IDname, size, size);
+    create_2Dimage_ID(IDname, size, size, &ID);
     for(uint32_t ii = 0; ii < size; ii++)
         for(uint32_t jj = 0; jj < size; jj++)
         {
@@ -3500,7 +3476,7 @@ imageID make_2Dgridpix(
     long    i, j;
     double  u, t;
 
-    ID = create_2Dimage_ID(IDname, xsize, ysize);
+    create_2Dimage_ID(IDname, xsize, ysize, &ID);
     for(x = offsetx; x < xsize - 1; x += pitchx)
         for(y = offsety; y < ysize - 1; y += pitchy)
         {
@@ -3529,7 +3505,7 @@ imageID make_tile(
     uint32_t sizex0, sizey0; // input
     imageID  IDin, IDout;
 
-    IDout = create_2Dimage_ID(IDout_name, size, size);
+    create_2Dimage_ID(IDout_name, size, size, &IDout);
     IDin = image_ID(IDin_name);
     sizex0 = data.image[IDin].md[0].size[0];
     sizey0 = data.image[IDin].md[0].size[1];
@@ -3589,7 +3565,7 @@ imageID image_gen_im2coord(
             printf("naxis = 1\n");
             fflush(stdout);
             xsize = data.image[IDin].md[0].size[0];
-            IDout = create_1Dimage_ID(IDout_name, xsize);
+            create_1Dimage_ID(IDout_name, xsize, &IDout);
             for(uint32_t ii = 0; ii < xsize; ii++)
             {
                 data.image[IDout].array.F[ii] = 1.0 * ii;
@@ -3602,7 +3578,7 @@ imageID image_gen_im2coord(
             fflush(stdout);
             xsize = data.image[IDin].md[0].size[0];
             ysize = data.image[IDin].md[0].size[1];
-            IDout = create_2Dimage_ID(IDout_name, xsize, ysize);
+            create_2Dimage_ID(IDout_name, xsize, ysize, &IDout);
 
             switch(axis)
             {
@@ -3637,7 +3613,7 @@ imageID image_gen_im2coord(
             xsize = data.image[IDin].md[0].size[0];
             ysize = data.image[IDin].md[0].size[1];
             zsize = data.image[IDin].md[0].size[2];
-            IDout = create_3Dimage_ID(IDout_name, xsize, ysize, zsize);
+            create_3Dimage_ID(IDout_name, xsize, ysize, zsize, &IDout);
 
 
             switch(axis)
