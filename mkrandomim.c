@@ -58,7 +58,20 @@ static errno_t help_function()
 
 
 
-
+/**
+ * @brief Make random image
+ *
+ *
+ *
+ *
+ * @param[out] img
+ *      Output image
+ *
+ * @param[in] pdf
+ *      Probability distribution function
+ *
+ * @return imageID
+ */
 static imageID make_image_random(
     IMGID *img,
     int pdf
