@@ -62,8 +62,6 @@ static errno_t help_function()
  * @brief Make random image
  *
  *
- *
- *
  * @param[out] img
  *      Output image
  *
