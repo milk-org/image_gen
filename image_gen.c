@@ -1869,7 +1869,7 @@ imageID IMAGE_gen_segments2WFmodes(
             segyc[seg] /= segsum[seg];
         }
 
-        save_fits("_pupmask", "!_pupmask.fits");
+        save_fits("_pupmask", "_pupmask.fits");
 
         //IDtmp = create_2Dimage_ID("_seg2wfm_tmp", xsize, ysize);
         create_3Dimage_ID(IDout_name, xsize, ysize, 3 * NBseg, &IDout);
