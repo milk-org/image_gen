@@ -8,8 +8,10 @@
 static char *outimname;
 static uint32_t *imxsize;
 static uint32_t *imysize;
+static int *imshared;
 static int *distrib;
-
+static int *imNBkw;
+static int *imCBsize;
 
 
 static CLICMDARGDEF farg[] =
@@ -28,6 +30,21 @@ static CLICMDARGDEF farg[] =
         CLIARG_LONG, ".ysize", "y size", "512",
         CLIARG_VISIBLE_DEFAULT,
         (void **) &imysize
+    },
+    {
+        CLIARG_LONG, ".shared", "output im shared flag", "0",
+        CLIARG_HIDDEN_DEFAULT,
+        (void **) &imshared
+    },
+    {
+        CLIARG_LONG, ".NBkw", "number kw", "10",
+        CLIARG_HIDDEN_DEFAULT,
+        (void **) &imNBkw
+    },
+    {
+        CLIARG_LONG, ".CBsize", "circ buffer size", "0",
+        CLIARG_HIDDEN_DEFAULT,
+        (void **) &imCBsize
     },
     {
         CLIARG_LONG, ".distrib",
@@ -120,6 +137,9 @@ static errno_t compute_function()
     DEBUG_TRACE_FSTART();
 
     IMGID img = makeIMGID_2D(outimname, *imxsize, *imysize);
+    img.shared = *imshared;
+    img.NBkw = *imNBkw;
+    img.CBsize = *imCBsize;
 
     INSERT_STD_PROCINFO_COMPUTEFUNC_START
 
