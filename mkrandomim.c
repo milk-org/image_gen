@@ -17,32 +17,32 @@ static int *imCBsize;
 static CLICMDARGDEF farg[] =
 {
     {
-        CLIARG_STR, ".out_name", "output image", "out1",
+        CLIARG_STR, ".outim.name", "output image", "out1",
         CLIARG_VISIBLE_DEFAULT,
         (void **) &outimname
     },
     {
-        CLIARG_LONG, ".xsize", "x size", "512",
+        CLIARG_LONG, ".outim.xsize", "x size", "512",
         CLIARG_VISIBLE_DEFAULT,
         (void **) &imxsize
     },
     {
-        CLIARG_LONG, ".ysize", "y size", "512",
+        CLIARG_LONG, ".outim.ysize", "y size", "512",
         CLIARG_VISIBLE_DEFAULT,
         (void **) &imysize
     },
     {
-        CLIARG_LONG, ".shared", "output im shared flag", "0",
+        CLIARG_LONG, ".outim.shared", "output im shared flag", "0",
         CLIARG_HIDDEN_DEFAULT,
         (void **) &imshared
     },
     {
-        CLIARG_LONG, ".NBkw", "number kw", "10",
+        CLIARG_LONG, ".outim.NBkw", "number kw", "10",
         CLIARG_HIDDEN_DEFAULT,
         (void **) &imNBkw
     },
     {
-        CLIARG_LONG, ".CBsize", "circ buffer size", "0",
+        CLIARG_LONG, ".outim.CBsize", "circ buffer size", "0",
         CLIARG_HIDDEN_DEFAULT,
         (void **) &imCBsize
     },
@@ -140,6 +140,7 @@ static errno_t compute_function()
     img.shared = *imshared;
     img.NBkw = *imNBkw;
     img.CBsize = *imCBsize;
+
 
     INSERT_STD_PROCINFO_COMPUTEFUNC_START
 
