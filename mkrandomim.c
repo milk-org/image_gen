@@ -136,19 +136,23 @@ static errno_t compute_function()
 {
     DEBUG_TRACE_FSTART();
 
+    DEBUG_TRACEPOINT("make IMGID for %s", outimname);
     IMGID img = makeIMGID_2D(outimname, *imxsize, *imysize);
     img.shared = *imshared;
     img.NBkw = *imNBkw;
     img.CBsize = *imCBsize;
 
+    DEBUG_TRACEPOINT("setup procinfo");
 
     INSERT_STD_PROCINFO_COMPUTEFUNC_START
 
+    DEBUG_TRACEPOINT("Call function make_image_random");
     make_image_random(
         &img,
         *distrib
     );
 
+    DEBUG_TRACEPOINT("update output ID %ld", img.ID);
     processinfo_update_output_stream(processinfo, img.ID);
     INSERT_STD_PROCINFO_COMPUTEFUNC_END
 
