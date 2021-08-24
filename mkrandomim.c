@@ -5,13 +5,14 @@
 
 
 // Local variables pointers
-static char *outimname;
-static uint32_t *imxsize;
-static uint32_t *imysize;
-static int *imshared;
+static char     *outimname;
+static uint32_t *outimxsize;
+static uint32_t *outimysize;
+static int      *outimshared;
+static int      *outimNBkw;
+static int      *outimCBsize;
 static int *distrib;
-static int *imNBkw;
-static int *imCBsize;
+
 
 
 static CLICMDARGDEF farg[] =
@@ -24,27 +25,27 @@ static CLICMDARGDEF farg[] =
     {
         CLIARG_LONG, ".outim.xsize", "x size", "512",
         CLIARG_VISIBLE_DEFAULT,
-        (void **) &imxsize
+        (void **) &outimxsize
     },
     {
         CLIARG_LONG, ".outim.ysize", "y size", "512",
         CLIARG_VISIBLE_DEFAULT,
-        (void **) &imysize
+        (void **) &outimysize
     },
     {
         CLIARG_LONG, ".outim.shared", "output im shared flag", "0",
         CLIARG_HIDDEN_DEFAULT,
-        (void **) &imshared
+        (void **) &outimshared
     },
     {
         CLIARG_LONG, ".outim.NBkw", "number kw", "10",
         CLIARG_HIDDEN_DEFAULT,
-        (void **) &imNBkw
+        (void **) &outimNBkw
     },
     {
         CLIARG_LONG, ".outim.CBsize", "circ buffer size", "0",
         CLIARG_HIDDEN_DEFAULT,
-        (void **) &imCBsize
+        (void **) &outimCBsize
     },
     {
         CLIARG_LONG, ".distrib",
@@ -137,10 +138,10 @@ static errno_t compute_function()
     DEBUG_TRACE_FSTART();
 
     DEBUG_TRACEPOINT("make IMGID for %s", outimname);
-    IMGID img = makeIMGID_2D(outimname, *imxsize, *imysize);
-    img.shared = *imshared;
-    img.NBkw = *imNBkw;
-    img.CBsize = *imCBsize;
+    IMGID img = makeIMGID_2D(outimname, *outimxsize, *outimysize);
+    img.shared = *outimshared;
+    img.NBkw   = *outimNBkw;
+    img.CBsize = *outimCBsize;
 
     DEBUG_TRACEPOINT("setup procinfo");
 
