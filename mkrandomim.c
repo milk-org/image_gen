@@ -1,52 +1,14 @@
 #include "CommandLineInterface/CLIcore.h"
-
 #include "statistic/statistic.h"
 
 
-
 // Local variables pointers
-static char     *outimname;
-static uint32_t *outimxsize;
-static uint32_t *outimysize;
-static int      *outimshared;
-static int      *outimNBkw;
-static int      *outimCBsize;
+static LOCVAR_OUTIMG2D outim;
 static int *distrib;
-
-
 
 static CLICMDARGDEF farg[] =
 {
-    {
-        CLIARG_STR, ".outim.name", "output image", "out1",
-        CLIARG_VISIBLE_DEFAULT,
-        (void **) &outimname
-    },
-    {
-        CLIARG_LONG, ".outim.xsize", "x size", "512",
-        CLIARG_VISIBLE_DEFAULT,
-        (void **) &outimxsize
-    },
-    {
-        CLIARG_LONG, ".outim.ysize", "y size", "512",
-        CLIARG_VISIBLE_DEFAULT,
-        (void **) &outimysize
-    },
-    {
-        CLIARG_LONG, ".outim.shared", "output im shared flag", "0",
-        CLIARG_HIDDEN_DEFAULT,
-        (void **) &outimshared
-    },
-    {
-        CLIARG_LONG, ".outim.NBkw", "number kw", "10",
-        CLIARG_HIDDEN_DEFAULT,
-        (void **) &outimNBkw
-    },
-    {
-        CLIARG_LONG, ".outim.CBsize", "circ buffer size", "0",
-        CLIARG_HIDDEN_DEFAULT,
-        (void **) &outimCBsize
-    },
+    FARG_OUTIM2D(outim),
     {
         CLIARG_LONG, ".distrib",
         "distribution \n"
@@ -137,17 +99,15 @@ static errno_t compute_function()
 {
     DEBUG_TRACE_FSTART();
 
-    DEBUG_TRACEPOINT("make IMGID for %s", outimname);
-    IMGID img = makeIMGID_2D(outimname, *outimxsize, *outimysize);
-    img.shared = *outimshared;
-    img.NBkw   = *outimNBkw;
-    img.CBsize = *outimCBsize;
+    DEBUG_TRACEPOINT("make IMGID for %s", outim.name);
+    IMGID img = makeIMGID_2D(outim.name, *outim.xsize, *outim.ysize);
+    img.shared = *outim.shared;
+    img.NBkw   = *outim.NBkw;
+    img.CBsize = *outim.CBsize;
 
-    DEBUG_TRACEPOINT("setup procinfo");
 
     INSERT_STD_PROCINFO_COMPUTEFUNC_START
 
-    DEBUG_TRACEPOINT("Call function make_image_random");
     make_image_random(
         &img,
         *distrib
