@@ -37,7 +37,6 @@ static errno_t help_function()
 
 
 
-
 /**
  * @brief Make random image
  *
@@ -55,7 +54,7 @@ static imageID make_image_random(
     int pdf
 )
 {
-    DEBUG_TRACE_FSTART();
+                   DEBUG_TRACE_FSTART();
 
     // 0: uniform
     // 1: gauss
