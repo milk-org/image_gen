@@ -54,7 +54,7 @@ static imageID make_image_random(
     int pdf
 )
 {
-                   DEBUG_TRACE_FSTART();
+    DEBUG_TRACE_FSTART();
 
     // 0: uniform
     // 1: gauss
