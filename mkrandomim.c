@@ -1,6 +1,8 @@
 #include "CommandLineInterface/CLIcore.h"
 #include "statistic/statistic.h"
 
+#include "COREMOD_memory/image_keyword_addS.h"
+#include "COREMOD_memory/image_keyword_addL.h"
 
 // Local variables pointers
 static LOCVAR_OUTIMG2D outim;
@@ -29,7 +31,8 @@ static CLICMDDATA CLIcmddata =
 };
 
 
-// detailed help
+/** @brief Detailed help
+ */
 static errno_t help_function()
 {
     return RETURN_SUCCESS;
@@ -51,7 +54,7 @@ static errno_t help_function()
  */
 static imageID make_image_random(
     IMGID *img,
-    int pdf
+    int    pdf
 )
 {
     DEBUG_TRACE_FSTART();
@@ -87,6 +90,16 @@ static imageID make_image_random(
             img->im->array.F[ii] = (float) gauss_trc();
         }
     }
+    if(pdf == 3) // test pattern
+    {
+        static uint64_t ii = 0;
+        img->im->array.F[ii] = 1.0 - img->im->array.F[ii];
+        ii++;
+        if(ii==img->md->nelement)
+        {
+            ii = 0;
+        }
+    }
 
     DEBUG_TRACE_FEXIT();
     return(img->ID);
@@ -103,6 +116,12 @@ static errno_t compute_function()
     img.shared = *outim.shared;
     img.NBkw   = *outim.NBkw;
     img.CBsize = *outim.CBsize;
+
+    // Create image if needed
+    imcreateIMGID(&img);
+
+    image_keyword_addS(img, "MILKFUNC", "mkrandomim", "MILK function");
+    image_keyword_addL(img, "RNDPDF", (long) (*distrib), "random value distribution");
 
 
     INSERT_STD_PROCINFO_COMPUTEFUNC_START
