@@ -28,10 +28,11 @@
 
 #include <fitsio.h> /* required by every program that uses CFITSIO  */
 
+#include "CommandLineInterface/CLIcore.h"
+
 #include "COREMOD_arith/COREMOD_arith.h"
 #include "COREMOD_iofits/COREMOD_iofits.h"
 #include "COREMOD_memory/COREMOD_memory.h"
-#include "CommandLineInterface/CLIcore.h"
 
 #include "statistic/statistic.h"
 
