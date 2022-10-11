@@ -69,10 +69,10 @@ INIT_MODULE_LIB(image_gen)
 
 errno_t make_disk_cli()
 {
-    if (CLI_checkarg(1, CLIARG_STR_NOT_IMG) + CLI_checkarg(2, CLIARG_LONG) +
+    if(CLI_checkarg(1, CLIARG_STR_NOT_IMG) + CLI_checkarg(2, CLIARG_LONG) +
             CLI_checkarg(3, CLIARG_LONG) + CLI_checkarg(4, CLIARG_FLOAT) +
             CLI_checkarg(5, CLIARG_FLOAT) + CLI_checkarg(6, CLIARG_FLOAT) ==
-        0)
+            0)
     {
         make_disk(data.cmdargtoken[1].val.string,
                   data.cmdargtoken[2].val.numl,
@@ -90,10 +90,10 @@ errno_t make_disk_cli()
 
 errno_t make_subpixdisk_cli()
 {
-    if (CLI_checkarg(1, CLIARG_STR_NOT_IMG) + CLI_checkarg(2, CLIARG_LONG) +
+    if(CLI_checkarg(1, CLIARG_STR_NOT_IMG) + CLI_checkarg(2, CLIARG_LONG) +
             CLI_checkarg(3, CLIARG_LONG) + CLI_checkarg(4, CLIARG_FLOAT) +
             CLI_checkarg(5, CLIARG_FLOAT) + CLI_checkarg(6, CLIARG_FLOAT) ==
-        0)
+            0)
     {
         make_subpixdisk(data.cmdargtoken[1].val.string,
                         data.cmdargtoken[2].val.numl,
@@ -111,10 +111,10 @@ errno_t make_subpixdisk_cli()
 
 errno_t make_gauss_cli()
 {
-    if (CLI_checkarg(1, CLIARG_STR_NOT_IMG) + CLI_checkarg(2, CLIARG_LONG) +
+    if(CLI_checkarg(1, CLIARG_STR_NOT_IMG) + CLI_checkarg(2, CLIARG_LONG) +
             CLI_checkarg(3, CLIARG_LONG) + CLI_checkarg(4, CLIARG_FLOAT) +
             CLI_checkarg(5, CLIARG_FLOAT) ==
-        0)
+            0)
     {
         make_gauss(data.cmdargtoken[1].val.string,
                    data.cmdargtoken[2].val.numl,
@@ -131,7 +131,7 @@ errno_t make_gauss_cli()
 
 errno_t make_FiberCouplingOverlap_cli()
 {
-    if (CLI_checkarg(1, CLIARG_STR_NOT_IMG) == 0)
+    if(CLI_checkarg(1, CLIARG_STR_NOT_IMG) == 0)
     {
         make_FiberCouplingOverlap(data.cmdargtoken[1].val.string);
         return CLICMD_SUCCESS;
@@ -144,10 +144,10 @@ errno_t make_FiberCouplingOverlap_cli()
 
 errno_t make_slopexy_cli()
 {
-    if (CLI_checkarg(1, CLIARG_STR_NOT_IMG) + CLI_checkarg(2, CLIARG_LONG) +
+    if(CLI_checkarg(1, CLIARG_STR_NOT_IMG) + CLI_checkarg(2, CLIARG_LONG) +
             CLI_checkarg(3, CLIARG_LONG) + CLI_checkarg(4, CLIARG_FLOAT) +
             CLI_checkarg(5, CLIARG_FLOAT) ==
-        0)
+            0)
     {
         make_slopexy(data.cmdargtoken[1].val.string,
                      data.cmdargtoken[2].val.numl,
@@ -164,10 +164,10 @@ errno_t make_slopexy_cli()
 
 errno_t make_dist_cli()
 {
-    if (CLI_checkarg(1, CLIARG_STR_NOT_IMG) + CLI_checkarg(2, CLIARG_LONG) +
+    if(CLI_checkarg(1, CLIARG_STR_NOT_IMG) + CLI_checkarg(2, CLIARG_LONG) +
             CLI_checkarg(3, CLIARG_LONG) + CLI_checkarg(4, CLIARG_FLOAT) +
             CLI_checkarg(5, CLIARG_FLOAT) ==
-        0)
+            0)
     {
         make_dist(data.cmdargtoken[1].val.string,
                   data.cmdargtoken[2].val.numl,
@@ -184,10 +184,10 @@ errno_t make_dist_cli()
 
 errno_t make_hexsegpupil_cli()
 {
-    if (CLI_checkarg(1, CLIARG_STR_NOT_IMG) + CLI_checkarg(2, CLIARG_LONG) +
+    if(CLI_checkarg(1, CLIARG_STR_NOT_IMG) + CLI_checkarg(2, CLIARG_LONG) +
             CLI_checkarg(3, CLIARG_FLOAT) + CLI_checkarg(4, CLIARG_FLOAT) +
             CLI_checkarg(5, CLIARG_FLOAT) ==
-        0)
+            0)
     {
         make_hexsegpupil(data.cmdargtoken[1].val.string,
                          data.cmdargtoken[2].val.numl,
@@ -204,9 +204,9 @@ errno_t make_hexsegpupil_cli()
 
 errno_t IMAGE_gen_segments2WFmodes_cli()
 {
-    if (CLI_checkarg(1, CLIARG_STR_NOT_IMG) + CLI_checkarg(2, CLIARG_LONG) +
+    if(CLI_checkarg(1, CLIARG_STR_NOT_IMG) + CLI_checkarg(2, CLIARG_LONG) +
             CLI_checkarg(3, CLIARG_IMG) ==
-        0)
+            0)
     {
         IMAGE_gen_segments2WFmodes(data.cmdargtoken[1].val.string,
                                    data.cmdargtoken[2].val.numl,
@@ -221,11 +221,11 @@ errno_t IMAGE_gen_segments2WFmodes_cli()
 
 errno_t make_rectangle_cli()
 {
-    if (CLI_checkarg(1, CLIARG_STR_NOT_IMG) + CLI_checkarg(2, CLIARG_LONG) +
+    if(CLI_checkarg(1, CLIARG_STR_NOT_IMG) + CLI_checkarg(2, CLIARG_LONG) +
             CLI_checkarg(3, CLIARG_LONG) + CLI_checkarg(4, CLIARG_FLOAT) +
             CLI_checkarg(5, CLIARG_FLOAT) + CLI_checkarg(6, CLIARG_FLOAT) +
             CLI_checkarg(7, CLIARG_FLOAT) ==
-        0)
+            0)
     {
         make_rectangle(data.cmdargtoken[1].val.string,
                        data.cmdargtoken[2].val.numl,
@@ -244,11 +244,11 @@ errno_t make_rectangle_cli()
 
 errno_t make_line_cli()
 {
-    if (CLI_checkarg(1, CLIARG_STR_NOT_IMG) + CLI_checkarg(2, CLIARG_LONG) +
+    if(CLI_checkarg(1, CLIARG_STR_NOT_IMG) + CLI_checkarg(2, CLIARG_LONG) +
             CLI_checkarg(3, CLIARG_LONG) + CLI_checkarg(4, CLIARG_FLOAT) +
             CLI_checkarg(5, CLIARG_FLOAT) + CLI_checkarg(6, CLIARG_FLOAT) +
             CLI_checkarg(7, CLIARG_FLOAT) + CLI_checkarg(8, CLIARG_FLOAT) ==
-        0)
+            0)
     {
         make_line(data.cmdargtoken[1].val.string,
                   data.cmdargtoken[2].val.numl,
@@ -268,10 +268,10 @@ errno_t make_line_cli()
 
 errno_t make_lincoordinate_cli()
 {
-    if (CLI_checkarg(1, CLIARG_STR_NOT_IMG) + CLI_checkarg(2, CLIARG_LONG) +
+    if(CLI_checkarg(1, CLIARG_STR_NOT_IMG) + CLI_checkarg(2, CLIARG_LONG) +
             CLI_checkarg(3, CLIARG_LONG) + CLI_checkarg(4, CLIARG_FLOAT) +
             CLI_checkarg(5, CLIARG_FLOAT) + CLI_checkarg(6, CLIARG_FLOAT) ==
-        0)
+            0)
     {
         make_lincoordinate(data.cmdargtoken[1].val.string,
                            data.cmdargtoken[2].val.numl,
@@ -289,11 +289,11 @@ errno_t make_lincoordinate_cli()
 
 errno_t make_2Dgridpix_cli()
 {
-    if (CLI_checkarg(1, CLIARG_STR_NOT_IMG) + CLI_checkarg(2, CLIARG_LONG) +
+    if(CLI_checkarg(1, CLIARG_STR_NOT_IMG) + CLI_checkarg(2, CLIARG_LONG) +
             CLI_checkarg(3, CLIARG_LONG) + CLI_checkarg(4, CLIARG_FLOAT) +
             CLI_checkarg(5, CLIARG_FLOAT) + CLI_checkarg(6, CLIARG_FLOAT) +
             CLI_checkarg(7, CLIARG_FLOAT) ==
-        0)
+            0)
     {
         make_2Dgridpix(data.cmdargtoken[1].val.string,
                        data.cmdargtoken[2].val.numl,
@@ -313,9 +313,9 @@ errno_t make_2Dgridpix_cli()
 
 errno_t make_rnd_cli()
 {
-    if (CLI_checkarg(1, CLIARG_STR_NOT_IMG) + CLI_checkarg(2, CLIARG_LONG) +
+    if(CLI_checkarg(1, CLIARG_STR_NOT_IMG) + CLI_checkarg(2, CLIARG_LONG) +
             CLI_checkarg(3, CLIARG_LONG) ==
-        0)
+            0)
     {
         make_rnd(data.cmdargtoken[1].val.string,
                  data.cmdargtoken[2].val.numl,
@@ -332,9 +332,9 @@ errno_t make_rnd_cli()
 
 errno_t make_rndgauss_cli()
 {
-    if (CLI_checkarg(1, CLIARG_STR_NOT_IMG) + CLI_checkarg(2, CLIARG_LONG) +
+    if(CLI_checkarg(1, CLIARG_STR_NOT_IMG) + CLI_checkarg(2, CLIARG_LONG) +
             CLI_checkarg(3, CLIARG_LONG) ==
-        0)
+            0)
     {
 
         make_rnd(data.cmdargtoken[1].val.string,
@@ -352,9 +352,9 @@ errno_t make_rndgauss_cli()
 
 errno_t image_gen_im2coord_cli()
 {
-    if (CLI_checkarg(1, CLIARG_IMG) + CLI_checkarg(2, CLIARG_LONG) +
+    if(CLI_checkarg(1, CLIARG_IMG) + CLI_checkarg(2, CLIARG_LONG) +
             CLI_checkarg(3, CLIARG_STR_NOT_IMG) ==
-        0)
+            0)
     {
 
         image_gen_im2coord(data.cmdargtoken[1].val.string,
@@ -371,10 +371,10 @@ errno_t image_gen_im2coord_cli()
 
 errno_t image_gen_make_voronoi_map_cli()
 {
-    if (CLI_checkarg(1, CLIARG_STR) + CLI_checkarg(2, CLIARG_STR_NOT_IMG) +
+    if(CLI_checkarg(1, CLIARG_STR) + CLI_checkarg(2, CLIARG_STR_NOT_IMG) +
             CLI_checkarg(3, CLIARG_LONG) + CLI_checkarg(4, CLIARG_LONG) +
             CLI_checkarg(5, CLIARG_FLOAT) + CLI_checkarg(6, CLIARG_FLOAT) ==
-        0)
+            0)
     {
 
         image_gen_make_voronoi_map(data.cmdargtoken[1].val.string,
@@ -578,13 +578,13 @@ imageID make_double_star(const char *ID_name,
     naxes[1] = data.image[ID].md[0].size[1];
 
     data.image[ID]
-        .array.F[((int) (naxes[1] / 2)) * naxes[0] + ((int) (naxes[0] / 2))] =
+    .array.F[((int)(naxes[1] / 2)) * naxes[0] + ((int)(naxes[0] / 2))] =
         intensity_1;
     data.image[ID]
-        .array.F[((int) (naxes[1] / 2 + separation * cos(position_angle))) *
-                     naxes[0] +
-                 ((int) (naxes[0] / 2 + separation * sin(position_angle)))] =
-        intensity_2;
+    .array.F[((int)(naxes[1] / 2 + separation * cos(position_angle))) *
+                             naxes[0] +
+                             ((int)(naxes[0] / 2 + separation * sin(position_angle)))] =
+                 intensity_2;
 
     return (ID);
 }
@@ -615,119 +615,119 @@ imageID make_disk(const char *ID_name,
     naxes[0] = data.image[ID].md[0].size[0];
     naxes[1] = data.image[ID].md[0].size[1];
 
-    x1  = (long) (x_center - radius - 2);
-    x2  = (long) (x_center + radius + 2);
-    y1  = (long) (y_center - radius - 2);
-    y2  = (long) (y_center + radius + 2);
-    x1i = (long) (x_center - 0.707106781 * radius + 2);
-    x2i = (long) (x_center + 0.707106781 * radius - 2);
-    y1i = (long) (y_center - 0.707106781 * radius + 2);
-    y2i = (long) (y_center + 0.707106781 * radius - 2);
+    x1  = (long)(x_center - radius - 2);
+    x2  = (long)(x_center + radius + 2);
+    y1  = (long)(y_center - radius - 2);
+    y2  = (long)(y_center + radius + 2);
+    x1i = (long)(x_center - 0.707106781 * radius + 2);
+    x2i = (long)(x_center + 0.707106781 * radius - 2);
+    y1i = (long)(y_center - 0.707106781 * radius + 2);
+    y2i = (long)(y_center + 0.707106781 * radius - 2);
 
-    if (x1 < 0)
+    if(x1 < 0)
     {
         x1 = 0;
     }
-    if (x1 > naxes[0])
+    if(x1 > naxes[0])
     {
         x1 = naxes[0];
     }
 
-    if (x2 < 0)
+    if(x2 < 0)
     {
         x2 = 0;
     }
-    if (x2 > naxes[0])
+    if(x2 > naxes[0])
     {
         x2 = naxes[0];
     }
 
-    if (y1 < 0)
+    if(y1 < 0)
     {
         y1 = 0;
     }
-    if (y1 > naxes[1])
+    if(y1 > naxes[1])
     {
         y1 = naxes[1];
     }
 
-    if (y2 > naxes[1])
+    if(y2 > naxes[1])
     {
         y2 = naxes[1];
     }
 
-    if (x1i < 0)
+    if(x1i < 0)
     {
         x1i = 0;
     }
-    if (x1i > naxes[0])
+    if(x1i > naxes[0])
     {
         x1i = naxes[0];
     }
 
-    if (x2i < 0)
+    if(x2i < 0)
     {
         x2i = 0;
     }
-    if (x2i > naxes[0])
+    if(x2i > naxes[0])
     {
         x2i = naxes[0];
     }
 
-    if (y1i < 0)
+    if(y1i < 0)
     {
         y1i = 0;
     }
-    if (y1i > naxes[1])
+    if(y1i > naxes[1])
     {
         y1i = naxes[1];
     }
 
-    if (y2i < 0)
+    if(y2i < 0)
     {
         y2i = 0;
     }
-    if (y2i > naxes[1])
+    if(y2i > naxes[1])
     {
         y2i = naxes[1];
     }
 
     r2 = radius * radius;
 
-    for (ii = x1i; ii < x2i; ii++)
-        for (jj = y1i; jj < y2i; jj++)
+    for(ii = x1i; ii < x2i; ii++)
+        for(jj = y1i; jj < y2i; jj++)
         {
             data.image[ID].array.F[jj * naxes[0] + ii] = 1;
         }
 
-    for (ii = x1; ii < x1i; ii++)
-        for (jj = y1; jj < y2; jj++)
-            if (((ii - x_center) * (ii - x_center) +
-                 (jj - y_center) * (jj - y_center)) < r2)
+    for(ii = x1; ii < x1i; ii++)
+        for(jj = y1; jj < y2; jj++)
+            if(((ii - x_center) * (ii - x_center) +
+                    (jj - y_center) * (jj - y_center)) < r2)
             {
                 data.image[ID].array.F[jj * naxes[0] + ii] = 1;
             }
 
-    for (ii = x2i; ii < x2; ii++)
-        for (jj = y1; jj < y2; jj++)
-            if (((ii - x_center) * (ii - x_center) +
-                 (jj - y_center) * (jj - y_center)) < r2)
+    for(ii = x2i; ii < x2; ii++)
+        for(jj = y1; jj < y2; jj++)
+            if(((ii - x_center) * (ii - x_center) +
+                    (jj - y_center) * (jj - y_center)) < r2)
             {
                 data.image[ID].array.F[jj * naxes[0] + ii] = 1;
             }
 
-    for (ii = x1i; ii < x2i; ii++)
-        for (jj = y1; jj < y1i; jj++)
-            if (((ii - x_center) * (ii - x_center) +
-                 (jj - y_center) * (jj - y_center)) < r2)
+    for(ii = x1i; ii < x2i; ii++)
+        for(jj = y1; jj < y1i; jj++)
+            if(((ii - x_center) * (ii - x_center) +
+                    (jj - y_center) * (jj - y_center)) < r2)
             {
                 data.image[ID].array.F[jj * naxes[0] + ii] = 1;
             }
 
-    for (ii = x1i; ii < x2i; ii++)
-        for (jj = y2i; jj < y2; jj++)
-            if (((ii - x_center) * (ii - x_center) +
-                 (jj - y_center) * (jj - y_center)) < r2)
+    for(ii = x1i; ii < x2i; ii++)
+        for(jj = y2i; jj < y2; jj++)
+            if(((ii - x_center) * (ii - x_center) +
+                    (jj - y_center) * (jj - y_center)) < r2)
             {
                 data.image[ID].array.F[jj * naxes[0] + ii] = 1;
             }
@@ -799,79 +799,79 @@ imageID make_subpixdisk(const char *ID_name,
     naxes[0] = data.image[ID].md[0].size[0];
     naxes[1] = data.image[ID].md[0].size[1];
 
-    x1  = (long) (x_center - radius - 2);
-    x2  = (long) (x_center + radius + 2);
-    y1  = (long) (y_center - radius - 2);
-    y2  = (long) (y_center + radius + 2);
-    x1i = (long) (x_center - 0.707106781 * radius + 2);
-    x2i = (long) (x_center + 0.707106781 * radius - 2);
-    y1i = (long) (y_center - 0.707106781 * radius + 2);
-    y2i = (long) (y_center + 0.707106781 * radius - 2);
+    x1  = (long)(x_center - radius - 2);
+    x2  = (long)(x_center + radius + 2);
+    y1  = (long)(y_center - radius - 2);
+    y2  = (long)(y_center + radius + 2);
+    x1i = (long)(x_center - 0.707106781 * radius + 2);
+    x2i = (long)(x_center + 0.707106781 * radius - 2);
+    y1i = (long)(y_center - 0.707106781 * radius + 2);
+    y2i = (long)(y_center + 0.707106781 * radius - 2);
 
-    if (x1 < 0)
+    if(x1 < 0)
     {
         x1 = 0;
     }
-    if (x1 > naxes[0])
+    if(x1 > naxes[0])
     {
         x1 = naxes[0];
     }
-    if (x2 < 0)
+    if(x2 < 0)
     {
         x2 = 0;
     }
-    if (x2 > naxes[0])
+    if(x2 > naxes[0])
     {
         x2 = naxes[0];
     }
 
-    if (y1 < 0)
+    if(y1 < 0)
     {
         y1 = 0;
     }
-    if (y1 > naxes[1])
+    if(y1 > naxes[1])
     {
         y1 = naxes[1];
     }
-    if (y2 < 0)
+    if(y2 < 0)
     {
         y2 = 0;
     }
-    if (y2 > naxes[1])
+    if(y2 > naxes[1])
     {
         y2 = naxes[1];
     }
 
-    if (x1i < 0)
+    if(x1i < 0)
     {
         x1i = 0;
     }
-    if (x1i > naxes[0] - 1)
+    if(x1i > naxes[0] - 1)
     {
         x1i = naxes[0] - 1;
     }
-    if (x2i < 0)
+    if(x2i < 0)
     {
         x2i = 0;
     }
-    if (x2i > naxes[0] - 1)
+    if(x2i > naxes[0] - 1)
     {
         x2i = naxes[0] - 1;
     }
 
-    if (y1i < 0)
+    if(y1i < 0)
     {
         y1i = 0;
     }
-    if (y1i > naxes[1] - 1)
+    if(y1i > naxes[1] - 1)
     {
         y1i = naxes[1] - 1;
     }
-    if (y2i < 0)
+    if(y2i < 0)
     {
         y2i = 0;
     }
-    if (y2i > naxes[1] - 1)
+    if(y2i > naxes[1] - 1)
     {
         y2i = naxes[1] - 1;
     }
@@ -879,37 +879,37 @@ imageID make_subpixdisk(const char *ID_name,
     r2ref    = radius * radius;
     subgrid2 = subgrid * subgrid;
 
-    for (ii = x1i; ii < x2i; ii++)
-        for (jj = y1i; jj < y2i; jj++)
+    for(ii = x1i; ii < x2i; ii++)
+        for(jj = y1i; jj < y2i; jj++)
         {
             data.image[ID].array.F[jj * naxes[0] + ii] = 1;
         }
 
-    for (i = 0; i < subgrid; i++)
+    for(i = 0; i < subgrid; i++)
     {
         grid[i] = (0.5 - 0.5 / subgrid - 1.0 * i / subgrid);
     }
 
-    for (ii = x1; ii < x1i; ii++)
-        for (jj = y1; jj < y2; jj++)
+    for(ii = x1; ii < x1i; ii++)
+        for(jj = y1; jj < y2; jj++)
         {
             xdiff = x_center - ii;
             ydiff = y_center - jj;
             r2    = xdiff * xdiff + ydiff * ydiff;
-            if (r2 < r2ref)
+            if(r2 < r2ref)
             {
                 data.image[ID].array.F[jj * naxes[0] + ii] = 1.0;
             }
-            if (fabs(sqrt(r2) - sqrt(r2ref)) < 1.5)
+            if(fabs(sqrt(r2) - sqrt(r2ref)) < 1.5)
             {
                 tot = 0;
-                for (j = 0; j < subgrid; j++)
-                    for (i = 0; i < subgrid; i++)
+                for(j = 0; j < subgrid; j++)
+                    for(i = 0; i < subgrid; i++)
                     {
                         x = xdiff + grid[i];
                         y = ydiff + grid[j];
                         r = x * x + y * y;
-                        if (r < r2ref)
+                        if(r < r2ref)
                         {
                             tot += 1.0;
                         }
@@ -919,26 +919,26 @@ imageID make_subpixdisk(const char *ID_name,
             }
         }
 
-    for (ii = x2i; ii < x2; ii++)
-        for (jj = y1; jj < y2; jj++)
+    for(ii = x2i; ii < x2; ii++)
+        for(jj = y1; jj < y2; jj++)
         {
             xdiff = x_center - ii;
             ydiff = y_center - jj;
             r2    = xdiff * xdiff + ydiff * ydiff;
-            if (r2 < r2ref)
+            if(r2 < r2ref)
             {
                 data.image[ID].array.F[jj * naxes[0] + ii] = 1.0;
             }
-            if (fabs(sqrt(r2) - sqrt(r2ref)) < 1.5)
+            if(fabs(sqrt(r2) - sqrt(r2ref)) < 1.5)
             {
                 tot = 0;
-                for (j = 0; j < subgrid; j++)
-                    for (i = 0; i < subgrid; i++)
+                for(j = 0; j < subgrid; j++)
+                    for(i = 0; i < subgrid; i++)
                     {
                         x = xdiff + grid[i];
                         y = ydiff + grid[j];
                         r = x * x + y * y;
-                        if (r < r2ref)
+                        if(r < r2ref)
                         {
                             tot += 1.0;
                         }
@@ -948,26 +948,26 @@ imageID make_subpixdisk(const char *ID_name,
             }
         }
 
-    for (ii = x1i; ii < x2i; ii++)
-        for (jj = y1; jj < y1i; jj++)
+    for(ii = x1i; ii < x2i; ii++)
+        for(jj = y1; jj < y1i; jj++)
         {
             xdiff = x_center - ii;
             ydiff = y_center - jj;
             r2    = xdiff * xdiff + ydiff * ydiff;
-            if (r2 < r2ref)
+            if(r2 < r2ref)
             {
                 data.image[ID].array.F[jj * naxes[0] + ii] = 1.0;
             }
-            if (fabs(sqrt(r2) - sqrt(r2ref)) < 1.5)
+            if(fabs(sqrt(r2) - sqrt(r2ref)) < 1.5)
             {
                 tot = 0;
-                for (j = 0; j < subgrid; j++)
-                    for (i = 0; i < subgrid; i++)
+                for(j = 0; j < subgrid; j++)
+                    for(i = 0; i < subgrid; i++)
                     {
                         x = xdiff + grid[i];
                         y = ydiff + grid[j];
                         r = x * x + y * y;
-                        if (r < r2ref)
+                        if(r < r2ref)
                         {
                             tot += 1.0;
                         }
@@ -977,26 +977,26 @@ imageID make_subpixdisk(const char *ID_name,
             }
         }
 
-    for (ii = x1i; ii < x2i; ii++)
-        for (jj = y2i; jj < y2; jj++)
+    for(ii = x1i; ii < x2i; ii++)
+        for(jj = y2i; jj < y2; jj++)
         {
             xdiff = x_center - ii;
             ydiff = y_center - jj;
             r2    = xdiff * xdiff + ydiff * ydiff;
-            if (r2 < r2ref)
+            if(r2 < r2ref)
             {
                 data.image[ID].array.F[jj * naxes[0] + ii] = 1.0;
             }
-            if (fabs(sqrt(r2) - sqrt(r2ref)) < 1.5)
+            if(fabs(sqrt(r2) - sqrt(r2ref)) < 1.5)
             {
                 tot = 0;
-                for (j = 0; j < subgrid; j++)
-                    for (i = 0; i < subgrid; i++)
+                for(j = 0; j < subgrid; j++)
+                    for(i = 0; i < subgrid; i++)
                     {
                         x = xdiff + grid[i];
                         y = ydiff + grid[j];
                         r = x * x + y * y;
-                        if (r < r2ref)
+                        if(r < r2ref)
                         {
                             tot += 1.0;
                         }
@@ -1046,15 +1046,15 @@ imageID make_subpixdisk_perturb(const char *ID_name,
 
     radius1 = radius;
     radius2 = radius;
-    for (k = 0; k < n; k++)
+    for(k = 0; k < n; k++)
     {
         radius1 += radius * fabs(ra[k]);
     }
-    for (k = 0; k < n; k++)
+    for(k = 0; k < n; k++)
     {
         radius2 -= radius * fabs(ra[k]);
     }
-    if (radius2 < 0.0)
+    if(radius2 < 0.0)
     {
         radius2 = 0.0;
     }
@@ -1063,79 +1063,79 @@ imageID make_subpixdisk_perturb(const char *ID_name,
     naxes[0] = data.image[ID].md[0].size[0];
     naxes[1] = data.image[ID].md[0].size[1];
 
-    x1  = (long) (x_center - radius1 - 2);
-    x2  = (long) (x_center + radius1 + 2);
-    y1  = (long) (y_center - radius1 - 2);
-    y2  = (long) (y_center + radius1 + 2);
-    x1i = (long) (x_center - 0.707106781 * radius2 + 2);
-    x2i = (long) (x_center + 0.707106781 * radius2 - 2);
-    y1i = (long) (y_center - 0.707106781 * radius2 + 2);
-    y2i = (long) (y_center + 0.707106781 * radius2 - 2);
+    x1  = (long)(x_center - radius1 - 2);
+    x2  = (long)(x_center + radius1 + 2);
+    y1  = (long)(y_center - radius1 - 2);
+    y2  = (long)(y_center + radius1 + 2);
+    x1i = (long)(x_center - 0.707106781 * radius2 + 2);
+    x2i = (long)(x_center + 0.707106781 * radius2 - 2);
+    y1i = (long)(y_center - 0.707106781 * radius2 + 2);
+    y2i = (long)(y_center + 0.707106781 * radius2 - 2);
 
-    if (x1 < 0)
+    if(x1 < 0)
     {
         x1 = 0;
     }
-    if (x1 > naxes[0])
+    if(x1 > naxes[0])
     {
         x1 = naxes[0];
     }
-    if (x2 < 0)
+    if(x2 < 0)
     {
         x2 = 0;
     }
-    if (x2 > naxes[0])
+    if(x2 > naxes[0])
     {
         x2 = naxes[0];
     }
 
-    if (y1 < 0)
+    if(y1 < 0)
     {
         y1 = 0;
     }
-    if (y1 > naxes[1])
+    if(y1 > naxes[1])
     {
         y1 = naxes[1];
     }
-    if (y2 < 0)
+    if(y2 < 0)
     {
         y2 = 0;
     }
-    if (y2 > naxes[1])
+    if(y2 > naxes[1])
     {
         y2 = naxes[1];
     }
 
-    if (x1i < 0)
+    if(x1i < 0)
     {
         x1i = 0;
     }
-    if (x1i > naxes[0] - 1)
+    if(x1i > naxes[0] - 1)
     {
         x1i = naxes[0] - 1;
     }
-    if (x2i < 0)
+    if(x2i < 0)
     {
         x2i = 0;
     }
-    if (x2i > naxes[0] - 1)
+    if(x2i > naxes[0] - 1)
     {
         x2i = naxes[0] - 1;
     }
 
-    if (y1i < 0)
+    if(y1i < 0)
     {
         y1i = 0;
     }
-    if (y1i > naxes[1] - 1)
+    if(y1i > naxes[1] - 1)
     {
         y1i = naxes[1] - 1;
     }
-    if (y2i < 0)
+    if(y2i < 0)
     {
         y2i = 0;
     }
-    if (y2i > naxes[1] - 1)
+    if(y2i > naxes[1] - 1)
     {
         y2i = naxes[1] - 1;
     }
@@ -1143,19 +1143,19 @@ imageID make_subpixdisk_perturb(const char *ID_name,
     r2ref    = radius * radius;
     subgrid2 = subgrid * subgrid;
 
-    for (ii = x1i; ii < x2i; ii++)
-        for (jj = y1i; jj < y2i; jj++)
+    for(ii = x1i; ii < x2i; ii++)
+        for(jj = y1i; jj < y2i; jj++)
         {
             data.image[ID].array.F[jj * naxes[0] + ii] = 1;
         }
 
-    for (i = 0; i < subgrid; i++)
+    for(i = 0; i < subgrid; i++)
     {
         grid[i] = (0.5 - 0.5 / subgrid - 1.0 * i / subgrid);
     }
 
-    for (ii = x1; ii < x1i; ii++)
-        for (jj = y1; jj < y2; jj++)
+    for(ii = x1; ii < x1i; ii++)
+        for(jj = y1; jj < y2; jj++)
         {
             xdiff = x_center - ii;
             ydiff = y_center - jj;
@@ -1163,21 +1163,21 @@ imageID make_subpixdisk_perturb(const char *ID_name,
             r2    = xdiff * xdiff + ydiff * ydiff;
 
             v0 = radius;
-            for (k = 0; k < n; k++)
+            for(k = 0; k < n; k++)
             {
                 v0 += radius * ra[k] * cos(ka[k] * PA + pa[k]);
             }
             r2ref = v0 * v0;
 
-            if (r2 < r2ref)
+            if(r2 < r2ref)
             {
                 data.image[ID].array.F[jj * naxes[0] + ii] = 1.0;
             }
-            if (fabs(sqrt(r2) - sqrt(r2ref)) < 1.5)
+            if(fabs(sqrt(r2) - sqrt(r2ref)) < 1.5)
             {
                 tot = 0;
-                for (j = 0; j < subgrid; j++)
-                    for (i = 0; i < subgrid; i++)
+                for(j = 0; j < subgrid; j++)
+                    for(i = 0; i < subgrid; i++)
                     {
                         x  = xdiff + grid[i];
                         y  = ydiff + grid[j];
@@ -1185,13 +1185,13 @@ imageID make_subpixdisk_perturb(const char *ID_name,
                         r  = x * x + y * y;
 
                         v0 = radius;
-                        for (k = 0; k < n; k++)
+                        for(k = 0; k < n; k++)
                         {
                             v0 += radius * ra[k] * cos(ka[k] * PA + pa[k]);
                         }
                         r2ref = v0 * v0;
 
-                        if (r < r2ref)
+                        if(r < r2ref)
                         {
                             tot += 1.0;
                         }
@@ -1201,8 +1201,8 @@ imageID make_subpixdisk_perturb(const char *ID_name,
             }
         }
 
-    for (ii = x2i; ii < x2; ii++)
-        for (jj = y1; jj < y2; jj++)
+    for(ii = x2i; ii < x2; ii++)
+        for(jj = y1; jj < y2; jj++)
         {
             xdiff = x_center - ii;
             ydiff = y_center - jj;
@@ -1210,34 +1210,34 @@ imageID make_subpixdisk_perturb(const char *ID_name,
             r2    = xdiff * xdiff + ydiff * ydiff;
 
             v0 = radius;
-            for (k = 0; k < n; k++)
+            for(k = 0; k < n; k++)
             {
                 v0 += radius * ra[k] * cos(ka[k] * PA + pa[k]);
             }
             r2ref = v0 * v0;
 
-            if (r2 < r2ref)
+            if(r2 < r2ref)
             {
                 data.image[ID].array.F[jj * naxes[0] + ii] = 1.0;
             }
-            if (fabs(sqrt(r2) - sqrt(r2ref)) < 1.5)
+            if(fabs(sqrt(r2) - sqrt(r2ref)) < 1.5)
             {
                 tot = 0;
-                for (j = 0; j < subgrid; j++)
-                    for (i = 0; i < subgrid; i++)
+                for(j = 0; j < subgrid; j++)
+                    for(i = 0; i < subgrid; i++)
                     {
                         x  = xdiff + grid[i];
                         y  = ydiff + grid[j];
                         r  = x * x + y * y;
                         PA = atan2(y, x);
                         v0 = radius;
-                        for (k = 0; k < n; k++)
+                        for(k = 0; k < n; k++)
                         {
                             v0 += radius * ra[k] * cos(ka[k] * PA + pa[k]);
                         }
                         r2ref = v0 * v0;
 
-                        if (r < r2ref)
+                        if(r < r2ref)
                         {
                             tot += 1.0;
                         }
@@ -1247,41 +1247,41 @@ imageID make_subpixdisk_perturb(const char *ID_name,
             }
         }
 
-    for (ii = x1i; ii < x2i; ii++)
-        for (jj = y1; jj < y1i; jj++)
+    for(ii = x1i; ii < x2i; ii++)
+        for(jj = y1; jj < y1i; jj++)
         {
             xdiff = x_center - ii;
             ydiff = y_center - jj;
             PA    = atan2(ydiff, xdiff);
             r2    = xdiff * xdiff + ydiff * ydiff;
             v0    = radius;
-            for (k = 0; k < n; k++)
+            for(k = 0; k < n; k++)
             {
                 v0 += radius * ra[k] * cos(ka[k] * PA + pa[k]);
             }
             r2ref = v0 * v0;
 
-            if (r2 < r2ref)
+            if(r2 < r2ref)
             {
                 data.image[ID].array.F[jj * naxes[0] + ii] = 1.0;
             }
-            if (fabs(sqrt(r2) - sqrt(r2ref)) < 1.5)
+            if(fabs(sqrt(r2) - sqrt(r2ref)) < 1.5)
             {
                 tot = 0;
-                for (j = 0; j < subgrid; j++)
-                    for (i = 0; i < subgrid; i++)
+                for(j = 0; j < subgrid; j++)
+                    for(i = 0; i < subgrid; i++)
                     {
                         x  = xdiff + grid[i];
                         y  = ydiff + grid[j];
                         PA = atan2(y, x);
                         r  = x * x + y * y;
                         v0 = radius;
-                        for (k = 0; k < n; k++)
+                        for(k = 0; k < n; k++)
                         {
                             v0 += radius * ra[k] * cos(ka[k] * PA + pa[k]);
                         }
                         r2ref = v0 * v0;
-                        if (r < r2ref)
+                        if(r < r2ref)
                         {
                             tot += 1.0;
                         }
@@ -1291,41 +1291,41 @@ imageID make_subpixdisk_perturb(const char *ID_name,
             }
         }
 
-    for (ii = x1i; ii < x2i; ii++)
-        for (jj = y2i; jj < y2; jj++)
+    for(ii = x1i; ii < x2i; ii++)
+        for(jj = y2i; jj < y2; jj++)
         {
             xdiff = x_center - ii;
             ydiff = y_center - jj;
             PA    = atan2(ydiff, xdiff);
             r2    = xdiff * xdiff + ydiff * ydiff;
             v0    = radius;
-            for (k = 0; k < n; k++)
+            for(k = 0; k < n; k++)
             {
                 v0 += radius * ra[k] * cos(ka[k] * PA + pa[k]);
             }
             r2ref = v0 * v0;
 
-            if (r2 < r2ref)
+            if(r2 < r2ref)
             {
                 data.image[ID].array.F[jj * naxes[0] + ii] = 1.0;
             }
-            if (fabs(sqrt(r2) - sqrt(r2ref)) < 1.5)
+            if(fabs(sqrt(r2) - sqrt(r2ref)) < 1.5)
             {
                 tot = 0;
-                for (j = 0; j < subgrid; j++)
-                    for (i = 0; i < subgrid; i++)
+                for(j = 0; j < subgrid; j++)
+                    for(i = 0; i < subgrid; i++)
                     {
                         x  = xdiff + grid[i];
                         y  = ydiff + grid[j];
                         PA = atan2(y, x);
                         r  = x * x + y * y;
                         v0 = radius;
-                        for (k = 0; k < n; k++)
+                        for(k = 0; k < n; k++)
                         {
                             v0 += radius * ra[k] * cos(ka[k] * PA + pa[k]);
                         }
                         r2ref = v0 * v0;
-                        if (r < r2ref)
+                        if(r < r2ref)
                         {
                             tot += 1.0;
                         }
@@ -1353,11 +1353,11 @@ imageID make_square(const char *ID_name,
     naxes[0] = data.image[ID].md[0].size[0];
     naxes[1] = data.image[ID].md[0].size[1];
 
-    for (uint32_t jj = 0; jj < naxes[1]; jj++)
-        for (uint32_t ii = 0; ii < naxes[0]; ii++)
+    for(uint32_t jj = 0; jj < naxes[1]; jj++)
+        for(uint32_t ii = 0; ii < naxes[0]; ii++)
         {
-            if ((((ii - x_center) * (ii - x_center)) < (radius * radius)) &&
-                (((jj - y_center) * (jj - y_center)) < (radius * radius)))
+            if((((ii - x_center) * (ii - x_center)) < (radius * radius)) &&
+                    (((jj - y_center) * (jj - y_center)) < (radius * radius)))
             {
                 data.image[ID].array.F[jj * naxes[0] + ii] = 1;
             }
@@ -1381,11 +1381,11 @@ imageID make_rectangle(const char *ID_name,
     naxes[0] = data.image[ID].md[0].size[0];
     naxes[1] = data.image[ID].md[0].size[1];
 
-    for (uint32_t jj = 0; jj < naxes[1]; jj++)
-        for (uint32_t ii = 0; ii < naxes[0]; ii++)
+    for(uint32_t jj = 0; jj < naxes[1]; jj++)
+        for(uint32_t ii = 0; ii < naxes[0]; ii++)
         {
-            if ((((ii - x_center) * (ii - x_center)) < (radius1 * radius1)) &&
-                (((jj - y_center) * (jj - y_center)) < (radius2 * radius2)))
+            if((((ii - x_center) * (ii - x_center)) < (radius1 * radius1)) &&
+                    (((jj - y_center) * (jj - y_center)) < (radius2 * radius2)))
             {
                 data.image[ID].array.F[jj * naxes[0] + ii] = 1;
             }
@@ -1415,8 +1415,8 @@ imageID make_line(const char *IDname,
 
     r0  = sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
     PA0 = atan2((y2 - y1), (x2 - x1));
-    for (uint32_t jj = 0; jj < naxes[1]; jj++)
-        for (uint32_t ii = 0; ii < naxes[0]; ii++)
+    for(uint32_t jj = 0; jj < naxes[1]; jj++)
+        for(uint32_t ii = 0; ii < naxes[0]; ii++)
         {
             x = 1.0 * ii;
             y = 1.0 * jj;
@@ -1427,8 +1427,8 @@ imageID make_line(const char *IDname,
             //r=sqrt(xr*xr+yr*yr);
             xr /= r0;
             yr /= r0;
-            if ((xr > 0) && (xr < 1.0) && (yr < 0.5 * t / r0) &&
-                (yr > -0.5 * t / r0))
+            if((xr > 0) && (xr < 1.0) && (yr < 0.5 * t / r0) &&
+                    (yr > -0.5 * t / r0))
             {
                 data.image[ID].array.F[jj * naxes[0] + ii] = 1.0;
             }
@@ -1457,8 +1457,8 @@ imageID make_lincoordinate(const char *IDname,
     naxes[0] = data.image[ID].md[0].size[0];
     naxes[1] = data.image[ID].md[0].size[1];
 
-    for (uint32_t jj = 0; jj < naxes[1]; jj++)
-        for (uint32_t ii = 0; ii < naxes[0]; ii++)
+    for(uint32_t jj = 0; jj < naxes[1]; jj++)
+        for(uint32_t ii = 0; ii < naxes[0]; ii++)
         {
             x  = 1.0 * ii - x_center;
             y  = 1.0 * jj - y_center;
@@ -1495,77 +1495,77 @@ imageID make_hexagon(const char *IDname,
     naxes[0] = data.image[ID].md[0].size[0];
     naxes[1] = data.image[ID].md[0].size[1];
 
-    iimin = (long) (x_center - radius1 - 1.0);
-    if (iimin < 0)
+    iimin = (long)(x_center - radius1 - 1.0);
+    if(iimin < 0)
     {
         iimin = 0;
     }
-    if (iimin > l1 - 1)
+    if(iimin > l1 - 1)
     {
         iimin = l1 - 1;
     }
 
-    iimax = (long) (x_center + radius1 + 1.0);
-    if (iimax < 0)
+    iimax = (long)(x_center + radius1 + 1.0);
+    if(iimax < 0)
     {
         iimax = 0;
     }
-    if (iimax > l1 - 1)
+    if(iimax > l1 - 1)
     {
         iimax = l1 - 1;
     }
 
-    jjmin = (long) (y_center - radius1 - 1.0);
-    if (jjmin < 0)
+    jjmin = (long)(y_center - radius1 - 1.0);
+    if(jjmin < 0)
     {
         jjmin = 0;
     }
-    if (jjmin > l2 - 1)
+    if(jjmin > l2 - 1)
     {
         jjmin = l2 - 1;
     }
 
-    jjmax = (long) (y_center + radius1 + 1.0);
-    if (jjmax < 0)
+    jjmax = (long)(y_center + radius1 + 1.0);
+    if(jjmax < 0)
     {
         jjmax = 0;
     }
-    if (jjmax > l2 - 1)
+    if(jjmax > l2 - 1)
     {
         jjmax = l2 - 1;
     }
 
 #ifdef HAVE_LIBGOMP
-#pragma omp parallel default(shared) private(ii, jj, value, x, y, r)
+    #pragma omp parallel default(shared) private(ii, jj, value, x, y, r)
     {
-#pragma omp for
+        #pragma omp for
 #endif
 
-        for (jj = jjmin; jj < jjmax; jj++)
-            for (ii = iimin; ii < iimax; ii++)
+        for(jj = jjmin; jj < jjmax; jj++)
+            for(ii = iimin; ii < iimax; ii++)
             {
                 value = 1.0;
                 x     = 1.0 * ii - x_center;
                 y     = 1.0 * jj - y_center;
 
-                if (x * x + y * y > radius0sq)
+                if(x * x + y * y > radius0sq)
                 {
                     r = y;
-                    if (fabs(r) > radius)
+                    if(fabs(r) > radius)
                     {
                         value = 0.0;
                     }
                     else
                     {
                         r = cos(PI / 6.0) * x + sin(PI / 6.0) * y;
-                        if (fabs(r) > radius)
+                        if(fabs(r) > radius)
                         {
                             value = 0.0;
                         }
                         else
                         {
                             r = cos(-PI / 6.0) * x + sin(-PI / 6.0) * y;
-                            if (fabs(r) > radius)
+                            if(fabs(r) > radius)
                             {
                                 value = 0.0;
                             }
@@ -1600,36 +1600,36 @@ imageID IMAGE_gen_segments2WFmodes(const char *prefix,
 
     seg = 0;
     OK  = 1;
-    while (OK == 1)
+    while(OK == 1)
     {
-        switch (ndigit)
+        switch(ndigit)
         {
 
-        case 1:
-            sprintf(imname, "%s%01ld", prefix, seg);
-            break;
-        case 2:
-            sprintf(imname, "%s%02ld", prefix, seg);
-            break;
-        case 3:
-            sprintf(imname, "%s%03ld", prefix, seg);
-            break;
-        case 4:
-            sprintf(imname, "%s%04ld", prefix, seg);
-            break;
-        case 5:
-            sprintf(imname, "%s%05ld", prefix, seg);
-            break;
-        case 6:
-            sprintf(imname, "%s%06ld", prefix, seg);
-            break;
+            case 1:
+                sprintf(imname, "%s%01ld", prefix, seg);
+                break;
+            case 2:
+                sprintf(imname, "%s%02ld", prefix, seg);
+                break;
+            case 3:
+                sprintf(imname, "%s%03ld", prefix, seg);
+                break;
+            case 4:
+                sprintf(imname, "%s%04ld", prefix, seg);
+                break;
+            case 5:
+                sprintf(imname, "%s%05ld", prefix, seg);
+                break;
+            case 6:
+                sprintf(imname, "%s%06ld", prefix, seg);
+                break;
 
-        default:
-            printf("ERROR: Invalid number of didits\n");
-            exit(0);
+            default:
+                printf("ERROR: Invalid number of didits\n");
+                exit(0);
         }
         IDarray[seg] = image_ID(imname);
-        if (IDarray[seg] != -1)
+        if(IDarray[seg] != -1)
         {
             seg++;
         }
@@ -1640,28 +1640,28 @@ imageID IMAGE_gen_segments2WFmodes(const char *prefix,
     }
     NBseg = seg;
     printf("Processing %ld segments\n", NBseg);
-    if (NBseg > 0)
+    if(NBseg > 0)
     {
         xsize  = data.image[IDarray[0]].md[0].size[0];
         ysize  = data.image[IDarray[0]].md[0].size[1];
         xysize = xsize * ysize;
 
         segxc = (double *) malloc(sizeof(double) * NBseg);
-        if (segxc == NULL)
+        if(segxc == NULL)
         {
             PRINT_ERROR("malloc returns NULL pointer");
             abort();
         }
 
         segyc = (double *) malloc(sizeof(double) * NBseg);
-        if (segyc == NULL)
+        if(segyc == NULL)
         {
             PRINT_ERROR("malloc returns NULL pointer");
             abort();
         }
 
         segsum = (double *) malloc(sizeof(double) * NBseg);
-        if (segsum == NULL)
+        if(segsum == NULL)
         {
             PRINT_ERROR("malloc returns NULL pointer");
             abort();
@@ -1669,14 +1669,14 @@ imageID IMAGE_gen_segments2WFmodes(const char *prefix,
 
         create_2Dimage_ID("_pupmask", xsize, ysize, &IDmask);
 
-        for (seg = 0; seg < NBseg; seg++)
+        for(seg = 0; seg < NBseg; seg++)
         {
             segxc[seg]  = 0.0;
             segyc[seg]  = 0.0;
             segsum[seg] = 0.0;
 
-            for (ii = 0; ii < xsize; ii++)
-                for (jj = 0; jj < ysize; jj++)
+            for(ii = 0; ii < xsize; ii++)
+                for(jj = 0; jj < ysize; jj++)
                 {
                     x = 1.0 * ii;
                     y = 1.0 * jj;
@@ -1700,11 +1700,11 @@ imageID IMAGE_gen_segments2WFmodes(const char *prefix,
         //IDtmp = create_2Dimage_ID("_seg2wfm_tmp", xsize, ysize);
         create_3Dimage_ID(IDout_name, xsize, ysize, 3 * NBseg, &IDout);
         kk = 0;
-        for (seg = 0; seg < NBseg; seg++) // create modes one at a time
+        for(seg = 0; seg < NBseg; seg++)  // create modes one at a time
         {
             // piston seg
-            for (ii = 0; ii < xsize; ii++)
-                for (jj = 0; jj < xsize; jj++)
+            for(ii = 0; ii < xsize; ii++)
+                for(jj = 0; jj < xsize; jj++)
                 {
                     data.image[IDout].array.F[kk * xysize + jj * xsize + ii] =
                         data.image[IDarray[seg]].array.F[jj * xsize + ii];
@@ -1712,8 +1712,8 @@ imageID IMAGE_gen_segments2WFmodes(const char *prefix,
             kk++;
 
             // Tip
-            for (ii = 0; ii < xsize; ii++)
-                for (jj = 0; jj < xsize; jj++)
+            for(ii = 0; ii < xsize; ii++)
+                for(jj = 0; jj < xsize; jj++)
                 {
                     data.image[IDout].array.F[kk * xysize + jj * xsize + ii] =
                         data.image[IDarray[seg]].array.F[jj * xsize + ii] *
@@ -1722,8 +1722,8 @@ imageID IMAGE_gen_segments2WFmodes(const char *prefix,
             kk++;
 
             // Tilt
-            for (ii = 0; ii < xsize; ii++)
-                for (jj = 0; jj < xsize; jj++)
+            for(ii = 0; ii < xsize; ii++)
+                for(jj = 0; jj < xsize; jj++)
                 {
                     data.image[IDout].array.F[kk * xysize + jj * xsize + ii] =
                         data.image[IDarray[seg]].array.F[jj * xsize + ii] *
@@ -1791,7 +1791,7 @@ imageID make_hexsegpupil(
 
     double vx, vy, rmsx, rmsy;
 
-    if (WriteCIF == 1)
+    if(WriteCIF == 1)
     {
         fp  = fopen("hexcoord.txt", "w");
         fp1 = fopen("hexcoord_pt.txt", "w");
@@ -1799,42 +1799,42 @@ imageID make_hexsegpupil(
         fprintf(fp, "DS 1 1 1;\n");
     }
 
-    if ((vID = variable_ID("pixscale")) != -1)
+    if((vID = variable_ID("pixscale")) != -1)
     {
         pixscale = data.variable[vID].value.f;
         printf("pixscale = %f\n", pixscale);
     }
 
     SEGcnt = 100;
-    if ((vID = variable_ID("SEGcnt")) != -1)
+    if((vID = variable_ID("SEGcnt")) != -1)
     {
-        SEGcnt = (long) (0.1 + data.variable[vID].value.f);
+        SEGcnt = (long)(0.1 + data.variable[vID].value.f);
         printf("SEGcnt = %ld\n", SEGcnt);
     }
 
     seglevel = (long *) malloc(sizeof(long) * SEGcnt);
-    if (seglevel == NULL)
+    if(seglevel == NULL)
     {
         PRINT_ERROR("malloc returns NULL pointer");
         abort();
     }
 
     bitval = (int *) malloc(sizeof(int) * SEGcnt);
-    if (bitval == NULL)
+    if(bitval == NULL)
     {
         PRINT_ERROR("malloc returns NULL pointer");
         abort();
     }
 
     fpmlevel = fopen("fpm_level.txt", "r");
-    if (fpmlevel != NULL)
+    if(fpmlevel != NULL)
     {
-        for (i = 0; i < SEGcnt; i++)
+        for(i = 0; i < SEGcnt; i++)
         {
             int fscanfcnt = fscanf(fpmlevel, "%ld %ld\n", &tmpl1, &tmpl2);
-            if (fscanfcnt == EOF)
+            if(fscanfcnt == EOF)
             {
-                if (ferror(fp))
+                if(ferror(fp))
                 {
                     perror("fscanf");
                 }
@@ -1846,7 +1846,7 @@ imageID make_hexsegpupil(
                 }
                 exit(EXIT_FAILURE);
             }
-            else if (fscanfcnt != 2)
+            else if(fscanfcnt != 2)
             {
                 fprintf(stderr,
                         "Error: fscanf successfully matched and assigned %i "
@@ -1861,18 +1861,18 @@ imageID make_hexsegpupil(
     }
 
     // SINGLE BIT
-    for (i = 0; i < SEGcnt; i++)
+    for(i = 0; i < SEGcnt; i++)
     {
         printf("%5ld %5ld   ", i + 1, seglevel[i]);
         segf = 1.0 * seglevel[i] / 16.0;
-        for (k = 0; k < 5; k++)
+        for(k = 0; k < 5; k++)
         {
             segi = (int) segf;
             printf(" %d", segi);
             segf -= segi;
             segf *= 2;
 
-            if (k == bitindex)
+            if(k == bitindex)
             {
                 bitval[i] = segi;
             }
@@ -1886,13 +1886,13 @@ imageID make_hexsegpupil(
     size2 = size * size;
 
     ID = variable_ID("hexpupnoif");
-    if (ID != -1)
+    if(ID != -1)
     {
         mkInfluenceFunctions = 0;
     }
 
     ID = variable_ID("HEXPISTONerr");
-    if (ID != -1)
+    if(ID != -1)
     {
         PISTONerr = 1;
         pampl     = data.variable[ID].value.f;
@@ -1904,41 +1904,41 @@ imageID make_hexsegpupil(
     }
 
     ID = variable_ID("HEXPISTONindex");
-    if (ID != -1)
+    if(ID != -1)
     {
-        errSEGindex = (long) (data.variable[ID].value.f + 0.01);
+        errSEGindex = (long)(data.variable[ID].value.f + 0.01);
         printf("SEGMENT INDEX = %ld\n", (long) errSEGindex);
     }
 
     create_2Dimage_ID(IDname, size, size, &ID);
-    if (PISTONerr == 1)
+    if(PISTONerr == 1)
     {
         create_2Dimage_ID("hexpupPha", size, size, &IDp);
     }
 
     IDdisk = make_disk("_TMPdisk", size, size, size / 2, size / 2, radius);
-    for (ii = 0; ii < size2; ii++)
+    for(ii = 0; ii < size2; ii++)
     {
         data.image[IDdisk].array.F[ii] = 1.0 - data.image[IDdisk].array.F[ii];
     }
 
     SEGcnt = 0;
-    for (x1 = -(long) (2 * size / step); x1 < (long) (2 * size / step); x1++)
-        for (y1 = -(long) (2 * size / step); y1 < (long) (2 * size / step);
-             y1++)
+    for(x1 = -(long)(2 * size / step); x1 < (long)(2 * size / step); x1++)
+        for(y1 = -(long)(2 * size / step); y1 < (long)(2 * size / step);
+                y1++)
         {
             x2 = step * x1 * 3;
             y2 = step * sqrt(3.0) * y1;
 
-            if (sqrt(x2 * x2 + y2 * y2) < radius)
+            if(sqrt(x2 * x2 + y2 * y2) < radius)
             {
-                if (errSEGindex == -1)
+                if(errSEGindex == -1)
                 {
                     piston = pampl * (1.0 - 2.0 * ran1());
                 }
                 else
                 {
-                    if (errSEGindex == SEGcnt)
+                    if(errSEGindex == SEGcnt)
                     {
                         piston = pampl;
                     }
@@ -1956,56 +1956,56 @@ imageID make_hexsegpupil(
                                    (step - gap) * (sqrt(3.0) / 2.0));
 
                 tot = 0.0;
-                for (ii = 0; ii < size2; ii++)
+                for(ii = 0; ii < size2; ii++)
                 {
                     tot += data.image[ID1].array.F[ii] *
                            data.image[IDdisk].array.F[ii];
                 }
-                if (tot < 0.1)
+                if(tot < 0.1)
                 {
                     SEGcnt++;
-                    if (WriteCIF == 1)
+                    if(WriteCIF == 1)
                     {
-                        ii = (long) (0.5 * size1 + x2 * (0.5 * size1 / radius) *
-                                                       mapscalefactor);
-                        jj = (long) (0.5 * size1 + y2 * (0.5 * size1 / radius) *
-                                                       mapscalefactor);
+                        ii = (long)(0.5 * size1 + x2 * (0.5 * size1 / radius) *
+                                    mapscalefactor);
+                        jj = (long)(0.5 * size1 + y2 * (0.5 * size1 / radius) *
+                                    mapscalefactor);
                         index = 0;
-                        if (IDmap1 != -1)
+                        if(IDmap1 != -1)
                         {
                             index =
                                 data.image[IDmap1].array.UI16[jj * size1 + ii];
                         }
 
                         //  fprintf(fp, "# hex%03ld     index%03ld   [ %f %f ] -> [ %f %f ]     [%4ld %4ld] %f\n", SEGcnt, index, x2, y2, 0.5*size+x2, 0.5*size+y2, ii, jj, radius);
-                        if (bitval[index - 1] == 1)
+                        if(bitval[index - 1] == 1)
                         {
                             fprintf(fp, "L %ld;\n", seglevel[index - 1]);
                             fprintf(fp, "P");
-                            for (pt = 0; pt < 6; pt++)
+                            for(pt = 0; pt < 6; pt++)
                             {
                                 x = pixscale *
                                     (x2 + 1.0 * cos(2.0 * M_PI * pt / 6) *
-                                              (step - gap));
+                                     (step - gap));
                                 y = pixscale *
                                     (y2 + 1.0 * sin(2.0 * M_PI * pt / 6) *
-                                              (step - gap));
+                                     (step - gap));
                                 fprintf(fp,
                                         " %ld,%ld",
-                                        (long) (100.0 * x),
-                                        (long) (100.0 * y));
+                                        (long)(100.0 * x),
+                                        (long)(100.0 * y));
                                 fprintf(fp1,
                                         "%ld %ld\n",
-                                        (long) (100.0 * x),
-                                        (long) (100.0 * y));
+                                        (long)(100.0 * x),
+                                        (long)(100.0 * y));
                             }
                             fprintf(fp, ";\n");
                         }
                     }
 
-                    if (PISTONerr == 1)
+                    if(PISTONerr == 1)
                     {
-                        for (ii = 0; ii < size2; ii++)
+                        for(ii = 0; ii < size2; ii++)
                         {
                             data.image[ID].array.F[ii] +=
                                 data.image[ID1].array.F[ii];
@@ -2013,16 +2013,16 @@ imageID make_hexsegpupil(
                     }
                     else
                     {
-                        for (ii = 0; ii < size2; ii++)
+                        for(ii = 0; ii < size2; ii++)
                         {
                             data.image[ID].array.F[ii] +=
                                 1.0 * SEGcnt * data.image[ID1].array.F[ii];
                         }
                     }
 
-                    if (PISTONerr == 1)
+                    if(PISTONerr == 1)
                     {
-                        for (ii = 0; ii < size2; ii++)
+                        for(ii = 0; ii < size2; ii++)
                         {
                             data.image[IDp].array.F[ii] +=
                                 data.image[ID1].array.F[ii] * piston;
@@ -2034,16 +2034,16 @@ imageID make_hexsegpupil(
 
             x2 += step * 1.5;
             y2 += step * sqrt(3.0) / 2.0;
-            if (sqrt(x2 * x2 + y2 * y2) < radius)
+            if(sqrt(x2 * x2 + y2 * y2) < radius)
             {
                 // piston = pampl*(1.0-2.0*ran1());
-                if (errSEGindex == -1)
+                if(errSEGindex == -1)
                 {
                     piston = pampl * (1.0 - 2.0 * ran1());
                 }
                 else
                 {
-                    if (errSEGindex == SEGcnt)
+                    if(errSEGindex == SEGcnt)
                     {
                         piston = pampl;
                     }
@@ -2060,23 +2060,23 @@ imageID make_hexsegpupil(
                                    0.5 * size + y2,
                                    (step - gap) * (sqrt(3.0) / 2.0));
                 tot = 0.0;
-                for (ii = 0; ii < size2; ii++)
+                for(ii = 0; ii < size2; ii++)
                 {
                     tot += data.image[ID1].array.F[ii] *
                            data.image[IDdisk].array.F[ii];
                 }
-                if (tot < 0.1)
+                if(tot < 0.1)
                 {
                     SEGcnt++;
 
-                    if (WriteCIF == 1)
+                    if(WriteCIF == 1)
                     {
-                        ii = (long) (0.5 * size1 + x2 * (0.5 * size1 / radius) *
-                                                       mapscalefactor);
-                        jj = (long) (0.5 * size1 + y2 * (0.5 * size1 / radius) *
-                                                       mapscalefactor);
+                        ii = (long)(0.5 * size1 + x2 * (0.5 * size1 / radius) *
+                                    mapscalefactor);
+                        jj = (long)(0.5 * size1 + y2 * (0.5 * size1 / radius) *
+                                    mapscalefactor);
                         index = 0;
-                        if (IDmap1 != -1)
+                        if(IDmap1 != -1)
                         {
                             index =
                                 data.image[IDmap1].array.UI16[jj * size1 + ii];
@@ -2084,49 +2084,49 @@ imageID make_hexsegpupil(
 
                         // fprintf(fp, "# hex%03ld     index%03ld   [ %f %f ] -> [ %f %f ]   [%4ld %4ld] %f\n", SEGcnt, index, x2, y2, 0.5*size+x2, 0.5*size+y2, ii, jj, radius);
 
-                        if (bitval[index - 1] == 1)
+                        if(bitval[index - 1] == 1)
                         {
                             fprintf(fp, "L %ld;\n", seglevel[index - 1]);
                             fprintf(fp, "P");
-                            for (pt = 0; pt < 6; pt++)
+                            for(pt = 0; pt < 6; pt++)
                             {
                                 x = pixscale *
                                     (x2 + 1.0 * cos(2.0 * M_PI * pt / 6) *
-                                              (step - gap));
+                                     (step - gap));
                                 y = pixscale *
                                     (y2 + 1.0 * sin(2.0 * M_PI * pt / 6) *
-                                              (step - gap));
+                                     (step - gap));
                                 fprintf(fp,
                                         " %ld,%ld",
-                                        (long) (100.0 * x),
-                                        (long) (100.0 * y));
+                                        (long)(100.0 * x),
+                                        (long)(100.0 * y));
                                 fprintf(fp1,
                                         "%ld %ld\n",
-                                        (long) (100.0 * x),
-                                        (long) (100.0 * y));
+                                        (long)(100.0 * x),
+                                        (long)(100.0 * y));
                             }
                             fprintf(fp, ";\n");
                         }
                     }
 
-                    if (PISTONerr == 1)
+                    if(PISTONerr == 1)
                     {
-                        for (ii = 0; ii < size2; ii++)
+                        for(ii = 0; ii < size2; ii++)
                         {
                             data.image[ID].array.F[ii] +=
                                 data.image[ID1].array.F[ii];
                         }
                     }
                     else
-                        for (ii = 0; ii < size2; ii++)
+                        for(ii = 0; ii < size2; ii++)
                         {
                             data.image[ID].array.F[ii] +=
                                 1.0 * SEGcnt * data.image[ID1].array.F[ii];
                         }
 
-                    if (PISTONerr == 1)
+                    if(PISTONerr == 1)
                     {
-                        for (ii = 0; ii < size2; ii++)
+                        for(ii = 0; ii < size2; ii++)
                         {
                             data.image[IDp].array.F[ii] +=
                                 data.image[ID1].array.F[ii] * piston;
@@ -2140,7 +2140,7 @@ imageID make_hexsegpupil(
 
     printf("%ld segments\n", SEGcnt);
 
-    if (WriteCIF == 1)
+    if(WriteCIF == 1)
     {
         fprintf(fp, "DF;\n");
         fprintf(fp, "E\n");
@@ -2151,11 +2151,11 @@ imageID make_hexsegpupil(
     free(seglevel);
     free(bitval);
 
-    if (mkInfluenceFunctions == 1) // TT and focus for each segment
+    if(mkInfluenceFunctions == 1)  // TT and focus for each segment
     {
 
         create_3Dimage_ID("hexpupif", size, size, 3 * SEGcnt, &IDif);
-        for (seg = 0; seg < SEGcnt; seg++)
+        for(seg = 0; seg < SEGcnt; seg++)
         {
 
             // piston
@@ -2163,11 +2163,11 @@ imageID make_hexsegpupil(
             xc = 0.0;
             yc = 0.0;
             tc = 0.0;
-            for (ii = 0; ii < size; ii++)
-                for (jj = 0; jj < size; jj++)
+            for(ii = 0; ii < size; ii++)
+                for(jj = 0; jj < size; jj++)
                 {
-                    if (fabs(data.image[ID].array.F[jj * size + ii] -
-                             (seg + 1.0)) < 0.01)
+                    if(fabs(data.image[ID].array.F[jj * size + ii] -
+                            (seg + 1.0)) < 0.01)
                     {
                         data.image[IDif].array.F[kk * size2 + jj * size + ii] =
                             1.0;
@@ -2182,24 +2182,24 @@ imageID make_hexsegpupil(
             // tip and tilt
             rmsx = 0.0;
             rmsy = 0.0;
-            for (ii = 0; ii < size; ii++)
-                for (jj = 0; jj < size; jj++)
+            for(ii = 0; ii < size; ii++)
+                for(jj = 0; jj < size; jj++)
                 {
-                    if (fabs(data.image[ID].array.F[jj * size + ii] -
-                             (seg + 1.0)) < 0.01)
+                    if(fabs(data.image[ID].array.F[jj * size + ii] -
+                            (seg + 1.0)) < 0.01)
                     {
                         vx = 1.0 * ii - xc;
                         data.image[IDif]
-                            .array.F[(kk + 1) * size2 + jj * size + ii] = vx;
+                        .array.F[(kk + 1) * size2 + jj * size + ii] = vx;
                         rmsx += vx * vx;
 
                         vy = 1.0 * jj - yc;
                         data.image[IDif]
-                            .array.F[(kk + 2) * size2 + jj * size + ii] = vy;
+                        .array.F[(kk + 2) * size2 + jj * size + ii] = vy;
                         rmsy += vy * vy;
                     }
                 }
-            for (ii = 0; ii < size2; ii++)
+            for(ii = 0; ii < size2; ii++)
             {
                 data.image[IDif].array.F[(kk + 1) * size2 + ii] *=
                     sqrt(tc / rmsx);
@@ -2227,11 +2227,11 @@ imageID make_jacquinot_pupil(const char *ID_name,
     naxes[0] = data.image[ID].md[0].size[0];
     naxes[1] = data.image[ID].md[0].size[1];
 
-    for (uint32_t jj = 0; jj < naxes[1]; jj++)
-        for (uint32_t ii = 0; ii < naxes[0]; ii++)
+    for(uint32_t jj = 0; jj < naxes[1]; jj++)
+        for(uint32_t ii = 0; ii < naxes[0]; ii++)
         {
-            if ((fabs(jj - y_center) / height) <
-                exp(-((ii - x_center) * (ii - x_center) / width / width)))
+            if((fabs(jj - y_center) / height) <
+                    exp(-((ii - x_center) * (ii - x_center) / width / width)))
             {
                 data.image[ID].array.F[jj * naxes[0] + ii] = 1;
             }
@@ -2256,16 +2256,16 @@ imageID make_sectors(const char *ID_name,
     naxes[0] = data.image[ID].md[0].size[0];
     naxes[1] = data.image[ID].md[0].size[1];
 
-    for (uint32_t jj = 0; jj < naxes[1]; jj++)
-        for (uint32_t ii = 0; ii < naxes[0]; ii++)
+    for(uint32_t jj = 0; jj < naxes[1]; jj++)
+        for(uint32_t ii = 0; ii < naxes[0]; ii++)
         {
             theta = atan2((ii - x_center), (jj - y_center));
-            if (theta < 0.0)
+            if(theta < 0.0)
             {
                 theta += 2.0 * PI;
             }
             data.image[ID].array.F[jj * naxes[0] + ii] =
-                step * ((long) (theta / 2.0 / PI * NB_sectors));
+                step * ((long)(theta / 2.0 / PI * NB_sectors));
         }
 
     return (ID);
@@ -2280,19 +2280,19 @@ make_rnd(const char *ID_name, uint32_t l1, uint32_t l2, const char *options)
     uint64_t nelement;
 
     distrib = 0; /* uniform */
-    if (strstr(options, "gauss") != NULL)
+    if(strstr(options, "gauss") != NULL)
     {
         distrib = 1; /* gauss */
         printf("gaussian distribution\n");
     }
 
-    if (strstr(options, "trgauss") != NULL)
+    if(strstr(options, "trgauss") != NULL)
     {
         distrib = 2; /* truncated gauss */
         printf("truncated gaussian distribution\n");
     }
 
-    if (data.Debug > 1)
+    if(data.Debug > 1)
     {
         fprintf(stdout, "Image size = %u %u\n", l1, l2);
     }
@@ -2303,23 +2303,23 @@ make_rnd(const char *ID_name, uint32_t l1, uint32_t l2, const char *options)
     nelement = naxes[0] * naxes[1];
 
     // openMP is slow when calling gsl random number generator : do not use openMP here
-    if (distrib == 0)
+    if(distrib == 0)
     {
-        for (uint64_t ii = 0; ii < nelement; ii++)
+        for(uint64_t ii = 0; ii < nelement; ii++)
         {
             data.image[ID].array.F[ii] = (double) ran1();
         }
     }
-    if (distrib == 1)
+    if(distrib == 1)
     {
-        for (uint64_t ii = 0; ii < nelement; ii++)
+        for(uint64_t ii = 0; ii < nelement; ii++)
         {
             data.image[ID].array.F[ii] = (double) gauss();
         }
     }
-    if (distrib == 2)
+    if(distrib == 2)
     {
-        for (uint64_t ii = 0; ii < nelement; ii++)
+        for(uint64_t ii = 0; ii < nelement; ii++)
         {
             data.image[ID].array.F[ii] = (double) gauss_trc();
         }
@@ -2339,19 +2339,19 @@ imageID make_rnd_double(const char *ID_name,
     uint64_t nelement;
 
     distrib = 0; /* uniform */
-    if (strstr(options, "gauss") != NULL)
+    if(strstr(options, "gauss") != NULL)
     {
         distrib = 1; /* gauss */
         printf("gaussian distribution\n");
     }
 
-    if (strstr(options, "trgauss") != NULL)
+    if(strstr(options, "trgauss") != NULL)
     {
         distrib = 2; /* truncated gauss */
         printf("truncated gaussian distribution\n");
     }
 
-    if (data.Debug > 1)
+    if(data.Debug > 1)
     {
         fprintf(stdout, "Image size = %u %u\n", l1, l2);
     }
@@ -2362,23 +2362,23 @@ imageID make_rnd_double(const char *ID_name,
     nelement = naxes[0] * naxes[1];
 
     // openMP is slow when calling gsl random number generator : do not use openMP here
-    if (distrib == 0)
+    if(distrib == 0)
     {
-        for (uint64_t ii = 0; ii < nelement; ii++)
+        for(uint64_t ii = 0; ii < nelement; ii++)
         {
             data.image[ID].array.D[ii] = (double) ran1();
         }
     }
-    if (distrib == 1)
+    if(distrib == 1)
     {
-        for (uint64_t ii = 0; ii < nelement; ii++)
+        for(uint64_t ii = 0; ii < nelement; ii++)
         {
             data.image[ID].array.D[ii] = (double) gauss();
         }
     }
-    if (distrib == 2)
+    if(distrib == 2)
     {
-        for (uint64_t ii = 0; ii < nelement; ii++)
+        for(uint64_t ii = 0; ii < nelement; ii++)
         {
             data.image[ID].array.D[ii] = (double) gauss_trc();
         }
@@ -2447,8 +2447,8 @@ make_gauss(const char *ID_name, uint32_t l1, uint32_t l2, double a, double A)
     naxes[0] = data.image[ID].md[0].size[0];
     naxes[1] = data.image[ID].md[0].size[1];
 
-    for (uint32_t jj = 0; jj < naxes[1]; jj++)
-        for (uint32_t ii = 0; ii < naxes[0]; ii++)
+    for(uint32_t jj = 0; jj < naxes[1]; jj++)
+        for(uint32_t ii = 0; ii < naxes[0]; ii++)
         {
             distsq = (ii - naxes[0] / 2) * (ii - naxes[0] / 2) +
                      (jj - naxes[1] / 2) * (jj - naxes[1] / 2);
@@ -2480,9 +2480,9 @@ imageID make_FiberCouplingOverlap(const char *ID_name)
     create_2Dimage_ID("tem00", size, size, &IDtem00);
 
     double fluxtot = 0.0;
-    for (uint32_t jj = 0; jj < naxes[1]; jj++)
+    for(uint32_t jj = 0; jj < naxes[1]; jj++)
     {
-        for (uint32_t ii = 0; ii < naxes[0]; ii++)
+        for(uint32_t ii = 0; ii < naxes[0]; ii++)
         {
             float x     = 1.0 * (1.0 * ii - 0.5 * naxes[0]) / puprad;
             float y     = 1.0 * (1.0 * jj - 0.5 * naxes[1]) / puprad;
@@ -2494,17 +2494,17 @@ imageID make_FiberCouplingOverlap(const char *ID_name)
         }
     }
 
-    for (uint32_t jj = 0; jj < naxes[1]; jj++)
+    for(uint32_t jj = 0; jj < naxes[1]; jj++)
     {
-        for (uint32_t ii = 0; ii < naxes[0]; ii++)
+        for(uint32_t ii = 0; ii < naxes[0]; ii++)
         {
             data.image[IDtem00].array.F[jj * naxes[0] + ii] /= sqrt(fluxtot);
         }
     }
 
-    for (uint32_t jj = 0; jj < naxes[1]; jj++)
+    for(uint32_t jj = 0; jj < naxes[1]; jj++)
     {
-        for (uint32_t ii = 0; ii < naxes[0]; ii++)
+        for(uint32_t ii = 0; ii < naxes[0]; ii++)
         {
             double totre = 0.0;
             double totim = 0.0;
@@ -2513,9 +2513,9 @@ imageID make_FiberCouplingOverlap(const char *ID_name)
             float TTy = 1.0 * (1.0 * jj - 0.5 * naxes[1]) * TTcoeff;
 
             fluxtot = 0.0;
-            for (uint32_t jj0 = 0; jj0 < naxes[1]; jj0++)
+            for(uint32_t jj0 = 0; jj0 < naxes[1]; jj0++)
             {
-                for (uint32_t ii0 = 0; ii0 < naxes[0]; ii0++)
+                for(uint32_t ii0 = 0; ii0 < naxes[0]; ii0++)
                 {
                     float pup_ampl;
                     float pup_pha;
@@ -2534,7 +2534,7 @@ imageID make_FiberCouplingOverlap(const char *ID_name)
 
                     //data.image[ID].array.F[jj * naxes[0] + ii] = -r;
 
-                    if ((r < 1.0) && (r > 0.3))
+                    if((r < 1.0) && (r > 0.3))
                     {
                         pup_ampl =
                             1.0; //data.image[IDtem00].array.F[jj0 * naxes[0] + ii0];
@@ -2578,8 +2578,8 @@ imageID make_2axis_gauss(const char *ID_name,
     naxes[0] = data.image[ID].md[0].size[0];
     naxes[1] = data.image[ID].md[0].size[1];
 
-    for (uint32_t jj = 0; jj < naxes[1]; jj++)
-        for (uint32_t ii = 0; ii < naxes[0]; ii++)
+    for(uint32_t jj = 0; jj < naxes[1]; jj++)
+        for(uint32_t ii = 0; ii < naxes[0]; ii++)
         {
             iin = 1.0 * (ii - naxes[0] / 2) * cos(PA) +
                   1.0 * (jj - naxes[1] / 2) * sin(PA);
@@ -2608,13 +2608,13 @@ make_cluster(const char *ID_name, uint32_t l1, uint32_t l2, const char *options)
     int      sim = 0;
     long     lii, ljj, hii, hjj;
 
-    if (strstr(options, "-nbstars ") != NULL)
+    if(strstr(options, "-nbstars ") != NULL)
     {
         str_pos = strstr(options, "-nbstars ") - options;
         str_pos = str_pos + strlen("-nbstars ");
         i       = 0;
-        while ((options[i + str_pos] != ' ') &&
-               (options[i + str_pos] != '\n') && (options[i + str_pos] != '\0'))
+        while((options[i + str_pos] != ' ') &&
+                (options[i + str_pos] != '\n') && (options[i + str_pos] != '\0'))
         {
             input[i] = options[i + str_pos];
             i++;
@@ -2624,13 +2624,13 @@ make_cluster(const char *ID_name, uint32_t l1, uint32_t l2, const char *options)
         printf("number of stars is %ld\n", nb_star);
     }
 
-    if (strstr(options, "-conc ") != NULL)
+    if(strstr(options, "-conc ") != NULL)
     {
         str_pos = strstr(options, "-conc ") - options;
         str_pos = str_pos + strlen("-conc ");
         i       = 0;
-        while ((options[i + str_pos] != ' ') &&
-               (options[i + str_pos] != '\n') && (options[i + str_pos] != '\0'))
+        while((options[i + str_pos] != ' ') &&
+                (options[i + str_pos] != '\n') && (options[i + str_pos] != '\0'))
         {
             input[i] = options[i + str_pos];
             i++;
@@ -2640,13 +2640,13 @@ make_cluster(const char *ID_name, uint32_t l1, uint32_t l2, const char *options)
         printf("concentration is %f\n", concentration);
     }
 
-    if (strstr(options, "-size ") != NULL)
+    if(strstr(options, "-size ") != NULL)
     {
         str_pos = strstr(options, "-size ") - options;
         str_pos = str_pos + strlen("-size ");
         i       = 0;
-        while ((options[i + str_pos] != ' ') &&
-               (options[i + str_pos] != '\n') && (options[i + str_pos] != '\0'))
+        while((options[i + str_pos] != ' ') &&
+                (options[i + str_pos] != '\n') && (options[i + str_pos] != '\0'))
         {
             input[i] = options[i + str_pos];
             i++;
@@ -2656,7 +2656,7 @@ make_cluster(const char *ID_name, uint32_t l1, uint32_t l2, const char *options)
         printf("cluster size is %f\n", cluster_size);
     }
 
-    if (strstr(options, "-sim") != NULL)
+    if(strstr(options, "-sim") != NULL)
     {
         printf("all sources in the central half array \n");
         sim = 1;
@@ -2666,7 +2666,7 @@ make_cluster(const char *ID_name, uint32_t l1, uint32_t l2, const char *options)
     naxes[0] = data.image[ID].md[0].size[0];
     naxes[1] = data.image[ID].md[0].size[1];
 
-    if (sim == 0)
+    if(sim == 0)
     {
         lii = 0;
         ljj = 0;
@@ -2682,18 +2682,18 @@ make_cluster(const char *ID_name, uint32_t l1, uint32_t l2, const char *options)
     }
 
     i = 0;
-    while (i < nb_star)
+    while(i < nb_star)
     {
         dist        = gauss();
         dist        = sqrt(sqrt(dist * dist));
         dist        = pow(dist, concentration);
         angle       = 2 * PI * ran1();
-        uint32_t ii = (uint32_t) (naxes[0] / 2 + (cluster_size * naxes[0] / 2) *
-                                                     dist * cos(angle));
-        uint32_t jj = (uint32_t) (naxes[1] / 2 + (cluster_size * naxes[1] / 2) *
-                                                     dist * sin(angle));
+        uint32_t ii = (uint32_t)(naxes[0] / 2 + (cluster_size * naxes[0] / 2) *
+                                 dist * cos(angle));
+        uint32_t jj = (uint32_t)(naxes[1] / 2 + (cluster_size * naxes[1] / 2) *
+                                 dist * sin(angle));
 
-        if ((ii > lii) && (jj > ljj) && (ii < hii) && (jj < hjj))
+        if((ii > lii) && (jj > ljj) && (ii < hii) && (jj < hjj))
         {
             tmp = gauss();
             data.image[ID].array.F[jj * naxes[0] + ii] += tmp * tmp;
@@ -2732,8 +2732,8 @@ imageID make_galaxy(const char *ID_name,
     aob = 1.0 / (1.0 - S_ell);
     boa = 1.0 - S_ell;
 
-    for (uint32_t ii = 0; ii < naxes[0]; ii++)
-        for (uint32_t jj = 0; jj < naxes[1] / 2 + 1; jj++)
+    for(uint32_t ii = 0; ii < naxes[0]; ii++)
+        for(uint32_t jj = 0; jj < naxes[1] / 2 + 1; jj++)
         {
             x = cos(S_PA) * (ii - naxes[0] / 2) +
                 sin(S_PA) * (jj - naxes[1] / 2);
@@ -2748,8 +2748,8 @@ imageID make_galaxy(const char *ID_name,
     aob = 1.0 / (1.0 - E_ell);
     boa = 1.0 - E_ell;
 
-    for (uint32_t ii = 0; ii < naxes[0]; ii++)
-        for (uint32_t jj = 0; jj < naxes[1] / 2 + 1; jj++)
+    for(uint32_t ii = 0; ii < naxes[0]; ii++)
+        for(uint32_t jj = 0; jj < naxes[1] / 2 + 1; jj++)
         {
             x = cos(E_PA) * (ii - naxes[0] / 2) +
                 sin(E_PA) * (jj - naxes[1] / 2);
@@ -2761,15 +2761,15 @@ imageID make_galaxy(const char *ID_name,
         }
 
     /* filling other half */
-    for (uint32_t ii = 1; ii < naxes[0]; ii++)
-        for (uint32_t jj = 1; jj < naxes[1] / 2; jj++)
+    for(uint32_t ii = 1; ii < naxes[0]; ii++)
+        for(uint32_t jj = 1; jj < naxes[1] / 2; jj++)
         {
             data.image[ID]
-                .array.F[(naxes[1] - jj) * naxes[0] + (naxes[0] - ii)] =
+            .array.F[(naxes[1] - jj) * naxes[0] + (naxes[0] - ii)] =
                 data.image[ID].array.F[jj * naxes[0] + ii];
         }
     uint32_t ii = 0;
-    for (uint32_t jj = naxes[1] / 2; jj < naxes[1]; jj++)
+    for(uint32_t jj = naxes[1] / 2; jj < naxes[1]; jj++)
     {
         aob = 1.0 / (1.0 - S_ell);
         boa = 1.0 - S_ell;
@@ -2810,13 +2810,13 @@ make_Egalaxy(const char *ID_name, uint32_t l1, uint32_t l2, const char *options)
     long     lii, ljj, hii, hjj;
     double   x, y, xcenter, ycenter, distsq;
 
-    if (strstr(options, "-conc ") != NULL)
+    if(strstr(options, "-conc ") != NULL)
     {
         str_pos = strstr(options, "-conc ") - options;
         str_pos = str_pos + strlen("-conc ");
         i       = 0;
-        while ((options[i + str_pos] != ' ') &&
-               (options[i + str_pos] != '\n') && (options[i + str_pos] != '\0'))
+        while((options[i + str_pos] != ' ') &&
+                (options[i + str_pos] != '\n') && (options[i + str_pos] != '\0'))
         {
             input[i] = options[i + str_pos];
             i++;
@@ -2826,13 +2826,13 @@ make_Egalaxy(const char *ID_name, uint32_t l1, uint32_t l2, const char *options)
         printf("concentration is %f\n", concentration);
     }
 
-    if (strstr(options, "-size ") != NULL)
+    if(strstr(options, "-size ") != NULL)
     {
         str_pos = strstr(options, "-size ") - options;
         str_pos = str_pos + strlen("-size ");
         i       = 0;
-        while ((options[i + str_pos] != ' ') &&
-               (options[i + str_pos] != '\n') && (options[i + str_pos] != '\0'))
+        while((options[i + str_pos] != ' ') &&
+                (options[i + str_pos] != '\n') && (options[i + str_pos] != '\0'))
         {
             input[i] = options[i + str_pos];
             i++;
@@ -2842,13 +2842,13 @@ make_Egalaxy(const char *ID_name, uint32_t l1, uint32_t l2, const char *options)
         printf("size is %f\n", galaxy_size);
     }
 
-    if (strstr(options, "-pa ") != NULL)
+    if(strstr(options, "-pa ") != NULL)
     {
         str_pos = strstr(options, "-pa ") - options;
         str_pos = str_pos + strlen("-pa ");
         i       = 0;
-        while ((options[i + str_pos] != ' ') &&
-               (options[i + str_pos] != '\n') && (options[i + str_pos] != '\0'))
+        while((options[i + str_pos] != ' ') &&
+                (options[i + str_pos] != '\n') && (options[i + str_pos] != '\0'))
         {
             input[i] = options[i + str_pos];
             i++;
@@ -2858,13 +2858,13 @@ make_Egalaxy(const char *ID_name, uint32_t l1, uint32_t l2, const char *options)
         printf("galaxy pa size is %f radians \n", PA);
     }
 
-    if (strstr(options, "-e ") != NULL)
+    if(strstr(options, "-e ") != NULL)
     {
         str_pos = strstr(options, "-e ") - options;
         str_pos = str_pos + strlen("-e ");
         i       = 0;
-        while ((options[i + str_pos] != ' ') &&
-               (options[i + str_pos] != '\n') && (options[i + str_pos] != '\0'))
+        while((options[i + str_pos] != ' ') &&
+                (options[i + str_pos] != '\n') && (options[i + str_pos] != '\0'))
         {
             input[i] = options[i + str_pos];
             i++;
@@ -2874,7 +2874,7 @@ make_Egalaxy(const char *ID_name, uint32_t l1, uint32_t l2, const char *options)
         printf("galaxy elipticity is %f \n", E);
     }
 
-    if (strstr(options, "-sim") != NULL)
+    if(strstr(options, "-sim") != NULL)
     {
         printf("all sources in the central half array \n");
         sim = 1;
@@ -2886,7 +2886,7 @@ make_Egalaxy(const char *ID_name, uint32_t l1, uint32_t l2, const char *options)
     xcenter  = naxes[0] / 2;
     ycenter  = naxes[1] / 2;
 
-    if (sim == 0)
+    if(sim == 0)
     {
         lii = 0;
         ljj = 0;
@@ -2901,8 +2901,8 @@ make_Egalaxy(const char *ID_name, uint32_t l1, uint32_t l2, const char *options)
         hjj = 3 * naxes[1] / 4;
     }
 
-    for (uint32_t jj = ljj; jj < hjj; jj++)
-        for (uint32_t ii = lii; ii < hii; ii++)
+    for(uint32_t jj = ljj; jj < hjj; jj++)
+        for(uint32_t ii = lii; ii < hii; ii++)
         {
             x = cos(PA) * (ii - xcenter) + sin(PA) * (jj - ycenter);
             y = -sin(PA) * (ii - xcenter) + cos(PA) * (jj - ycenter);
@@ -2933,14 +2933,14 @@ imageID gen_image_EZdisk(const char *ID_name,
 
     create_2Dimage_ID(ID_name, size, size, &ID);
     r0 = 6.0;
-    for (uint32_t ii = 0; ii < size; ii++)
-        for (uint32_t jj = 0; jj < size; jj++)
+    for(uint32_t ii = 0; ii < size; ii++)
+        for(uint32_t jj = 0; jj < size; jj++)
         {
             x = 1.0 * (ii + 0.5) - size / 2;
             y = 1.0 * (jj + 0.5) - size / 2;
             y /= cos(Incl);
             r = sqrt(x * x + y * y);
-            if (r < InnerEdge)
+            if(r < InnerEdge)
             {
                 value = 0.0;
             }
@@ -2970,8 +2970,8 @@ imageID make_slopexy(
 
     coeff = sx * (naxes[0] / 2) + sy * (naxes[1] / 2);
 
-    for (uint32_t jj = 0; jj < naxes[1]; jj++)
-        for (uint32_t ii = 0; ii < naxes[0]; ii++)
+    for(uint32_t jj = 0; jj < naxes[1]; jj++)
+        for(uint32_t ii = 0; ii < naxes[0]; ii++)
         {
             data.image[ID].array.F[jj * naxes[0] + ii] =
                 sx * ii + sy * jj - coeff;
@@ -2990,8 +2990,8 @@ make_dist(const char *ID_name, uint32_t l1, uint32_t l2, double f1, double f2)
     naxes[0] = data.image[ID].md[0].size[0];
     naxes[1] = data.image[ID].md[0].size[1];
 
-    for (uint32_t jj = 0; jj < naxes[1]; jj++)
-        for (uint32_t ii = 0; ii < naxes[0]; ii++)
+    for(uint32_t jj = 0; jj < naxes[1]; jj++)
+        for(uint32_t ii = 0; ii < naxes[0]; ii++)
         {
             data.image[ID].array.F[jj * naxes[0] + ii] =
                 sqrt((f1 - ii) * (f1 - ii) + (f2 - jj) * (f2 - jj));
@@ -3010,8 +3010,8 @@ imageID make_PosAngle(
     naxes[0] = data.image[ID].md[0].size[0];
     naxes[1] = data.image[ID].md[0].size[1];
 
-    for (uint32_t jj = 0; jj < naxes[1]; jj++)
-        for (uint32_t ii = 0; ii < naxes[0]; ii++)
+    for(uint32_t jj = 0; jj < naxes[1]; jj++)
+        for(uint32_t ii = 0; ii < naxes[0]; ii++)
         {
             double x, y;
             x                                          = 1.0 * ii - f1;
@@ -3045,7 +3045,7 @@ imageID make_psf_from_profile(const char *profile_name,
 
     /* compute number of lines */
     sprintf(lstring, "wc -l %s > tmpcnt.txt", profile_name);
-    if (system(lstring) == -1)
+    if(system(lstring) == -1)
     {
         printf("ERROR: system(\"%s\"), %s line %d\n",
                lstring,
@@ -3053,11 +3053,11 @@ imageID make_psf_from_profile(const char *profile_name,
                __LINE__);
         exit(0);
     }
-    if ((fp = fopen("tmpcnt.txt", "r")) == NULL)
+    if((fp = fopen("tmpcnt.txt", "r")) == NULL)
     {
         printf("error : can't open file \"tmpcnt.txt\"\n");
     }
-    if (fgets(line, 200, fp) == NULL)
+    if(fgets(line, 200, fp) == NULL)
     {
         printf("ERROR: fgets, %s line %d\n", __FILE__, __LINE__);
         exit(0);
@@ -3070,27 +3070,27 @@ imageID make_psf_from_profile(const char *profile_name,
     printf("%ld lines\n", nb_lines);
 
     distarr = (double *) malloc(sizeof(double) * nb_lines);
-    if (distarr == NULL)
+    if(distarr == NULL)
     {
         PRINT_ERROR("malloc returns NULL pointer");
         abort();
     }
 
     valarr = (double *) malloc(sizeof(double) * nb_lines);
-    if (valarr == NULL)
+    if(valarr == NULL)
     {
         PRINT_ERROR("malloc returns NULL pointer");
         abort();
     }
 
-    if ((fp = fopen(profile_name, "r")) == NULL)
+    if((fp = fopen(profile_name, "r")) == NULL)
     {
         printf("error : can't open file \"%s\"\n", profile_name);
     }
 
-    for (i = 0; i < nb_lines; i++)
+    for(i = 0; i < nb_lines; i++)
     {
-        if (fgets(line, 200, fp) == NULL)
+        if(fgets(line, 200, fp) == NULL)
         {
             printf("ERROR: fgets, %s line %d\n", __FILE__, __LINE__);
             exit(0);
@@ -3101,22 +3101,22 @@ imageID make_psf_from_profile(const char *profile_name,
     }
     fclose(fp);
 
-    for (uint32_t jj = 0; jj < naxes[1]; jj++)
-        for (uint32_t ii = 0; ii < naxes[0]; ii++)
+    for(uint32_t jj = 0; jj < naxes[1]; jj++)
+        for(uint32_t ii = 0; ii < naxes[0]; ii++)
         {
             dist = sqrt((ii - naxes[0] / 2) * (ii - naxes[0] / 2) +
                         (jj - naxes[1] / 2) * (jj - naxes[1] / 2));
             i    = 0;
-            while ((distarr[i] < dist) && (i != nb_lines - 1))
+            while((distarr[i] < dist) && (i != nb_lines - 1))
             {
                 i++;
             }
-            if (i != 0)
+            if(i != 0)
             {
                 data.image[ID].array.F[jj * naxes[0] + ii] =
                     valarr[i - 1] + (valarr[i] - valarr[i - 1]) *
-                                        (dist - distarr[i - 1]) /
-                                        (distarr[i] - distarr[i - 1]);
+                    (dist - distarr[i - 1]) /
+                    (distarr[i] - distarr[i - 1]);
             }
             else
             {
@@ -3136,15 +3136,15 @@ imageID make_offsetHyperGaussian(
     imageID ID;
 
     create_2Dimage_ID(IDname, size, size, &ID);
-    for (uint32_t ii = 0; ii < size; ii++)
-        for (uint32_t jj = 0; jj < size; jj++)
+    for(uint32_t ii = 0; ii < size; ii++)
+        for(uint32_t jj = 0; jj < size; jj++)
         {
             double x, y, dist;
 
             x    = 1.0 * ii - size / 2;
             y    = 1.0 * jj - size / 2;
             dist = sqrt(x * x + y * y);
-            if (dist < a)
+            if(dist < a)
             {
                 data.image[ID].array.F[jj * size + ii] = 0.0;
             }
@@ -3164,19 +3164,19 @@ make_cosapoedgePupil(uint32_t size, double a, double b, const char *IDname)
     imageID ID;
 
     create_2Dimage_ID(IDname, size, size, &ID);
-    for (uint32_t ii = 0; ii < size; ii++)
-        for (uint32_t jj = 0; jj < size; jj++)
+    for(uint32_t ii = 0; ii < size; ii++)
+        for(uint32_t jj = 0; jj < size; jj++)
         {
             double x, y, dist;
 
             x    = 1.0 * ii - size / 2;
             y    = 1.0 * jj - size / 2;
             dist = sqrt(x * x + y * y);
-            if (dist < a)
+            if(dist < a)
             {
                 data.image[ID].array.F[jj * size + ii] = 1.0;
             }
-            else if (dist > b)
+            else if(dist > b)
             {
                 data.image[ID].array.F[jj * size + ii] = 0.0;
             }
@@ -3205,8 +3205,8 @@ imageID make_2Dgridpix(const char *IDname,
     double  u, t;
 
     create_2Dimage_ID(IDname, xsize, ysize, &ID);
-    for (x = offsetx; x < xsize - 1; x += pitchx)
-        for (y = offsety; y < ysize - 1; y += pitchy)
+    for(x = offsetx; x < xsize - 1; x += pitchx)
+        for(y = offsety; y < ysize - 1; y += pitchy)
         {
             i                                           = (long) x;
             j                                           = (long) y;
@@ -3232,8 +3232,8 @@ imageID make_tile(const char *IDin_name, uint32_t size, const char *IDout_name)
     sizex0 = data.image[IDin].md[0].size[0];
     sizey0 = data.image[IDin].md[0].size[1];
 
-    for (uint32_t ii = 0; ii < size; ii++)
-        for (uint32_t jj = 0; jj < size; jj++)
+    for(uint32_t ii = 0; ii < size; ii++)
+        for(uint32_t jj = 0; jj < size; jj++)
         {
             uint32_t ii0 = ii % sizex0;
             uint32_t jj0 = jj % sizey0;
@@ -3261,34 +3261,34 @@ image_gen_im2coord(const char *IDin_name, uint8_t axis, const char *IDout_name)
     IDin  = image_ID(IDin_name);
     naxis = data.image[IDin].md[0].naxis;
 
-    if (axis > naxis - 1)
+    if(axis > naxis - 1)
     {
         printf("Image has only %u axis, cannot access axis %u\n", naxis, axis);
         OK = 0;
     }
 
-    if (naxis > 3)
+    if(naxis > 3)
     {
         printf("naxis should be 3 or less\n");
         OK = 0;
     }
 
-    if (OK == 1)
+    if(OK == 1)
     {
 
-        if (naxis == 1)
+        if(naxis == 1)
         {
             printf("naxis = 1\n");
             fflush(stdout);
             xsize = data.image[IDin].md[0].size[0];
             create_1Dimage_ID(IDout_name, xsize, &IDout);
-            for (uint32_t ii = 0; ii < xsize; ii++)
+            for(uint32_t ii = 0; ii < xsize; ii++)
             {
                 data.image[IDout].array.F[ii] = 1.0 * ii;
             }
         }
 
-        if (naxis == 2)
+        if(naxis == 2)
         {
             printf("naxis = 2\n");
             fflush(stdout);
@@ -3296,33 +3296,33 @@ image_gen_im2coord(const char *IDin_name, uint8_t axis, const char *IDout_name)
             ysize = data.image[IDin].md[0].size[1];
             create_2Dimage_ID(IDout_name, xsize, ysize, &IDout);
 
-            switch (axis)
+            switch(axis)
             {
-            case 0:
-                for (uint32_t ii = 0; ii < xsize; ii++)
-                    for (uint32_t jj = 0; jj < ysize; jj++)
-                    {
-                        data.image[IDout].array.F[jj * xsize + ii] = 1.0 * ii;
-                    }
-                break;
-            case 1:
-                for (uint32_t ii = 0; ii < xsize; ii++)
-                    for (uint32_t jj = 0; jj < ysize; jj++)
-                    {
-                        data.image[IDout].array.F[jj * xsize + ii] = 1.0 * jj;
-                    }
-                break;
-            default:
-                for (uint32_t ii = 0; ii < xsize; ii++)
-                    for (uint32_t jj = 0; jj < ysize; jj++)
-                    {
-                        data.image[IDout].array.F[jj * xsize + ii] =
-                            1.0 * jj * xsize + ii;
-                    }
+                case 0:
+                    for(uint32_t ii = 0; ii < xsize; ii++)
+                        for(uint32_t jj = 0; jj < ysize; jj++)
+                        {
+                            data.image[IDout].array.F[jj * xsize + ii] = 1.0 * ii;
+                        }
+                    break;
+                case 1:
+                    for(uint32_t ii = 0; ii < xsize; ii++)
+                        for(uint32_t jj = 0; jj < ysize; jj++)
+                        {
+                            data.image[IDout].array.F[jj * xsize + ii] = 1.0 * jj;
+                        }
+                    break;
+                default:
+                    for(uint32_t ii = 0; ii < xsize; ii++)
+                        for(uint32_t jj = 0; jj < ysize; jj++)
+                        {
+                            data.image[IDout].array.F[jj * xsize + ii] =
+                                1.0 * jj * xsize + ii;
+                        }
             }
         }
 
-        if (naxis == 3)
+        if(naxis == 3)
         {
             printf("naxis = 3\n");
             fflush(stdout);
@@ -3331,47 +3331,47 @@ image_gen_im2coord(const char *IDin_name, uint8_t axis, const char *IDout_name)
             zsize = data.image[IDin].md[0].size[2];
             create_3Dimage_ID(IDout_name, xsize, ysize, zsize, &IDout);
 
-            switch (axis)
+            switch(axis)
             {
-            case 0:
-                for (uint32_t ii = 0; ii < xsize; ii++)
-                    for (uint32_t jj = 0; jj < ysize; jj++)
-                        for (uint32_t kk = 0; kk < zsize; kk++)
-                        {
-                            data.image[IDout]
+                case 0:
+                    for(uint32_t ii = 0; ii < xsize; ii++)
+                        for(uint32_t jj = 0; jj < ysize; jj++)
+                            for(uint32_t kk = 0; kk < zsize; kk++)
+                            {
+                                data.image[IDout]
                                 .array.F[kk * xsize * ysize + jj * xsize + ii] =
-                                1.0 * ii;
-                        }
-                break;
-            case 1:
-                for (uint32_t ii = 0; ii < xsize; ii++)
-                    for (uint32_t jj = 0; jj < ysize; jj++)
-                        for (uint32_t kk = 0; kk < zsize; kk++)
-                        {
-                            data.image[IDout]
+                                    1.0 * ii;
+                            }
+                    break;
+                case 1:
+                    for(uint32_t ii = 0; ii < xsize; ii++)
+                        for(uint32_t jj = 0; jj < ysize; jj++)
+                            for(uint32_t kk = 0; kk < zsize; kk++)
+                            {
+                                data.image[IDout]
                                 .array.F[kk * xsize * ysize + jj * xsize + ii] =
-                                1.0 * jj;
-                        }
-                break;
-            case 2:
-                for (uint32_t ii = 0; ii < xsize; ii++)
-                    for (uint32_t jj = 0; jj < xsize; jj++)
-                        for (uint32_t kk = 0; kk < zsize; kk++)
-                        {
-                            data.image[IDout]
+                                    1.0 * jj;
+                            }
+                    break;
+                case 2:
+                    for(uint32_t ii = 0; ii < xsize; ii++)
+                        for(uint32_t jj = 0; jj < xsize; jj++)
+                            for(uint32_t kk = 0; kk < zsize; kk++)
+                            {
+                                data.image[IDout]
                                 .array.F[kk * xsize * ysize + jj * xsize + ii] =
-                                1.0 * kk;
-                        }
-                break;
-            default:
-                for (uint32_t ii = 0; ii < xsize; ii++)
-                    for (uint32_t jj = 0; jj < xsize; jj++)
-                        for (uint32_t kk = 0; kk < zsize; kk++)
-                        {
-                            data.image[IDout]
+                                    1.0 * kk;
+                            }
+                    break;
+                default:
+                    for(uint32_t ii = 0; ii < xsize; ii++)
+                        for(uint32_t jj = 0; jj < xsize; jj++)
+                            for(uint32_t kk = 0; kk < zsize; kk++)
+                            {
+                                data.image[IDout]
                                 .array.F[kk * xsize * ysize + jj * xsize + ii] =
-                                1.0 * kk * xsize * ysize + jj * xsize + ii;
-                        }
+                                    1.0 * kk * xsize * ysize + jj * xsize + ii;
+                            }
             }
         }
     }
@@ -3399,7 +3399,7 @@ image_gen_make_voronoi_map(const char *filename,
                            uint32_t    ysize,
                            float radius, // maximum radius of each Voronoi zone
                            float maxsep  // gap between Voronoi zones
-)
+                          )
 {
     imageID   IDout;
     uint8_t   naxis = 2;
@@ -3414,7 +3414,7 @@ image_gen_make_voronoi_map(const char *filename,
     FILE *fp;
     long  NBpt;
     fp = fopen(filename, "r");
-    if (fp == NULL)
+    if(fp == NULL)
     {
         printf("file %s not found\n", filename);
         return 1;
@@ -3422,9 +3422,9 @@ image_gen_make_voronoi_map(const char *filename,
 
     {
         int fscanfcnt = fscanf(fp, "%ld", &NBpt);
-        if (fscanfcnt == EOF)
+        if(fscanfcnt == EOF)
         {
-            if (ferror(fp))
+            if(ferror(fp))
             {
                 perror("fscanf");
             }
@@ -3436,7 +3436,7 @@ image_gen_make_voronoi_map(const char *filename,
             }
             exit(EXIT_FAILURE);
         }
-        else if (fscanfcnt != 2)
+        else if(fscanfcnt != 2)
         {
             fprintf(stderr,
                     "Error: fscanf successfully matched and assigned %i input "
@@ -3449,33 +3449,33 @@ image_gen_make_voronoi_map(const char *filename,
     printf("Loading %ld points\n", NBpt);
 
     uint32_t *vpt_index = (uint32_t *) malloc(sizeof(uint32_t) * NBpt);
-    if (vpt_index == NULL)
+    if(vpt_index == NULL)
     {
         PRINT_ERROR("malloc returns NULL pointer");
         abort();
     }
 
     float *vpt_x = (float *) malloc(sizeof(float) * NBpt);
-    if (vpt_x == NULL)
+    if(vpt_x == NULL)
     {
         PRINT_ERROR("malloc returns NULL pointer");
         abort();
     }
 
     float *vpt_y = (float *) malloc(sizeof(float) * NBpt);
-    if (vpt_y == NULL)
+    if(vpt_y == NULL)
     {
         PRINT_ERROR("malloc returns NULL pointer");
         abort();
     }
 
-    for (int pt = 0; pt < NBpt; pt++)
+    for(int pt = 0; pt < NBpt; pt++)
     {
         int fscanfcnt =
             fscanf(fp, "%u %f %f\n", &vpt_index[pt], &vpt_x[pt], &vpt_y[pt]);
-        if (fscanfcnt == EOF)
+        if(fscanfcnt == EOF)
         {
-            if (ferror(fp))
+            if(ferror(fp))
             {
                 perror("fscanf");
             }
@@ -3487,7 +3487,7 @@ image_gen_make_voronoi_map(const char *filename,
             }
             exit(EXIT_FAILURE);
         }
-        else if (fscanfcnt != 3)
+        else if(fscanfcnt != 3)
         {
             fprintf(stderr,
                     "Error: fscanf successfully matched and assigned %i input "
@@ -3564,7 +3564,7 @@ image_gen_make_voronoi_map(const char *filename,
      */
 
     sizearray = (uint32_t *) malloc(sizeof(uint32_t) * naxis);
-    if (sizearray == NULL)
+    if(sizearray == NULL)
     {
         PRINT_ERROR("malloc returns NULL pointer");
         abort();
@@ -3583,35 +3583,35 @@ image_gen_make_voronoi_map(const char *filename,
     free(sizearray);
 
     nearest_index = (int64_t *) malloc(sizeof(int64_t) * xsize * ysize);
-    if (nearest_index == NULL)
+    if(nearest_index == NULL)
     {
         PRINT_ERROR("malloc returns NULL pointer");
         abort();
     }
 
     nearest_distance = (float *) malloc(sizeof(float) * xsize * ysize);
-    if (nearest_distance == NULL)
+    if(nearest_distance == NULL)
     {
         PRINT_ERROR("malloc returns NULL pointer");
         abort();
     }
 
     nextnearest_index = (int64_t *) malloc(sizeof(int64_t) * xsize * ysize);
-    if (nextnearest_index == NULL)
+    if(nextnearest_index == NULL)
     {
         PRINT_ERROR("malloc returns NULL pointer");
         abort();
     }
 
     nextnearest_distance = (float *) malloc(sizeof(float) * xsize * ysize);
-    if (nextnearest_distance == NULL)
+    if(nextnearest_distance == NULL)
     {
         PRINT_ERROR("malloc returns NULL pointer");
         abort();
     }
 
     gapim = (int *) malloc(sizeof(int) * xsize * ysize);
-    if (gapim == NULL)
+    if(gapim == NULL)
     {
         PRINT_ERROR("malloc returns NULL pointer");
         abort();
@@ -3619,7 +3619,7 @@ image_gen_make_voronoi_map(const char *filename,
 
     // initialize arrays
     float bigval = 1.0e20;
-    for (uint64_t ii = 0; ii < xsize * ysize; ii++)
+    for(uint64_t ii = 0; ii < xsize * ysize; ii++)
     {
         nearest_index[ii]                = -1;
         nearest_distance[ii]             = bigval;
@@ -3628,21 +3628,21 @@ image_gen_make_voronoi_map(const char *filename,
         data.image[IDout].array.SI32[ii] = -1;
     }
 
-    for (uint32_t ii = 0; ii < xsize; ii++)
-        for (uint32_t jj = 0; jj < ysize; jj++)
+    for(uint32_t ii = 0; ii < xsize; ii++)
+        for(uint32_t jj = 0; jj < ysize; jj++)
         {
             int   pindex = jj * xsize + ii;
             float x      = 1.0 * ii / xsize;
             float y      = 1.0 * jj / ysize;
 
-            for (int pt = 0; pt < NBpt; pt++)
+            for(int pt = 0; pt < NBpt; pt++)
             {
                 float dx = x - vpt_x[pt];
                 float dy = y - vpt_y[pt];
 
                 float dist = sqrt(dx * dx + dy * dy);
 
-                if (dist < nearest_distance[pindex])
+                if(dist < nearest_distance[pindex])
                 {
                     nextnearest_index[pindex]    = nearest_index[pindex];
                     nextnearest_distance[pindex] = nearest_distance[pindex];
@@ -3650,30 +3650,30 @@ image_gen_make_voronoi_map(const char *filename,
                     nearest_index[pindex]    = pt;
                     nearest_distance[pindex] = dist;
                 }
-                else if (dist < nextnearest_distance[pindex])
+                else if(dist < nextnearest_distance[pindex])
                 {
                     nextnearest_index[pindex]    = pt;
                     nextnearest_distance[pindex] = dist;
                 }
             }
-            if ((nearest_distance[pindex] < radius))
+            if((nearest_distance[pindex] < radius))
             {
                 data.image[IDout].array.SI32[pindex] = nearest_index[pindex];
             }
         }
 
     // add gap
-    int gapsizepix = (int) (maxsep * xsize);
+    int gapsizepix = (int)(maxsep * xsize);
     // int gapsizepix2 = (int) (maxsep*xsize/sqrt(2.0));
 
-    for (uint32_t ii = 0; ii < xsize; ii++)
-        for (uint32_t jj = 0; jj < ysize; jj++)
+    for(uint32_t ii = 0; ii < xsize; ii++)
+        for(uint32_t jj = 0; jj < ysize; jj++)
         {
             gapim[jj * xsize + ii] = 0;
         }
 
-    for (uint32_t ii = gapsizepix; ii < xsize - gapsizepix; ii++)
-        for (uint32_t jj = gapsizepix; jj < ysize - gapsizepix; jj++)
+    for(uint32_t ii = gapsizepix; ii < xsize - gapsizepix; ii++)
+        for(uint32_t jj = gapsizepix; jj < ysize - gapsizepix; jj++)
         {
             int pindex0  = jj * xsize + ii;
             int pindex0p = jj * xsize + ii + gapsizepix;
@@ -3696,18 +3696,18 @@ image_gen_make_voronoi_map(const char *filename,
 
             gapim[pindex0] = 1;
 
-            if ((pv0p != pv0m) || (pvp0 != pvm0) || (pvpp != pvmm) ||
-                (pvpm != pvmp))
+            if((pv0p != pv0m) || (pvp0 != pvm0) || (pvpp != pvmm) ||
+                    (pvpm != pvmp))
             {
                 gapim[pindex0] = 0;
             }
         }
 
-    for (uint32_t ii = 0; ii < xsize; ii++)
-        for (uint32_t jj = 0; jj < ysize; jj++)
+    for(uint32_t ii = 0; ii < xsize; ii++)
+        for(uint32_t jj = 0; jj < ysize; jj++)
         {
             int pindex = jj * xsize + ii;
-            if (gapim[pindex] == 0)
+            if(gapim[pindex] == 0)
             {
                 data.image[IDout].array.SI32[pindex] = -1;
             }

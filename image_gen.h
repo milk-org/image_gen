@@ -194,6 +194,6 @@ image_gen_make_voronoi_map(const char *filename,
                            uint32_t    ysize,
                            float radius, // maximum radius of each Voronoi zone
                            float maxsep  // gap between Voronoi zones
-);
+                          );
 
 #endif
