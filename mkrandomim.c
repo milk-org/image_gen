@@ -73,6 +73,7 @@ static imageID make_image_random(
     // Create image if needed
     imcreateIMGID(img);
 
+
     // openMP is slow when calling gsl random number generator : do not use openMP here
     if(pdf == 0)
     {
@@ -123,18 +124,18 @@ static errno_t compute_function()
     // Create image if needed
     imcreateIMGID(&img);
 
-    //image_keyword_addS(img, "MILKFUNC", "mkrandomim", "MILK function");
-    /*image_keyword_addL(img,
+    image_keyword_addS(img, "MILKFUNC", "mkrandomim", "MILK function");
+    image_keyword_addL(img,
                        "RNDPDF",
                        (long)(*distrib),
-                       "random value distribution");*/
+                       "random value distribution");
 
     INSERT_STD_PROCINFO_COMPUTEFUNC_START
 
-    //make_image_random(&img, *distrib);
+    make_image_random(&img, *distrib);
 
-    //DEBUG_TRACEPOINT("update output ID %ld", img.ID);
-    //processinfo_update_output_stream(processinfo, img.ID);
+    DEBUG_TRACEPOINT("update output ID %ld", img.ID);
+    processinfo_update_output_stream(processinfo, img.ID);
     INSERT_STD_PROCINFO_COMPUTEFUNC_END
 
     DEBUG_TRACE_FEXIT();
