@@ -6,11 +6,14 @@
 
 // Local variables pointers
 static LOCVAR_OUTIMG2D outim;
-static int            *distrib;
+static uint32_t          *distrib;
 
-static CLICMDARGDEF farg[] = {FARG_OUTIM2D(outim),
+
+static CLICMDARGDEF farg[] =
+{
+    FARG_OUTIM2D(outim),
     {
-        CLIARG_LONG,
+        CLIARG_UINT32,
         ".distrib",
         "distribution \n"
         " (0: uniform)\n"
@@ -23,10 +26,15 @@ static CLICMDARGDEF farg[] = {FARG_OUTIM2D(outim),
     }
 };
 
+
+
 static CLICMDDATA CLIcmddata =
 {
     "mkrnd", "make random image", CLICMD_FIELDS_DEFAULTS
 };
+
+
+
 
 /** @brief Detailed help
  */
@@ -34,6 +42,10 @@ static errno_t help_function()
 {
     return RETURN_SUCCESS;
 }
+
+
+
+
 
 /**
  * @brief Make random image
@@ -47,7 +59,10 @@ static errno_t help_function()
  *
  * @return imageID
  */
-static imageID make_image_random(IMGID *img, int pdf)
+static imageID make_image_random(
+    IMGID *img,
+    int pdf
+)
 {
     DEBUG_TRACE_FSTART();
 
@@ -108,18 +123,18 @@ static errno_t compute_function()
     // Create image if needed
     imcreateIMGID(&img);
 
-    image_keyword_addS(img, "MILKFUNC", "mkrandomim", "MILK function");
-    image_keyword_addL(img,
+    //image_keyword_addS(img, "MILKFUNC", "mkrandomim", "MILK function");
+    /*image_keyword_addL(img,
                        "RNDPDF",
                        (long)(*distrib),
-                       "random value distribution");
+                       "random value distribution");*/
 
     INSERT_STD_PROCINFO_COMPUTEFUNC_START
 
-    make_image_random(&img, *distrib);
+    //make_image_random(&img, *distrib);
 
-    DEBUG_TRACEPOINT("update output ID %ld", img.ID);
-    processinfo_update_output_stream(processinfo, img.ID);
+    //DEBUG_TRACEPOINT("update output ID %ld", img.ID);
+    //processinfo_update_output_stream(processinfo, img.ID);
     INSERT_STD_PROCINFO_COMPUTEFUNC_END
 
     DEBUG_TRACE_FEXIT();
