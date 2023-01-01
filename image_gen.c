@@ -69,9 +69,9 @@ INIT_MODULE_LIB(image_gen)
 
 errno_t make_disk_cli()
 {
-    if(CLI_checkarg(1, CLIARG_STR_NOT_IMG) + CLI_checkarg(2, CLIARG_LONG) +
-            CLI_checkarg(3, CLIARG_LONG) + CLI_checkarg(4, CLIARG_FLOAT) +
-            CLI_checkarg(5, CLIARG_FLOAT) + CLI_checkarg(6, CLIARG_FLOAT) ==
+    if(CLI_checkarg(1, CLIARG_STR_NOT_IMG) + CLI_checkarg(2, CLIARG_INT64) +
+            CLI_checkarg(3, CLIARG_INT64) + CLI_checkarg(4, CLIARG_FLOAT64) +
+            CLI_checkarg(5, CLIARG_FLOAT64) + CLI_checkarg(6, CLIARG_FLOAT64) ==
             0)
     {
         make_disk(data.cmdargtoken[1].val.string,
@@ -90,9 +90,9 @@ errno_t make_disk_cli()
 
 errno_t make_subpixdisk_cli()
 {
-    if(CLI_checkarg(1, CLIARG_STR_NOT_IMG) + CLI_checkarg(2, CLIARG_LONG) +
-            CLI_checkarg(3, CLIARG_LONG) + CLI_checkarg(4, CLIARG_FLOAT) +
-            CLI_checkarg(5, CLIARG_FLOAT) + CLI_checkarg(6, CLIARG_FLOAT) ==
+    if(CLI_checkarg(1, CLIARG_STR_NOT_IMG) + CLI_checkarg(2, CLIARG_INT64) +
+            CLI_checkarg(3, CLIARG_INT64) + CLI_checkarg(4, CLIARG_FLOAT64) +
+            CLI_checkarg(5, CLIARG_FLOAT64) + CLI_checkarg(6, CLIARG_FLOAT64) ==
             0)
     {
         make_subpixdisk(data.cmdargtoken[1].val.string,
@@ -111,9 +111,9 @@ errno_t make_subpixdisk_cli()
 
 errno_t make_gauss_cli()
 {
-    if(CLI_checkarg(1, CLIARG_STR_NOT_IMG) + CLI_checkarg(2, CLIARG_LONG) +
-            CLI_checkarg(3, CLIARG_LONG) + CLI_checkarg(4, CLIARG_FLOAT) +
-            CLI_checkarg(5, CLIARG_FLOAT) ==
+    if(CLI_checkarg(1, CLIARG_STR_NOT_IMG) + CLI_checkarg(2, CLIARG_INT64) +
+            CLI_checkarg(3, CLIARG_INT64) + CLI_checkarg(4, CLIARG_FLOAT64) +
+            CLI_checkarg(5, CLIARG_FLOAT64) ==
             0)
     {
         make_gauss(data.cmdargtoken[1].val.string,
@@ -144,9 +144,9 @@ errno_t make_FiberCouplingOverlap_cli()
 
 errno_t make_slopexy_cli()
 {
-    if(CLI_checkarg(1, CLIARG_STR_NOT_IMG) + CLI_checkarg(2, CLIARG_LONG) +
-            CLI_checkarg(3, CLIARG_LONG) + CLI_checkarg(4, CLIARG_FLOAT) +
-            CLI_checkarg(5, CLIARG_FLOAT) ==
+    if(CLI_checkarg(1, CLIARG_STR_NOT_IMG) + CLI_checkarg(2, CLIARG_INT64) +
+            CLI_checkarg(3, CLIARG_INT64) + CLI_checkarg(4, CLIARG_FLOAT64) +
+            CLI_checkarg(5, CLIARG_FLOAT64) ==
             0)
     {
         make_slopexy(data.cmdargtoken[1].val.string,
@@ -164,9 +164,9 @@ errno_t make_slopexy_cli()
 
 errno_t make_dist_cli()
 {
-    if(CLI_checkarg(1, CLIARG_STR_NOT_IMG) + CLI_checkarg(2, CLIARG_LONG) +
-            CLI_checkarg(3, CLIARG_LONG) + CLI_checkarg(4, CLIARG_FLOAT) +
-            CLI_checkarg(5, CLIARG_FLOAT) ==
+    if(CLI_checkarg(1, CLIARG_STR_NOT_IMG) + CLI_checkarg(2, CLIARG_INT64) +
+            CLI_checkarg(3, CLIARG_INT64) + CLI_checkarg(4, CLIARG_FLOAT64) +
+            CLI_checkarg(5, CLIARG_FLOAT64) ==
             0)
     {
         make_dist(data.cmdargtoken[1].val.string,
@@ -184,9 +184,9 @@ errno_t make_dist_cli()
 
 errno_t make_hexsegpupil_cli()
 {
-    if(CLI_checkarg(1, CLIARG_STR_NOT_IMG) + CLI_checkarg(2, CLIARG_LONG) +
-            CLI_checkarg(3, CLIARG_FLOAT) + CLI_checkarg(4, CLIARG_FLOAT) +
-            CLI_checkarg(5, CLIARG_FLOAT) ==
+    if(CLI_checkarg(1, CLIARG_STR_NOT_IMG) + CLI_checkarg(2, CLIARG_INT64) +
+            CLI_checkarg(3, CLIARG_FLOAT64) + CLI_checkarg(4, CLIARG_FLOAT64) +
+            CLI_checkarg(5, CLIARG_FLOAT64) ==
             0)
     {
         make_hexsegpupil(data.cmdargtoken[1].val.string,
@@ -204,7 +204,7 @@ errno_t make_hexsegpupil_cli()
 
 errno_t IMAGE_gen_segments2WFmodes_cli()
 {
-    if(CLI_checkarg(1, CLIARG_STR_NOT_IMG) + CLI_checkarg(2, CLIARG_LONG) +
+    if(CLI_checkarg(1, CLIARG_STR_NOT_IMG) + CLI_checkarg(2, CLIARG_INT64) +
             CLI_checkarg(3, CLIARG_IMG) ==
             0)
     {
@@ -221,10 +221,10 @@ errno_t IMAGE_gen_segments2WFmodes_cli()
 
 errno_t make_rectangle_cli()
 {
-    if(CLI_checkarg(1, CLIARG_STR_NOT_IMG) + CLI_checkarg(2, CLIARG_LONG) +
-            CLI_checkarg(3, CLIARG_LONG) + CLI_checkarg(4, CLIARG_FLOAT) +
-            CLI_checkarg(5, CLIARG_FLOAT) + CLI_checkarg(6, CLIARG_FLOAT) +
-            CLI_checkarg(7, CLIARG_FLOAT) ==
+    if(CLI_checkarg(1, CLIARG_STR_NOT_IMG) + CLI_checkarg(2, CLIARG_INT64) +
+            CLI_checkarg(3, CLIARG_INT64) + CLI_checkarg(4, CLIARG_FLOAT64) +
+            CLI_checkarg(5, CLIARG_FLOAT64) + CLI_checkarg(6, CLIARG_FLOAT64) +
+            CLI_checkarg(7, CLIARG_FLOAT64) ==
             0)
     {
         make_rectangle(data.cmdargtoken[1].val.string,
@@ -244,10 +244,10 @@ errno_t make_rectangle_cli()
 
 errno_t make_line_cli()
 {
-    if(CLI_checkarg(1, CLIARG_STR_NOT_IMG) + CLI_checkarg(2, CLIARG_LONG) +
-            CLI_checkarg(3, CLIARG_LONG) + CLI_checkarg(4, CLIARG_FLOAT) +
-            CLI_checkarg(5, CLIARG_FLOAT) + CLI_checkarg(6, CLIARG_FLOAT) +
-            CLI_checkarg(7, CLIARG_FLOAT) + CLI_checkarg(8, CLIARG_FLOAT) ==
+    if(CLI_checkarg(1, CLIARG_STR_NOT_IMG) + CLI_checkarg(2, CLIARG_INT64) +
+            CLI_checkarg(3, CLIARG_INT64) + CLI_checkarg(4, CLIARG_FLOAT64) +
+            CLI_checkarg(5, CLIARG_FLOAT64) + CLI_checkarg(6, CLIARG_FLOAT64) +
+            CLI_checkarg(7, CLIARG_FLOAT64) + CLI_checkarg(8, CLIARG_FLOAT64) ==
             0)
     {
         make_line(data.cmdargtoken[1].val.string,
@@ -268,9 +268,9 @@ errno_t make_line_cli()
 
 errno_t make_lincoordinate_cli()
 {
-    if(CLI_checkarg(1, CLIARG_STR_NOT_IMG) + CLI_checkarg(2, CLIARG_LONG) +
-            CLI_checkarg(3, CLIARG_LONG) + CLI_checkarg(4, CLIARG_FLOAT) +
-            CLI_checkarg(5, CLIARG_FLOAT) + CLI_checkarg(6, CLIARG_FLOAT) ==
+    if(CLI_checkarg(1, CLIARG_STR_NOT_IMG) + CLI_checkarg(2, CLIARG_INT64) +
+            CLI_checkarg(3, CLIARG_INT64) + CLI_checkarg(4, CLIARG_FLOAT64) +
+            CLI_checkarg(5, CLIARG_FLOAT64) + CLI_checkarg(6, CLIARG_FLOAT64) ==
             0)
     {
         make_lincoordinate(data.cmdargtoken[1].val.string,
@@ -289,10 +289,10 @@ errno_t make_lincoordinate_cli()
 
 errno_t make_2Dgridpix_cli()
 {
-    if(CLI_checkarg(1, CLIARG_STR_NOT_IMG) + CLI_checkarg(2, CLIARG_LONG) +
-            CLI_checkarg(3, CLIARG_LONG) + CLI_checkarg(4, CLIARG_FLOAT) +
-            CLI_checkarg(5, CLIARG_FLOAT) + CLI_checkarg(6, CLIARG_FLOAT) +
-            CLI_checkarg(7, CLIARG_FLOAT) ==
+    if(CLI_checkarg(1, CLIARG_STR_NOT_IMG) + CLI_checkarg(2, CLIARG_INT64) +
+            CLI_checkarg(3, CLIARG_INT64) + CLI_checkarg(4, CLIARG_FLOAT64) +
+            CLI_checkarg(5, CLIARG_FLOAT64) + CLI_checkarg(6, CLIARG_FLOAT64) +
+            CLI_checkarg(7, CLIARG_FLOAT64) ==
             0)
     {
         make_2Dgridpix(data.cmdargtoken[1].val.string,
@@ -313,8 +313,8 @@ errno_t make_2Dgridpix_cli()
 
 errno_t make_rnd_cli()
 {
-    if(CLI_checkarg(1, CLIARG_STR_NOT_IMG) + CLI_checkarg(2, CLIARG_LONG) +
-            CLI_checkarg(3, CLIARG_LONG) ==
+    if(CLI_checkarg(1, CLIARG_STR_NOT_IMG) + CLI_checkarg(2, CLIARG_INT64) +
+            CLI_checkarg(3, CLIARG_INT64) ==
             0)
     {
         make_rnd(data.cmdargtoken[1].val.string,
@@ -332,8 +332,8 @@ errno_t make_rnd_cli()
 
 errno_t make_rndgauss_cli()
 {
-    if(CLI_checkarg(1, CLIARG_STR_NOT_IMG) + CLI_checkarg(2, CLIARG_LONG) +
-            CLI_checkarg(3, CLIARG_LONG) ==
+    if(CLI_checkarg(1, CLIARG_STR_NOT_IMG) + CLI_checkarg(2, CLIARG_INT64) +
+            CLI_checkarg(3, CLIARG_INT64) ==
             0)
     {
 
@@ -352,7 +352,7 @@ errno_t make_rndgauss_cli()
 
 errno_t image_gen_im2coord_cli()
 {
-    if(CLI_checkarg(1, CLIARG_IMG) + CLI_checkarg(2, CLIARG_LONG) +
+    if(CLI_checkarg(1, CLIARG_IMG) + CLI_checkarg(2, CLIARG_INT64) +
             CLI_checkarg(3, CLIARG_STR_NOT_IMG) ==
             0)
     {
@@ -372,8 +372,8 @@ errno_t image_gen_im2coord_cli()
 errno_t image_gen_make_voronoi_map_cli()
 {
     if(CLI_checkarg(1, CLIARG_STR) + CLI_checkarg(2, CLIARG_STR_NOT_IMG) +
-            CLI_checkarg(3, CLIARG_LONG) + CLI_checkarg(4, CLIARG_LONG) +
-            CLI_checkarg(5, CLIARG_FLOAT) + CLI_checkarg(6, CLIARG_FLOAT) ==
+            CLI_checkarg(3, CLIARG_INT64) + CLI_checkarg(4, CLIARG_INT64) +
+            CLI_checkarg(5, CLIARG_FLOAT64) + CLI_checkarg(6, CLIARG_FLOAT64) ==
             0)
     {
 
